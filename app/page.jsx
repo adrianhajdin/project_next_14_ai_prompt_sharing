@@ -1,8 +1,9 @@
 import Feed from "@components/Feed";
+import Text from "@sections/team";
 
 const Home = () => (
    <>
-  <section className='bg-[url("/assets/images/andalusiaVillage".png)]
+  <section className='bg-[url("/assets/images/andalusiaRedRoofs.jpg")]
    bg-cover bg-non repeat
    w-full flex-center flex-col'>
     <h1 className='head_text text-center'>
@@ -11,12 +12,13 @@ const Home = () => (
       <span className='orange_gradient text-center'> Andalusien</span>
     </h1>
     <p className='desc text-center'>
-      Wir erfüllen Ihre Immobilie in Andalusien
+ 
     </p>
 
     
   </section>
   <Feed />
+  <Team/>
    </>
 );
 
