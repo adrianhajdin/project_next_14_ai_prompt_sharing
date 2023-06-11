@@ -1,5 +1,5 @@
 import Feed from "@components/Feed";
-import Text from "@sections/team";
+import Team from "@sections/team";
 
 const Home = () => (
    <>
