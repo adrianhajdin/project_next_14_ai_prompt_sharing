@@ -50,8 +50,11 @@ const people = [
     linkedinUrl: '#',
   },]
   
-  const Team = () => {      
-  return (
+    
+const Team = ()  => { 
+
+  
+    return (
     <section id="section-team" className="mt-[24vh] bg-gradient-to-b from-[#1A232E] to-[#1A232E] lg.
       lg:bg-[length:100vw_15vh] lg:bg-center lg:bg-no-repeat">
       <div className="py- mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8 lg:py-20">
@@ -140,6 +143,4 @@ const people = [
         </ul>
       </div>
     </section>
-  );
-}
-export default Team
+  )}
