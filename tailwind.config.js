@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        archidaughter: ['Architects Daughter', 'sans-serif'],
+        archidaught: ['Architects Daughter', 'sans-serif'],
         bowlbySC: ['Bowlby One SC', 'sans-serif'],
       },
       colors: {
