@@ -50,8 +50,7 @@ const people = [
     linkedinUrl: '#',
   },]
   
-      
-export default function Text()  {
+  const Team = () => {      
   return (
     <section id="section-team" className="mt-[24vh] bg-gradient-to-b from-[#1A232E] to-[#1A232E] lg.
       lg:bg-[length:100vw_15vh] lg:bg-center lg:bg-no-repeat">
@@ -143,3 +142,4 @@ export default function Text()  {
     </section>
   );
 }
+export default Team
