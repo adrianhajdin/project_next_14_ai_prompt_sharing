@@ -5,7 +5,7 @@ const people = [
   {
     name: 'Mick',
     role: 'Captain',
-    imageUrl: '/portraitmick.png',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -13,7 +13,7 @@ const people = [
   {
     name: 'Simon',
     role: 'Obermaat',
-    imageUrl: '/Matrose.png',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -21,7 +21,7 @@ const people = [
   {
     name: 'Anne',
     role: 'I. Offizierin',
-    imageUrl: '/Offizier-weiblich.png',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -29,7 +29,7 @@ const people = [
   {
     name: 'Kalim',
     role: 'Maat',
-    imageUrl: '/ancerIcon.svg',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -37,7 +37,7 @@ const people = [
   {
     name: 'Theo',
     role: 'Smutje',
-    imageUrl: '/ancerIcon.svg',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },
@@ -45,7 +45,7 @@ const people = [
   {
     name: 'James',
     role: 'Funker',
-    imageUrl: '/ancerIcon.svg',
+    imageUrl: '/assets/images/Graphite.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
   },]
@@ -65,7 +65,7 @@ const Team = ()  => {
                 Das Team
               </h2>
               <img
-                src="/matroseimseil.png"
+                src="/assets/images/Logo.jpg"
                 width="60"
                 height="auto"
                 alt="LogoAlt"
@@ -73,7 +73,7 @@ const Team = ()  => {
             </div>
 
             <div className="flex flex-col items-center justify-center">
-              <Image src="/LogoAlt.png" width="200" height="20" alt="LogoAlt" />
+              <Image src="/assets/images/Log0.jpg/" width="200" height="20" alt="LogoAlt" />
             </div>
           </div>
 
