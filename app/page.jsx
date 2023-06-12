@@ -17,7 +17,9 @@ const Home = () => (
 
     
   </section>
-  <Feed />
+
+  <Feed /> 
+  <Team />
 
    </>
 );
