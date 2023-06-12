@@ -5,7 +5,7 @@ const Home = () => (
    <>
   <section className='bg-[url("/assets/images/andalusiaRedRoofs.jpg")]
    bg-cover bg-non repeat
-   w-full flex-center flex-col'>
+   w-full h-[calc(100vh - 30px)] flex-center flex-col'>
     <h1 className='head_text text-center'>
       Wohntraum
       <br className='max-md:hidden' />
@@ -18,7 +18,7 @@ const Home = () => (
     
   </section>
   <Feed />
-  <Team/>
+
    </>
 );
 
