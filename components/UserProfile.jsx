@@ -1,4 +1,4 @@
-import PromptCard from "./PromptCard";
+import ControlProfileCard from "./ControlProfileCard";
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
   return (
@@ -10,7 +10,7 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
 
       <div className='mt-10 prompt_layout'>
         {data.map((post) => (
-          <PromptCard
+          <ControlProfileCard
             key={post._id}
             post={post}
             handleEdit={() => handleEdit && handleEdit(post)}

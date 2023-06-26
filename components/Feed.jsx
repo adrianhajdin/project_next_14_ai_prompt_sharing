@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-import PromptCard from "./PromptCard";
+import ControlProfileCard from "./ControlProfileCard";
 
-const PromptCardList = ({ data, handleTagClick }) => {
+const ControlProfileCardList = ({ data, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
       {data.map((post) => (
-        <PromptCard
+        <ControlProfileCard
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
@@ -27,7 +27,7 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/api/controlProfile");
     const data = await response.json();
 
     setAllPosts(data);
@@ -43,7 +43,7 @@ const Feed = () => {
       (item) =>
         regex.test(item.creator.username) ||
         regex.test(item.tag) ||
-        regex.test(item.prompt)
+        regex.test(item.controlProfile)
     );
   };
 
@@ -82,12 +82,12 @@ const Feed = () => {
 
       {/* All Prompts */}
       {searchText ? (
-        <PromptCardList
+        <ControlProfileCardList
           data={searchedResults}
           handleTagClick={handleTagClick}
         />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        <ControlProfileCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
     </section>
   );

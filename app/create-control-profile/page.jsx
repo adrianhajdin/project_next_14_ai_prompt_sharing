@@ -6,24 +6,27 @@ import { useRouter } from "next/navigation";
 
 import Form from "@components/Form";
 
-const CreatePrompt = () => {
+const CreateControlProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [post, setPost] = useState({ prompt: "", tag: "" });
+  const [post, setPost] = useState({ controlProfile: "", tag: "", });
 
-  const createPrompt = async (e) => {
+  const createControlProfile = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/prompt/new", {
+      const response = await fetch("/api/controlProfile/new", {
         method: "POST",
         body: JSON.stringify({
-          prompt: post.prompt,
+          controlProfile: post.controlProfile,
           userId: session?.user.id,
           tag: post.tag,
+          game: post.game,
+          devices: post.devices,
+          deviceBindsList: post.deviceBindsList,
         }),
       });
 
@@ -43,9 +46,9 @@ const CreatePrompt = () => {
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handleSubmit={createPrompt}
+      handleSubmit={createControlProfile}
     />
   );
 };
 
-export default CreatePrompt;
+export default CreateControlProfile;

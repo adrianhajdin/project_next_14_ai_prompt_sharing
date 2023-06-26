@@ -5,39 +5,39 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const UpdatePrompt = () => {
+const UpdateControlProfile = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
+  const controlProfileId = searchParams.get("id");
 
-  const [post, setPost] = useState({ prompt: "", tag: "", });
+  const [post, setPost] = useState({ controlProfile: "", tag: "", });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const getPromptDetails = async () => {
-      const response = await fetch(`/api/prompt/${promptId}`);
+      const response = await fetch(`/api/controlProfile/${controlProfileId}`);
       const data = await response.json();
 
       setPost({
-        prompt: data.prompt,
+        controlProfile: data.controlProfile,
         tag: data.tag,
       });
     };
 
-    if (promptId) getPromptDetails();
-  }, [promptId]);
+    if (controlProfileId) getPromptDetails();
+  }, [controlProfileId]);
 
   const updatePrompt = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!promptId) return alert("Missing PromptId!");
+    if (!controlProfileId) return alert("Missing ControlProfileId!");
 
     try {
-      const response = await fetch(`/api/prompt/${promptId}`, {
+      const response = await fetch(`/api/controlProfile/${controlProfileId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          prompt: post.prompt,
+          controlProfile: post.controlProfile,
           tag: post.tag,
         }),
       });
@@ -63,4 +63,4 @@ const UpdatePrompt = () => {
   );
 };
 
-export default UpdatePrompt;
+export default UpdateControlProfile;
