@@ -3,8 +3,8 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
 import Profile from "@components/UserProfile";
+import GameVerDropdown from "@components/GameVerDropdown";
 
 const MyProfile = () => {
   const router = useRouter();
@@ -12,12 +12,39 @@ const MyProfile = () => {
 
   const [myPosts, setMyPosts] = useState([]);
 
+ //  const [gameVersionOptions, setGameVersionOptions] = useState([{key: 'test0', name: 'test0'},{key: 'test2', name: 'test2'}]);
+  // const [gameVersionOptions, setGameVersionOptions] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchGameOptions = async () => {
+  //     const response = await fetch(`/api/games/`);
+  //     const data = await response.json();
+
+  //     setGameVersionOptions([{key: 'test0', name: 'test0'},{key: 'test2', name: 'test2'}]);
+  //   };
+
+  //   fetchGameOptions();
+
+  // }, []);
+
+
+
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await response.json();
-
+      console.log("APSODAPOSDKAPS");
       setMyPosts(data);
+
+
+      // const response1 = await fetch(`/api/games/`);
+      // const data1 = await response1.json();
+
+      // setGameVersionOptions(data1);
+      //  setGameVersionOptions([{ key: 'pog', name: 'pog' }, { key: 'asd', name: 'asd' }]);
+
+
     };
 
     if (session?.user.id) fetchPosts();
@@ -48,13 +75,17 @@ const MyProfile = () => {
   };
 
   return (
-    <Profile
-      name='My'
-      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
-      data={myPosts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    <section>
+      <Profile
+        name='My'
+        desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+        data={myPosts}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+      <GameVerDropdown
+      />
+    </section>
   );
 };
 

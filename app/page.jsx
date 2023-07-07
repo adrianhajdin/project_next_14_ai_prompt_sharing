@@ -1,5 +1,5 @@
 import Feed from "@components/Feed";
-
+import GameVerDropdown from "@components/GameVerDropdown";
 const Home = () => (
   <section className='w-full flex-center flex-col'>
     <h1 className='head_text text-center'>
@@ -13,6 +13,7 @@ const Home = () => (
     </p>
 
     <Feed />
+    <GameVerDropdown/>
   </section>
 );
 

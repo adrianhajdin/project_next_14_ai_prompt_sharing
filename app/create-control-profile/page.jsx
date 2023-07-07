@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import Form from "@components/Form";
+import dropdown from "@components/GameVerDropdown";
 
 const CreateControlProfile = () => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const CreateControlProfile = () => {
 
   const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({ controlProfile: "", tag: "", });
-
+  
   const createControlProfile = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -47,6 +48,7 @@ const CreateControlProfile = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createControlProfile}
+ 
     />
   );
 };

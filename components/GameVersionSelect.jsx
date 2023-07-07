@@ -1,8 +1,22 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import  Select from "react-select";
 
+const GameVerSelect = () => {
 
-const Form = ({ type, post, setPost, submitting, handleSubmit,  }) => {
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      const response = await fetch(`/api/games`);
+      const data = await response.json();
+
+      const options = data.JSON.stringify(data)
+
+      setOptions(options);
+    }
+  });
+
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -69,7 +83,24 @@ const Form = ({ type, post, setPost, submitting, handleSubmit,  }) => {
           />
         </label>
 
-    
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Game{" "}
+            <span className='font-normal'>
+              (Star Citizen)
+            </span>
+          </span>
+          <Select
+            options={options}
+            onChange={(e) => {
+              setOptions({ game: e.target.value })
+            }}
+            value={post.options}
+            placeholder="Select an option" />;
+          
+        </label>
+
+
 
 
         <div className='flex-end mx-3 mb-5 gap-4'>
@@ -90,4 +121,4 @@ const Form = ({ type, post, setPost, submitting, handleSubmit,  }) => {
   );
 };
 
-export default Form;
+export default GameVerSelect;
