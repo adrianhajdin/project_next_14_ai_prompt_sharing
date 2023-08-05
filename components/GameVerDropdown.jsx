@@ -43,7 +43,7 @@ const GameVerDropdown = () => {
         <section>
             <h2> {"STRING: " + Array.isArray(gameVersionOptions) + JSON.stringify(gameVersionOptions)}</h2>
             <h2> {Array.isArray(gameVersionOptions.versions) + " test: " + gameVersionOptions.versions}</h2>
-            <Dropdown>
+            {/* <Dropdown>
                 <Dropdown.Button flat> wow</Dropdown.Button>
                 <Dropdown.Menu aria-label="Dynamic Actions" items={gameVersionOptions.versions}>
                     {(ver) => (
@@ -55,7 +55,7 @@ const GameVerDropdown = () => {
                         </Dropdown.Item>
                     )}
                 </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
         </section>
     )
 }
