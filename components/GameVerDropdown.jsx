@@ -1,6 +1,7 @@
 "use client";
 import { Dropdown } from "@nextui-org/react";
 import { useState, useEffect } from "react";
+import React from 'react';
 
 const GameVerDropdown = () => {
     // const [gameVersionOptions, setGameVersionOptions] = useState([{ key: 'defaultKey value', name: 'defaultname' }, { key: 'test2', name: 'test2' }]);
@@ -60,7 +61,7 @@ const GameVerDropdown = () => {
     )
 }
 
-export default GameVerDropdown
+export default GameVerDropdown;
 
 // export default function GameVerDropdown() {
 

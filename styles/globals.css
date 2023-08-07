@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,11 +8,76 @@
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
+
+.hat {
+  position: absolute;
+  top: 145px;
+  align-items: center;
+  border: 1px none;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  min-height: 62.35px;
+  min-width: 63.86px;
+  overflow-x: hidden;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+
+
+.input-up {
+  transform-origin: top;
+  position: absolute;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+
+position: absolute;
+bottom: 498px;
+}
+
 .input:hover{
       fill: green;
-  
 }
+
+.input-label {
+  border: 0px none;
+  height: 20px;
+}
+
+.input-label .text-wrapper {
+  color: #CEFCFF;
+  font-family: "Inter", Helvetica;
+  font-size: 10px;
+  font-weight: 600;
+  height: 20px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}
+
+
+.ui-corners {
+  background: url(/assets/icons/actions/frame.svg);
+  background-repeat: no-repeat;
+  display: flex;
+width: 76px;
+height: 68px;
+padding: 18px 9px;
+justify-content: center;
+align-items: center;
+fill-opacity: ;
+}
+
 .main {
+  background: var(--bg, radial-gradient(50% 50.00% at 50% 50.00%, rgba(0, 197, 240, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), #010D0B);
   width: 100vw;
   min-height: 100vh;
   position: fixed;
@@ -21,7 +87,24 @@
   pointer-events: none;
 }
 
-.main:before {
+.square_contain {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.icon_wrap {
+  display: flex;
+ align-items: flex-start;
+ gap: 10px;
+ flex: 1 0 0;
+align-self: stretch;
+}
+
+/* .main:before {
   background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
   position: absolute;
   content: "";
@@ -41,32 +124,9 @@
   top: 0;
   opacity: 0.4;
   filter: invert(1);
-}
+} */
 
-.gradient {
-  height: fit-content;
-  z-index: 3;
-  width: 100%;
-  max-width: 640px;
-  background-image: radial-gradient(
-      at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
-      transparent 0%
-    ),
-    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  filter: blur(100px) saturate(150%);
-  top: 80px;
-  opacity: 0.15;
-}
+
 
 @media screen and (max-width: 640px) {
   .main {
@@ -76,6 +136,71 @@
 
 /* Tailwind Styles */
 
+.action-list {
+  display: flex;
+ flex-direction: column;
+  overflow: visible;
+  border: 1px none;
+  gap: 4px;
+  padding: 1px 0px 1px;
+  align-content: flex-end;
+  align-items: flex-end;
+margin-top: 2px;
+padding-bottom: 6px;
+}
+
+ .action {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(36deg, rgb(0, 255, 239.7) 0%, rgba(0, 255, 255, 0.753) 100%);
+  font-family: "Exo 2", Helvetica;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  line-height: 13px;
+  margin-top: -1px;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.test2 {
+   display: flex;
+height: 36.125rem;
+padding: 1.5625rem 0rem 0.9375rem 0rem;
+flex-direction: column;
+align-items: center;
+gap: 0.625rem;
+border-radius: 0.375rem;
+box-shadow: 0px 1px 15px 0px #00eeff2a;
+border: 1px solid rgba(0, 240, 255, 0.20);
+
+}
+.test {
+ border: 1px solid rgba(0, 240, 255, 0.20);
+  /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
+ background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+ display: inline-flex;
+ width: 30.6875rem;
+ height: 51.7775rem;
+ padding: 0.9375rem 0.875rem 3.1875rem 0.875rem;
+ flex-direction: column;
+ align-items: flex-start;
+ gap: 0.875rem;
+
+
+  border-radius: 10px;
+ 
+}
+
+.card-default {
+  display: inline-flex;
+  padding: 15px 14px 51px 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+
+  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+}
 
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;

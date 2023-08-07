@@ -1,4 +1,5 @@
 import "@styles/globals.css";
+import { Exo } from 'next/font/google'
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
@@ -8,8 +9,8 @@ export const metadata = {
   description: "Discover & Share AI Prompts",
 };
 
-const RootLayout = ({ children }) => (
-  <html lang='en'>
+const RootLayout = ({children}: { children: React.ReactNode }) => (
+  <html lang='en' className="dark">
     <body>
 
       <Provider>

@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
+import {Chip} from "@nextui-org/react";
 
 const ChipTest = () => {
   return (
-    <div>ChipTest</div>
+    <Chip>Chip</Chip>
   )
 }
 
