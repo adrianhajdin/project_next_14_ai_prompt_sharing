@@ -5,12 +5,13 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "Promptopia",
-  description: "Discover & Share AI Prompts",
+  title: "POGGERS",
+  description: "POGGING POG",
 };
 
 const RootLayout = ({children}: { children: React.ReactNode }) => (
   <html lang='en' className="dark">
+    
     <body>
 
       <Provider>
