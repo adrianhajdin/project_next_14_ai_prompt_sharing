@@ -1,53 +1,24 @@
 'use client'
-import Press from 'public/assets/icons/actions/input_up.svg';
+import CloseButton from 'public/assets/icons/generic/button_close.svg'
+import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
-import Hat from '@components/Hat';
 
+import InputEditor from './InputEditor';
+import InputViewer from './InputViewer'
 const page = () => {
-const action = "DECOY - LAUNCH BURST(TAP), SET & LAUNCH BURST (HOLD)"
-const inputName = "HAT UP"
+  const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
+  const inputName = "HAT UP"
 
   return (
 
-    <section>
-      <div className='test'>
-        <Press />
+<section className='flex flex-row'>
+<InputViewer/>
 
-        <p className='text-test'>LAYERS</p>
-        <div className="test2 w-full ">
-          <div className="input-up ">
+<InputEditor/>
 
-            <div className="input-label input-name mb-1">
-              <div className="text-wrapper">{inputName}</div>
-            </div>
-            <div className="action-list ">
-
-              <p className="action">{action}</p>
-              <p className="action">{action}</p>
-              <p className="action">{action}</p>
-
-             
-            </div>
-
-            <div className="ui-corners mt-2.5">
-              <div className='square_contain'>
-                <div className='w-40px h-40px '>
-                  <Press />
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="hat">
-            <Hat />
-          </div>
+</section>
 
 
-        </div>
-      </div>
-
-    </section>
   )
 }
 

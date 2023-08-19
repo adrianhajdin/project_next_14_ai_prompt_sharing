@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&family=Exo:wght@600&family=Inter:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,10 +8,90 @@
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
+:root{
+--inputs-offeset-top: 40px;
+--test: white;
+
+}
+
+.button1 {
+ width: 222px;
+
+}
+
+.corner-test {
+  --b: 1px;   /* thickness of the border */
+  --c: rgba(0, 247, 255, 0.4);   /* color of the border */
+  --w: 12px;  /* width of border */
+  --r: 4px;  /* radius */
+
+  padding: var(--b); /* space for the border */
+  position:relative;
+  /*Irrelevant code*/  
+height: 65px; 
+padding: 0px 15px 0px 15px;
+ box-sizing:border-box;
+  margin:5px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+}
+
+.corner-test::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c,rgba(255, 0, 0, 0));
+  padding: var(--b);
+  border-radius: var(--r);
+  -webkit-mask:
+    linear-gradient(  0deg,#000 calc(2*var(--b)),#0000 0) 50% var(--b)/calc(100% - 2*var(--w)) 100% repeat-y,
+    linear-gradient(-90deg,#000 calc(2*var(--b)),#0000 0) var(--b) 50%/100% calc(100% - 2*var(--w)) repeat-x,
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+}
+
+.text-base{
+  color: #CEFCFF;
+  font-family: "Exo";
+font-size: 12px;
+font-weight: 600;
+line-height: 13px;
+letter-spacing: 0.01em;
+text-align: center;
+
+  /* -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(36deg, rgb(0, 255, 239.7) 0%, rgba(0, 255, 255, 0.753) 100%);
+  font-family: "Exo 2", Helvetica;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  line-height: 13px;
+  margin-top: -1px;
+  text-align: center;
+  align-self: flex-end; */
+
+}
+.text-input-title {
+  color: #CEFCFF;
+  filter: drop-shadow(0px 4px 35px #00F0FF);  
+  /* text-shadow: 0px 4px 35px  #00F0FF; */
+
+  font-family: "Exo 2";
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
 
 .hat {
   position: absolute;
-  top: 145px;
+  top: calc(480px + var(--inputs-offeset-top));
   align-items: center;
   border: 1px none;
   display: inline-flex;
@@ -21,11 +101,65 @@
   min-width: 63.86px;
   overflow-x: hidden;
   padding: 10px;
-  position: relative;
-  width: 100%;
+  filter: drop-shadow(0px 4px 20px #00F0FF);
+}
+
+.input-down-press{
+  transform-origin: top;
+  position: absolute;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+margin-top: calc(215px + var(--inputs-offeset-top));
+}
+
+.input-down {
+  transform-origin: top;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.input-down-absolute {
+  transform-origin: top;
+  position: absolute;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+ top: 660px;
 }
 
 
+
+.input-press {
+  transform-origin: top;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.input-press-absolute {
+  transform-origin: top;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+ top: 505px;
+}
 
 .input-up {
   transform-origin: top;
@@ -35,9 +169,48 @@
  align-items: flex-end;
 justify-content: space-between;
 align-items: center;
-
 position: absolute;
 bottom: 498px;
+}
+
+
+.input-up-absolute {
+  transform-origin: top;
+  position: absolute;
+  display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+    bottom: 503px;
+  }
+
+.input-left-absolute {
+  transform-origin: left;
+
+  position: relative;
+  display: flex;
+ flex-direction: row-reverse;
+justify-content: space-between;
+align-items:flex-start;
+padding-bottom: 32rem;
+/* position: absolute; */
+margin-top: calc(139px + var(--inputs-offeset-top));
+right: 138px;
+gap: 8px;
+}
+
+.input-right-absolute {
+  position: relative;
+  display: flex;
+ flex-direction: row;
+justify-content: space-between;
+align-items:flex-start;
+bottom: 774px;
+/* margin-left: 286px; */
+left: 136px;
+gap: 8px;
 }
 
 .input:hover{
@@ -55,11 +228,8 @@ bottom: 498px;
   font-size: 10px;
   font-weight: 600;
   height: 20px;
-  left: 0;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: center;
-  top: 0;
   white-space: nowrap;
 }
 
@@ -135,13 +305,35 @@ align-self: stretch;
 }
 
 /* Tailwind Styles */
+.layer-tag-default{
+
+display: flex;
+align-items: center;
+gap: 2px;
+}
+
+.layer-tag-left{
+
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: flex-end;
+  }
+
+  .layer-tag-right{
+    display: flex;
+    /* align-items: center; */
+    gap: 2px;
+    justify-content: flex-start;
+    }
+
+    
 
 .action-list {
   display: flex;
  flex-direction: column;
   overflow: visible;
-  border: 1px none;
-  gap: 4px;
+  gap: 5px;
   padding: 1px 0px 1px;
   align-content: flex-end;
   align-items: flex-end;
@@ -149,39 +341,246 @@ margin-top: 2px;
 padding-bottom: 6px;
 }
 
+.action-list-left {
+  display: flex;
+ flex-direction: column;
+  overflow: visible;
+  gap: 5px;
+  padding: 1px 0px 1px;
+  align-content: flex-end;
+  align-items: flex-end;
+margin-top: 2px;
+padding-bottom: 6px;
+}
+
+.action-list-right {
+  display: flex;
+ flex-direction: column;
+  overflow: visible;
+  gap: 5px;
+  padding: 1px 0px 1px;
+  align-content: flex-end;
+  align-items: flex-end;
+margin-top: 2px;
+padding-bottom: 6px;
+}
+
+.text-legend-heading {
+  font-family: "Inter-bold", Helvetica;
+  font-size: 10px;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  color: linear-gradient(0deg, rgb(255, 255, 255) 30%, rgb(195, 228, 255) 100%);
+
+}
+
+.text-legend{
+  font-family: "Exo 2", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 13px;
+  margin-top: -1px;
+ align-self: center;
+ justify-self: center;
+ justify-content: center;
+}
+
+.text-button{
+  font-family: "Exo 2", Helvetica;
+  font-size: 10pt;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 13px;
+  margin-top: -1px;
+ /* align-self: center;
+ justify-self: center;
+ justify-content: center; */
+}
+
+.text-modifier {
+  font-family: "Exo 2", Helvetica;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  line-height: 13px;
+  margin-top: -1px;
+  /* text-align: center;
+align-self: center; */
+}
+
+.text-modifier.default {
+  text-align: center;
+align-self: center;
+font-family: "Exo 2", Helvetica;
+font-size: 10px;
+font-weight: 650;
+letter-spacing: 0.2px;
+line-height: 13px;
+margin-top: -1px;
+}
+
+
+
+.modifier-chip-layer-2 {
+  fill: linear-gradient(0deg, rgb(255, 255, 255) 30%, rgb(195, 228, 255) 100%);
+
+}
+
+.modifier-chip-2 {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+height: 24px;
+border-radius: 10px;
+background: linear-gradient(90deg, #d77300be 20%, #d37f00cf 100%); ;
+padding: 0px 5px 0px 5px;
+border-width: 1px;
+border-color: #ffffff7c;
+box-shadow: 0px 8px 35px #ffb3279c;
+align-items: center;
+}
+
+.modifier-chip-3 {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+height: 24px;
+border-radius: 10px;
+background: linear-gradient(90deg, #0a8b31be 20%, rgb(0 255 104 / 34%) 100%) ;
+padding: 0px 5px 0px 5px;
+border-width: 1px;
+border-color: #ffffff7c;
+box-shadow: 0px 8px 35px #00cb649c;
+align-items: center;
+}
+.text-modifier-chip-layer-2{
+  font-family: "Exo 2", Helvetica;
+  font-size: 10pt;
+  font-weight: 740;
+  letter-spacing: 0.2px;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 40%, rgb(255, 230, 87) 100%);
+  /* background: linear-gradient(0deg, rgb(255, 255, 255) 30%, rgb(195, 228, 255) 100%); */
+}
+
+.text-modifier.left {
+  text-align: right;
+}
+.text-modifier.right {
+  text-align: left;
+}
+.text-layer1{
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(36deg, rgb(0, 255, 239.7) 0%, rgba(0, 255, 255, 0.863) 100%);
+}
+
+.text-layer2{
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(36deg, #FFB800 0%, rgba(255, 230, 0, 0.863) 100%);
+}
+
+.text-layer3{
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(36deg, rgb(4 255 0) 0%, rgb(85 255 106) 100%);
+}
+
  .action {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(36deg, rgb(0, 255, 239.7) 0%, rgba(0, 255, 255, 0.753) 100%);
+  background: linear-gradient(36deg, rgb(0, 255, 239.7) 0%, rgba(0, 255, 255, 0.863) 100%);
   font-family: "Exo 2", Helvetica;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1px;
   line-height: 13px;
   margin-top: -1px;
-  text-align: center;
-  align-self: flex-end;
+  /* text-align: center; */
+  /* align-self: flex-end; */
 }
+
+.action.tight {
+width: 222px;
+}
+
+.pog{
+  height: 28rem;
+
+}
+
 
 .test2 {
    display: flex;
-height: 36.125rem;
-padding: 1.5625rem 0rem 0.9375rem 0rem;
+height: 642px;
+width: 100%;
+padding: 0.5625rem 0rem 0.9375rem 0rem;
 flex-direction: column;
 align-items: center;
-gap: 0.625rem;
 border-radius: 0.375rem;
 box-shadow: 0px 1px 15px 0px #00eeff2a;
 border: 1px solid rgba(0, 240, 255, 0.20);
-
 }
+.test-default {
+  border: 1px solid rgba(0, 240, 255, 0.20);
+   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
+  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+  /* height: 51.7775rem; */
+
+   border-radius: 10px;
+ }
+
+ .button-default {
+  border: 1px solid rgba(0, 240, 255, 0.20);
+   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
+  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+
+ }
+ .button-default-hover {
+  border: 1px solid rgba(0, 240, 255, 0.20);
+   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
+  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+
+ }
+ 
+.panel-default {
+  border: 1px solid rgba(0, 240, 255, 0.20);
+   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
+  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
+  display: inline-flex;
+  width: auto;
+  /* height: 51.7775rem; */
+  padding: 0.9375rem 0.875rem 3.1875rem 0.875rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+   border-radius: 10px;
+ }
+
+ .panel-inset{
+  display: flex;
+  height: 642px;
+  width: 100%;
+  padding:10px 10px 10px 10px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.375rem;
+  box-shadow: 0px 1px 15px 0px #00eeff2a;
+  border: 1px solid rgba(0, 240, 255, 0.20);
+ }
+
 .test {
  border: 1px solid rgba(0, 240, 255, 0.20);
   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
  background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%);
  display: inline-flex;
- width: 30.6875rem;
- height: 51.7775rem;
+ width: 540px;
+ /* height: 51.7775rem; */
  padding: 0.9375rem 0.875rem 3.1875rem 0.875rem;
  flex-direction: column;
  align-items: flex-start;
