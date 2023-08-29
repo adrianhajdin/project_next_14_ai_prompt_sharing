@@ -1,0 +1,80 @@
+.p-orderlist {
+    .p-orderlist-controls {
+        padding: $panelContentPadding;
+
+        .p-button {
+            margin-bottom: $inlineSpacing;
+        }
+    }
+
+    .p-orderlist-header {
+        background: $panelHeaderBg;
+        color: $panelHeaderTextColor;
+        border: $panelHeaderBorder;
+        padding: $panelHeaderPadding;
+        font-weight: $panelHeaderFontWeight;
+        border-bottom: 0 none;
+        border-top-right-radius: $borderRadius;
+        border-top-left-radius: $borderRadius;
+    }
+
+    .p-orderlist-filter-container {
+        padding: $panelHeaderPadding;
+        background: $panelContentBg;
+        border: $panelHeaderBorder;
+        border-bottom: 0 none;
+        
+        .p-orderlist-filter-input {
+            padding-right: nth($inputPadding, 2) + $primeIconFontSize;
+        }
+
+        .p-orderlist-filter-icon {
+            right: nth($inputPadding, 2);
+            color: $inputIconColor;
+        }
+    }
+
+    .p-orderlist-list {
+        border: $panelContentBorder;
+        background: $panelContentBg;
+        color: $panelContentTextColor;
+        padding: $inputListPadding;
+        border-bottom-right-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+
+        .p-orderlist-item {
+            padding: $inputListItemPadding;
+            margin: $inputListItemMargin;
+            border: $inputListItemBorder;
+            color: $inputListItemTextColor;
+            background: $inputListItemBg;
+            transition: transform $transitionDuration, $listItemTransition;
+
+            &:not(.p-highlight):hover {
+                background: $inputListItemHoverBg;
+                color: $inputListItemTextHoverColor;
+            }
+
+            &:focus {
+                @include focused-listitem();
+            }
+
+            &.p-highlight {
+                color: $highlightTextColor;
+                background: $highlightBg;
+            }
+        }
+    }
+
+    &.p-orderlist-striped {
+        .p-orderlist-list {
+            .p-orderlist-item:nth-child(even) {
+                background: $panelContentEvenRowBg;
+
+                &:hover {
+                    background: $inputListItemHoverBg;
+                }
+            }
+        }
+    }
+}

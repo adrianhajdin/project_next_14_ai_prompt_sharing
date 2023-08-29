@@ -1,5 +1,6 @@
 import "@styles/globals.css";
 import { Exo } from 'next/font/google'
+import 'primereact-sass-theme-9.6.2/themes/mytheme/theme.scss';
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";

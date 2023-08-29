@@ -1,0 +1,16 @@
+.p-slider {
+    .p-slider-handle {
+        transition: transform $transitionDuration, box-shadow $transitionDuration;
+        transform: scale(.7);
+
+        &:focus {
+            box-shadow: 0 0 1px 10px rgba($accentColor, .2);
+        }
+    }
+
+    &.p-slider-sliding {
+        .p-slider-handle {
+            transform: scale(1);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+$primaryColor: #A5B4FC !default;
+$primaryLightColor: rgba(165, 180, 252, .5) !default;
+$primaryDarkColor: scale-color($primaryColor, $lightness: -5%) !default;
+$primaryDarkerColor: scale-color($primaryColor, $lightness: -10%) !default;
+$primaryTextColor: #1c2127 !default;
+
+$highlightBg:rgba(165, 180, 252, .16) !default;
+$highlightTextColor: rgba(255,255,255,.87) !default;
+
+@import '../_variables';
+@import '../../../../theme-base/_components';
+@import '../_extensions';

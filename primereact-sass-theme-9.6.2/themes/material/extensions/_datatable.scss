@@ -1,0 +1,33 @@
+.p-datatable {
+    .p-sortable-column {
+        outline: 0 none;
+
+        &:focus {
+            background-color: rgba($overlayColor, 0.03);
+        }
+    }
+
+    .p-datatable-tbody {
+        > tr {
+            outline: 0 none;
+
+            &:not(.p-highlight):focus {
+                background-color: rgba($overlayColor, 0.03);                
+            }
+        }
+    }
+}
+
+.p-datatable {
+    .p-datatable-tbody {
+        > tr {
+            &.p-datatable-dragpoint-top > td {
+                box-shadow: inset 0 2px 0 0 $primaryColor;
+            }
+
+            &.p-datatable-dragpoint-bottom > td {
+                box-shadow: inset 0 -2px 0 0 $primaryColor;
+            }
+        }
+    }
+}

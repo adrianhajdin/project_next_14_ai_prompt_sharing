@@ -1,0 +1,25 @@
+{
+    "name": "primereact-sass-theme",
+    "version": "9.6.2",
+    "description": "PrimeReact Sass Theme",
+    "homepage": "https://primereact.org/",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/primefaces/primereact-sass-theme.git"
+    },
+    "keywords": [
+      "primereact",
+      "react",
+      "ui framework",
+      "component framework",
+      "ui library",
+      "component library",
+      "material",
+      "bootstrap"
+    ],
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/primefaces/primereact-sass-theme/issues"
+    }
+  }
+  

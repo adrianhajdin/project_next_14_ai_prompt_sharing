@@ -19,10 +19,12 @@
     "mongoose": "^7.3.0",
     "next": "13.3.4",
     "next-auth": "^4.22.1",
+    "primereact": "^9.6.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
     "react-select": "^5.7.3",
+    "sass": "^1.66.1",
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {

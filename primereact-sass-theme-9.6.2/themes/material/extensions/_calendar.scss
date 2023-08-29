@@ -1,0 +1,137 @@
+.p-calendar-w-btn {
+    border: $inputBorder;
+    background: $inputBg;
+    border-radius: $borderRadius;
+    transition: $formElementTransition;
+
+    .p-inputtext {
+        background-image: none;
+        background-color: transparent;
+        border: 0 none;
+
+        &:enabled:focus {
+            box-shadow: none;
+        }
+    }
+
+    .p-datepicker-trigger.p-button {
+        background-color: transparent;
+        border: 0 none;
+    
+        span {
+            color: $inputIconColor;
+        }
+
+        &:enabled:hover {
+            background: rgba($overlayColor, .04);
+        }
+
+        &:enabled:active,
+        &:focus {
+            background: rgba($overlayColor, .12);
+        }
+
+        &:disabled {
+            background-color: transparent !important;
+        }
+    }
+
+    &:not(.p-disabled):hover {
+        border-color: $inputHoverBorderColor;
+    }
+
+    &:not(.p-disabled).p-inputwrapper-focus {
+        border-color: $inputFocusBorderColor;
+        box-shadow: inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor;
+    }
+}
+
+.p-datepicker {
+    .p-datepicker-header {
+        border-bottom: 0 none;
+
+        .p-datepicker-title {
+            margin: 0 auto 0 0;
+            order: 1;
+        }
+    
+        .p-datepicker-prev {
+            order: 2;
+        }
+    
+        .p-datepicker-next {
+            order: 3;
+        }
+    }
+
+    table {
+        th {
+            border-bottom: $calendarHeaderBorder;
+            color: $emphasis-low();
+            font-weight: 400;
+            font-size: .875rem;
+        }
+       
+       
+        td {
+            &.p-datepicker-today {
+                > span {
+                    box-shadow: 0 0 0 1px rgba($overlayColor,.38);
+                }
+
+                &.p-highlight {
+                    box-shadow: 0 0 0 1px $highlightBg;
+                }
+            }
+        }
+    }
+}
+
+.p-calendar.p-invalid {
+    .p-inputtext {
+        &:enabled:focus {
+            box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
+        }
+    }
+
+    &.p-calendar-w-btn {
+        border-color: $inputErrorBorderColor;
+
+        .p-inputtext {
+            &:enabled:focus {
+                box-shadow: none;
+            }
+        }
+
+        &:not(.p-disabled).p-inputwrapper-focus {
+            box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
+        }
+    }
+}
+
+.p-input-filled {
+    .p-calendar-w-btn {
+        @include filled-input-wrapper();
+
+        .p-inputtext {
+            border: 0 none;
+        }
+    }
+
+    .p-calendar.p-invalid {
+        .p-inputtext {
+            @include invalid-filled-input();
+        }
+
+        &.p-calendar-w-btn {
+            @include invalid-filled-input-wrapper();
+
+            .p-inputtext,
+            .p-inputtext:enabled:hover,
+            .p-inputtext:enabled:focus {
+                border: 0 none;
+                background-image: none;
+            }
+        }
+    }
+}

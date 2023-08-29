@@ -1,0 +1,50 @@
+.p-tabmenu {
+    .p-tabmenu-nav {
+        background: $tabviewNavBg;
+        border: $tabviewNavBorder;
+        border-width: $tabviewNavBorderWidth;
+
+        .p-tabmenuitem {
+            margin-right: $tabviewHeaderSpacing;
+
+            .p-menuitem-link {
+                border: $tabviewHeaderBorder;
+                border-width: $tabviewHeaderBorderWidth;
+                border-color: $tabviewHeaderBorderColor;
+                background: $tabviewHeaderBg;
+                color: $tabviewHeaderTextColor;
+                padding: $tabviewHeaderPadding;
+                font-weight: $tabviewHeaderFontWeight;
+                border-top-right-radius: $borderRadius;
+                border-top-left-radius: $borderRadius;
+                transition: $listItemTransition;
+                margin: $tabviewHeaderMargin;
+                height: calc(100% + #{-1 * nth($tabviewHeaderMargin, 3)});
+
+                .p-menuitem-icon {
+                    margin-right: $inlineSpacing;
+                }
+
+                &:not(.p-disabled):focus {
+                    @include focused-inset();
+                }
+            }
+
+            &:not(.p-highlight):not(.p-disabled):hover {
+                .p-menuitem-link {
+                    background: $tabviewHeaderHoverBg;
+                    border-color: $tabviewHeaderHoverBorderColor;
+                    color: $tabviewHeaderTextHoverColor;
+                }
+            }
+
+            &.p-highlight {
+                .p-menuitem-link {
+                    background: $tabviewHeaderActiveBg;
+                    border-color: $tabviewHeaderActiveBorderColor;
+                    color: $tabviewHeaderTextActiveColor;
+                }
+            }
+        }
+    }
+}

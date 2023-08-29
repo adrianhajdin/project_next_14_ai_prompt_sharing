@@ -1,0 +1,36 @@
+.p-input-filled {
+    .p-inputgroup {
+        .p-inputgroup-addon {
+            @include filled-input-default();
+
+            &:last-child {
+                border-right-color: transparent;
+            }
+        }
+    }
+
+    .p-inputgroup-addon:first-child,
+    .p-inputgroup button:first-child,
+    .p-inputgroup input:first-child,
+    .p-inputgroup > .p-inputwrapper:first-child,
+    .p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {
+        border-bottom-left-radius: 0;
+    }
+
+    .p-inputgroup .p-float-label:first-child input {
+        border-bottom-left-radius: 0;
+    }
+
+    .p-inputgroup-addon:last-child,
+    .p-inputgroup button:last-child,
+    .p-inputgroup input:last-child,
+    .p-inputgroup > .p-inputwrapper:last-child,
+    .p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {
+        border-bottom-right-radius: 0;
+    }
+
+    .p-inputgroup .p-float-label:last-child input {
+        border-bottom-right-radius: 0;
+    }
+}
+

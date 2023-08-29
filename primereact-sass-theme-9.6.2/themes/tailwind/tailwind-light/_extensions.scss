@@ -1,0 +1,121 @@
+/* Customizations to the designer theme should be defined here */
+@mixin focused-ring($ring-color) {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $ring-color, 0 1px 2px 0 rgba(0, 0, 0, 0.0);
+}
+
+.p-inputtext, .p-togglebutton, .p-selectbutton, .p-inputgroup {
+    box-shadow: 0 0 #0000,0 0 #0000,0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.p-inputgroup {
+    .p-inputtext, .p-togglebutton, .p-selectbutton {
+        box-shadow: none;
+    }
+}
+
+.p-inputtext {
+    &.p-invalid.p-component:enabled:focus {
+        box-shadow: 0 0 0 1px $inputErrorBorderColor;
+    }
+}
+
+.p-highlight {
+    font-weight: 600;
+}
+
+.p-button-label {
+    font-weight: 500;
+}
+
+.p-inputswitch {
+    &.p-focus {
+        .p-inputswitch-slider {
+            box-shadow: 0 0 0 2px $focusOutlineColor;
+        }
+    }
+}
+
+.p-paginator {
+    .p-paginator-pages {
+        .p-paginator-page {
+            margin-left: -1px;
+
+            &.p-highlight {
+                border-color: $primaryColor;
+                margin-right: 1px;
+            }
+        }
+    }
+
+    .p-paginator-current {
+        border: 0 none;
+    }
+}
+
+.p-button {
+    &:focus {
+        @include focused-ring($focusOutlineColor);
+    }
+
+    &.p-button-secondary:enabled:focus {
+        @include focused-ring($secondaryButtonBg);
+    }
+
+    &.p-button-success:enabled:focus {
+        @include focused-ring($successButtonBg);
+    }
+
+    &.p-button-info:enabled:focus {
+        @include focused-ring($infoButtonBg);
+    }
+
+    &.p-button-warning:enabled:focus {
+        @include focused-ring($warningButtonBg);
+    }
+
+    &.p-button-help:enabled:focus {
+        @include focused-ring($helpButtonBg);
+    }
+
+    &.p-button-danger:enabled:focus {
+        @include focused-ring($dangerButtonBg);
+    }
+}
+
+.p-checkbox {
+    .p-checkbox-box {
+        border-radius: .25rem;
+    }
+
+    &:not(.p-checkbox-disabled) {
+        .p-checkbox-box {
+            &.p-focus {
+                @include focused-ring($focusOutlineColor);
+            }
+        }
+    }
+}
+
+.p-radiobutton {
+    &:not(.p-radiobutton-disabled) {
+        .p-radiobutton-box {
+            &.p-focus {
+                @include focused-ring($focusOutlineColor);
+            }
+        }
+    }
+}
+
+.p-datatable {
+    .p-datatable-tbody {
+        > tr {
+            &.p-datatable-dragpoint-top > td {
+                box-shadow: inset 0 2px 0 0 $primaryColor;
+            }
+
+            &.p-datatable-dragpoint-bottom > td {
+                box-shadow: inset 0 -2px 0 0 $primaryColor;
+            }
+        }
+    }
+}

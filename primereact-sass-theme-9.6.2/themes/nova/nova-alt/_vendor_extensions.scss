@@ -1,0 +1,25 @@
+@import '../vendor_extensions';
+
+.p-accordion {
+    .p-accordion-header {
+        &:not(.p-highlight):not(.p-disabled):hover {
+            .p-accordion-header-link {
+                background-color: #494949;
+                border: 1px solid #494949;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+.p-fieldset {
+    &.p-fieldset-toggleable {
+        .p-fieldset-legend {
+            &:hover {
+                background-color: #494949;
+                border-color: #494949;
+                color: #ffffff;
+            }
+        }
+    }
+}

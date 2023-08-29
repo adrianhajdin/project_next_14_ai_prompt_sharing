@@ -1,0 +1,17 @@
+.p-listbox {
+    .p-listbox-list {
+        .p-listbox-item {
+            .p-ink {
+                background-color: rgba($primaryColor, .16);
+            }
+
+            &:focus {
+                background: $emphasis-lower;
+
+                &.p-highlight {
+                    background: rgba($primaryColor, .24);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+.p-splitbutton {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($buttonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($buttonBg, .16);
+                }
+            }
+        }
+    }
+
+    &.p-button-outlined {
+        > .p-button {
+            box-shadow: inset 0 0 0 1px;
+
+            &:enabled:focus {
+                box-shadow: inset 0 0 0 1px;
+            }
+
+            &:enabled:active {
+                box-shadow: inset 0 0 0 1px;
+            }
+
+            &.p-splitbutton-menubutton {
+                margin-left: -1px;
+                width: calc(#{$buttonIconOnlyWidth} + 1px);
+            }
+        }
+    }
+
+    &.p-disabled {
+        &.p-button-text {
+            > .p-button {
+                background-color: transparent !important;
+                color: $emphasis-low !important;
+            }
+        }
+
+        &.p-button-outlined {
+            > .p-button {
+                background-color: transparent !important;
+                color: $emphasis-low !important;
+                border-color: $emphasis-low !important;
+            }
+        }
+    }
+
+    &.p-button-raised {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    box-shadow: $raisedButtonShadow;
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-secondary {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($secondaryButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($secondaryButtonBg, .16);
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-info > .p-button {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($infoButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($infoButtonBg, .16);
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-success {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($successButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($successButtonBg, .16);
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-warning {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($warningButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($warningButtonBg, .16);
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-help {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($helpButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($helpButtonBg, .16);
+                }
+            }
+        }
+    }
+}
+
+.p-splitbutton.p-button-danger {
+    &.p-button-text,
+    &.p-button-outlined {
+        > .p-button {
+            @include button-states {
+                &:focus {
+                    background: rgba($dangerButtonBg, .12);
+                }
+
+                &:active {
+                    background: rgba($dangerButtonBg, .16);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.p-dropdown {
+    .p-inputtext, .p-dropdown-trigger {
+        background-image: none;
+        background: transparent;
+    }
+
+    .p-inputtext {
+        border: 0 none;
+    }
+
+    &:not(.p-disabled).p-focus {
+        box-shadow: inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor;
+    }
+}
+
+.p-dropdown-item {
+    .p-ink {
+        background-color: rgba($primaryColor, .16);
+    }
+}
+
+.p-input-filled {
+    .p-dropdown {
+        @include filled-input-wrapper();
+
+        .p-inputtext {
+            border: 0 none;
+        }
+    }
+
+    .p-dropdown.p-invalid {
+        @include invalid-filled-input-wrapper();
+    }
+}
+
+.p-dropdown.p-invalid {
+    &:not(.p-disabled).p-focus {
+        box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
+    }
+}
