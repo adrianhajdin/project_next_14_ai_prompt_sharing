@@ -4,6 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "primereact/resources/primereact.min.css";                                       
 
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
@@ -14,7 +15,12 @@
   --default-ui: 196 100% 93%;
   
 }
-
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
 .button1 {
   width: 222px;
 }
@@ -74,6 +80,8 @@
   text-align: center;
   align-self: flex-end; */
 }
+
+
 .text-input-title {
   color: #cefcff;
   filter: drop-shadow(0px 4px 35px #00f0ff);

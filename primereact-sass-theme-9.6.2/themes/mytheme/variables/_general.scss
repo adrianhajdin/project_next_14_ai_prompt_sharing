@@ -12,7 +12,7 @@ $fontWeight: normal;
 
 /// Primary text color
 /// @group general
-$textColor: #495057;
+$textColor: #cefcff;
 
 /// Secondary text color
 /// @group general
@@ -76,7 +76,7 @@ $errorColor: #e4677e;
 
 /// Outline color of a focused element
 /// @group general
-$focusOutlineColor: #bfd1f6;
+$focusOutlineColor: #ffffff00;
 
 /// Outline of a focused element
 /// @group general
@@ -88,7 +88,7 @@ $focusOutlineOffset: 0;
 
 /// Box shadow of a focused element
 /// @group general
-$focusShadow: 0 0 0 0.2rem $focusOutlineColor;
+$focusShadow: 0 0 0 1px $focusOutlineColor;
 
 /// Width of an action icon
 /// @group general

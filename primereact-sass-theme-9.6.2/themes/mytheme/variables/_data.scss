@@ -72,7 +72,7 @@ $tableHeaderBorderWidth: 0 0 1px 0;
 
 /// Background of a table header
 /// @group data
-$tableHeaderBg: #f8f9fa;
+$tableHeaderBg: #f8f9fa00;
 
 /// Text color of a table header
 /// @group data
@@ -80,7 +80,7 @@ $tableHeaderTextColor: $textColor;
 
 /// Font weight of a table header
 /// @group data
-$tableHeaderFontWeight: 600;
+$tableHeaderFontWeight: 400;
 
 /// Padding of a table header, must be defined with a shorthand for vertical and horizontal values e.g. ".5rem .5rem"
 /// @group data
@@ -92,7 +92,7 @@ $tableHeaderCellPadding: 1rem 1rem;
 
 /// Background of a table header cell
 /// @group data
-$tableHeaderCellBg: #f8f9fa;
+$tableHeaderCellBg: #f8f9fa00;
 
 /// Text color of a table header cell
 /// @group data
@@ -100,11 +100,11 @@ $tableHeaderCellTextColor: $textColor;
 
 /// Font weight of a table header cell
 /// @group data
-$tableHeaderCellFontWeight: 600;
+$tableHeaderCellFontWeight: 400;
 
 /// Border of a table header cell
 /// @group data
-$tableHeaderCellBorder: 1px solid #e9ecef;
+$tableHeaderCellBorder: 1px solid #e9ecef00;
 
 /// Border width of a table header cell
 /// @group data

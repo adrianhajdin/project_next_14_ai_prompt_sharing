@@ -1,1 +1,196 @@
+
 /* Customizations to the designer theme should be defined here */
+.p-button {
+    .p-button-label {
+        font-weight: 600;
+    }
+}
+
+.p-buttonset,
+.p-togglebutton {
+    .p-button-label {
+        font-weight: 400;
+    }
+}
+
+.p-carousel {
+    .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+        background-color: $primaryColor;
+    }
+}
+
+.p-galleria {
+    .p-galleria-indicators .p-galleria-indicator.p-highlight button {
+        background-color: $primaryColor;
+    }
+}
+
+.p-panel {
+    border: $panelContentBorder;
+    border-radius: $borderRadius;
+
+    .p-panel-header {
+        border: 0 none;
+    }
+
+    .p-panel-content {
+        border: 0 none;
+    }
+}
+
+.p-fieldset {
+    .p-fieldset-legend {
+        border-color: transparent;
+    }
+}
+
+.p-accordion {
+    .p-accordion-toggle-icon {
+        order: 10;
+        margin-left: auto;
+
+        &.pi-chevron-right::before {
+            content: "\e90d";
+        }
+
+        &.pi-chevron-down::before {
+            content: "\e90f";
+        }
+    }
+
+    .p-accordion-header {
+        &.p-highlight {
+            .p-accordion-header-link {
+                padding-bottom: calc(1rem + 2px);
+                border-bottom: 0 none;
+            }
+        }
+
+        &:not(.p-disabled).p-highlight {
+            &:hover {
+                .p-accordion-header-link {
+                    border-bottom: 0 none;
+                }
+            }
+        }
+    }
+}
+
+.p-inline-message {
+    &.p-inline-message-info {
+        border-color: $infoMessageBg;
+    }
+
+    &.p-inline-message-success {
+        border-color: $successMessageBg;
+    }
+
+    &.p-inline-message-warn {
+        border-color: $warningMessageBg;
+    }
+
+    &.p-inline-message-error {
+        border-color: $errorMessageBg;
+    }
+}
+
+.p-inputtext {
+    &:enabled:focus {
+        box-shadow: none;
+    }
+}
+
+.p-dropdown {
+    &:not(.p-disabled).p-focus {
+        box-shadow: none;
+    }
+}
+
+.p-multiselect {
+    &:not(.p-disabled).p-focus {
+        box-shadow: none;
+    }
+}
+
+.p-cascadeselect {
+    &:not(.p-disabled).p-focus {
+        box-shadow: none;
+    }
+}
+
+.p-autocomplete {
+    &.p-autocomplete-multiple {
+        &:not(.p-disabled).p-focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.p-chips {
+    .p-chips-multiple-container {
+        &:not(.p-disabled).p-focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.p-orderlist {
+    .p-orderlist-list {
+        border-top: 0 none;
+    }
+}
+
+.p-picklist {
+    .p-picklist-list {
+        border-top: 0 none;
+    }
+}
+
+.p-panelmenu {
+    .p-panelmenu-icon {
+        &.pi-chevron-right,
+        &.pi-chevron-down {
+            order: 10;
+            margin-left: auto;
+        }
+
+        &.pi-chevron-right::before {
+            content: "\e90d";
+        }
+
+        &.pi-chevron-down::before {
+            content: "\e90f";
+        }
+    }
+
+    .p-panelmenu-header {
+        &.p-highlight {
+            > a {
+                padding-bottom: calc(1rem + 2px);
+                border-bottom: 0 none;
+            }
+        }
+        
+
+        &:not(.p-highlight):not(.p-disabled) {
+            > a:hover {
+                padding-bottom: calc(1rem + 2px);
+                border-bottom: 0 none;
+            }
+        }
+    }
+}
+
+.p-datatable {
+    .p-datatable-tbody {
+        > tr {
+            &.p-datatable-dragpoint-top > td {
+                box-shadow: inset 0 2px 0 0 $primaryColor;
+            }
+
+            &.p-datatable-dragpoint-bottom > td {
+                box-shadow: inset 0 -2px 0 0 $primaryColor;
+            }
+        }
+    }
+}

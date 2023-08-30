@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.0.3",
     "@react-stately/data": "^3.10.1",
     "bcrypt": "^5.1.0",
     "classnames": "^2.3.2",
