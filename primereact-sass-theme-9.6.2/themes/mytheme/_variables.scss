@@ -1,4 +1,4 @@
-$primaryColor: #9eade6 !default;
+$primaryColor: #9eace600 !default;
 $primaryDarkColor: scale-color($primaryColor, $lightness: -5%) !default;
 $primaryDarkerColor: scale-color($primaryColor, $lightness: -10%) !default;
 $primaryTextColor: #121212 !default;
@@ -33,9 +33,9 @@ $shade900: #0e1315 !default; //ground surface
 $hoverBg: rgba($primaryColor, 0.08) !default;
 
 //global
-$fontFamily: Poppins, sans-serif !default;
-$fontSize: 1rem !default;
-$fontWeight: normal !default;
+$fontFamily: Exo, sans-serif !default;
+$fontSize: 12px !default;
+$fontWeight: 600 !default;
 $textColor: $shade000 !default;
 $textSecondaryColor: $shade100 !default;
 $borderRadius: 6px !default;
@@ -77,7 +77,7 @@ $actionIconBorderRadius: 50% !default;
 
 //input field (e.g. inputtext, spinner, inputmask)
 $inputPadding: 0.5rem 0.75rem !default;
-$inputTextFontSize: 1rem !default;
+$inputTextFontSize: 12px !default;
 $inputBg: $shade900 !default;
 $inputTextColor: $shade000 !default;
 $inputIconColor: $shade100 !default;
@@ -531,7 +531,7 @@ $paginatorElementPadding: 0 !default;
 $tableHeaderBorder: 2px solid $shade600 !default;
 $tableHeaderBorderWidth: 0 0 2px 0 !default;
 $tableHeaderBg: $shade800 !default;
-$tableHeaderTextColor: $shade100 !default;
+$tableHeaderTextColor: #00F0FF !default;
 $tableHeaderFontWeight: 600 !default;
 $tableHeaderPadding: 1rem 1rem !default;
 
