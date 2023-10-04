@@ -13,6 +13,7 @@ import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
 import { CustomerService } from './CustomerService';
 import { OverlayPanel } from 'primereact/overlaypanel';
+
 export default function CustomersDemo() {
     const [customers, setCustomers] = useState([]);
     const [selectedCustomers, setSelectedCustomers] = useState([]);
@@ -105,12 +106,22 @@ export default function CustomersDemo() {
             </div>
         );
     };
+    const nameBodyTemplate = (rowData) => {
+        return (
+            <div className="flex flex-col  gap-[5px] ">
+                <span className="text-list-default">{rowData.name.toUpperCase()}</span>
+                <span className="text-list-sub">{rowData.status}</span>
+
+            </div>
+        );
+    };
 
     const countryBodyTemplate = (rowData) => {
         return (
             <div className="flex align-items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png" className={`flag flag-${rowData.country.code}`} style={{ width: '24px' }} />
                 <span>{rowData.country.name}</span>
+                
             </div>
         );
     };
@@ -195,24 +206,24 @@ export default function CustomersDemo() {
     const header = renderHeader();
 
     return (
-        <div className="card">
-              <DataTable value={customers} paginator header={header} rows={5}
-                    rowClassName={"button-default "}
+        <div className="">
+              <DataTable value={customers} paginator header={header} rows={4} 
+                    rowClassName={"list-bg"}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                     rowsPerPageOptions={[10, 25, 50]} dataKey="id" selectionMode="checkbox" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
                     filters={filters} filterDisplay="menu" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                     emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                <Column selectionMode="single" headerStyle={{ width: '1rem' }}></Column>
-                <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ minWidth: '14rem' }} />
-                <Column field="country.name" header="Country" sortable filterField="country.name" style={{ minWidth: '14rem' }} body={countryBodyTemplate} filter filterPlaceholder="Search by country" />
+                {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}
+                <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ maxWidth: '100px' }} body={nameBodyTemplate} />
+                {/* <Column field="country.name" header="Country" sortable filterField="country.name" style={{ minWidth: '14rem' }} body={countryBodyTemplate} filter filterPlaceholder="Search by country" />
                 
                 <Column field="date" header="Date" sortable filterField="date" dataType="date" style={{ minWidth: '12rem' }} body={dateBodyTemplate} filter filterElement={dateFilterTemplate} />
-                <Column field="status" header="Status" sortable filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} body={statusBodyTemplate} filter filterElement={statusFilterTemplate} />
-                <Column 
-                headerStyle={{ width: '5rem', textAlign: 'center' }}
+                <Column field="status" header="Status" sortable filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} body={statusBodyTemplate} filter filterElement={statusFilterTemplate} /> */}
+                {/* <Column 
+                headerStyle={{ width: '100%', textAlign: 'center' }}
                  bodyStyle={{ textAlign: 'center', overflow: 'visible' }}
                 //   body={actionBodyTemplate}
-                   />
+                   /> */}
             </DataTable>
         </div>
     );

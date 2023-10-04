@@ -4,7 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "primereact/resources/primereact.min.css";                                       
+@import 'primereact/resources/primereact.min.css';
 
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
@@ -13,14 +13,33 @@
   --inputs-offeset-top: 40px;
   --test: white;
   --default-ui: 196 100% 93%;
+}
+
+.p-selectable-row:focus {
+  background: #002229 !important;
+}
+.p-selectable-row {
+  border-radius: 12px !important;
+}
+.p-datatable-tbody {
+  border-radius: 12px !important;
+}
+/* html {
+  font-size: 14px;
+} */
+body > main > section > div.panel-default > div.panel-inset > div > div > div.p-datatable-wrapper > table > tbody > tr > td {
+  border-radius: 12px;
   
 }
 .card {
-  background: var(--surface-card);
+  /* background: var(--surface-card); */
+  background: transparent;
+
   padding: 2rem;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
+
 .button1 {
   width: 222px;
 }
@@ -68,7 +87,6 @@
   letter-spacing: 0.01em;
   text-align: center;
 }
-
 
 .text-input-title {
   color: #cefcff;
@@ -397,7 +415,19 @@
   /* text-align: center;
 align-self: center; */
 }
+.text-list-default {
+  font-family: 'Inter', Helvetica;
+  font-weight: 520;
+  font-size: 11px;
+  color: #cefcff;
+}
 
+.text-list-sub {
+  font-family: 'Exo 2', Helvetica;
+  font-weight: 300;
+  font-size: 12px;
+  color: #cefcff;
+}
 .text-modifier.default {
   text-align: center;
   align-self: center;
@@ -551,7 +581,9 @@ align-self: center; */
     rgba(73, 162, 214, 0.26) 100%
   );
 }
-
+.list-bg {
+  background-color: red;
+}
 .panel-default {
   border: 1px solid rgba(0, 240, 255, 0.2);
   /* background: radial-gradient(644.70% 114.87% at 22.25% 28.07%, rgba(0, 163, 255, 0.02) 0%, rgba(73, 162, 214, 0.26) 100%); */
@@ -599,20 +631,6 @@ align-self: center; */
   gap: 0.875rem;
 
   border-radius: 10px;
-}
-
-.card-default {
-  display: inline-flex;
-  padding: 15px 14px 51px 14px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-
-  background: radial-gradient(
-    644.7% 114.87% at 22.25% 28.07%,
-    rgba(0, 163, 255, 0.02) 0%,
-    rgba(73, 162, 214, 0.26) 100%
-  );
 }
 
 .app {

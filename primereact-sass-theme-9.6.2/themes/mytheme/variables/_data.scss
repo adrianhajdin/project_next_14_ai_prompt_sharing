@@ -72,7 +72,7 @@ $tableHeaderBorderWidth: 0 0 1px 0;
 
 /// Background of a table header
 /// @group data
-$tableHeaderBg: #f8f9fa00;
+$tableHeaderBg: transparent;
 
 /// Text color of a table header
 /// @group data
@@ -88,7 +88,7 @@ $tableHeaderPadding: 1rem 1rem;
 
 /// Padding of a table header cell, must be defined with a shorthand for vertical and horizontal values e.g. ".5rem .5rem"
 /// @group data
-$tableHeaderCellPadding: 1rem 1rem;
+$tableHeaderCellPadding: 0.5rem 0.5rem;
 
 /// Background of a table header cell
 /// @group data
