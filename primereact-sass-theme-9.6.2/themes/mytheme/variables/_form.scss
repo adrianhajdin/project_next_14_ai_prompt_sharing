@@ -12,7 +12,7 @@ $inputTextFontSize: 1rem;
 
 /// Text color of an input field
 /// @group form
-$inputTextColor: $textColor;
+$inputTextColor: #cefcff;
 
 /// Color of an icon inside an input field
 /// @group form
@@ -36,7 +36,7 @@ $inputErrorBorderColor: #ced4da #ced4da #ced4da $errorColor;
 
 /// Text color of a placeholder
 /// @group form
-$inputPlaceholderTextColor: #6c757d;
+$inputPlaceholderTextColor: #cefcff !important;
 
 /// Background of a filled input
 /// @group form

@@ -2,7 +2,7 @@
 import CloseButton from 'public/assets/icons/generic/button_close.svg'
 import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
-
+import Device_VKB_SpaceEvo from '@components/Device_VKB_SpaceEvo';
 import InputEditor from './InputEditor';
 import InputViewer from './InputViewer'
 const page = () => {
@@ -11,12 +11,15 @@ const page = () => {
 
   return (
 
-<section className='flex flex-row'>
-<InputViewer/>
+    <section className='editor-container'>
+      <InputViewer />
 
-<InputEditor/>
+      <div className= 'device-container' >
+        <Device_VKB_SpaceEvo className="min-w-[330px]" />
+      </div>
+      <InputEditor />
 
-</section>
+    </section>
 
 
   )

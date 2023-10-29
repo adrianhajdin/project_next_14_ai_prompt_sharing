@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-
+import Spacer from "components/generic/Spacer.jsx"
 const Nav = () => {
   const { data: session } = useSession();
 
@@ -19,8 +19,28 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className='flex-between w-full mb-16 pt-3'>
-      <Link href='/' className='flex gap-2 flex-center'>
+    <nav className='flex-between w-full mb-[12px] pt-3'>
+      <div className="flex flex-row gap-[30px]"> 
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <p className="text-base">// CURRENT PROFILE</p>
+          <div> </div>
+        </div>
+        <p className="text-profile-title slant">"PROFILE NAME"</p>
+      </div>
+
+      {/* <Spacer className=""/> */}
+      <div className="spacer"/>
+
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <p className="text-base">// CURRENT DEVICE</p>
+          <div> </div>
+        </div>
+        <p className="text-profile-title slant">VKB GLADIATOR NXT EVO</p>
+      </div>
+      </div>
+      {/* <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/logo.svg'
           alt='logo'
@@ -29,7 +49,7 @@ const Nav = () => {
           className='object-contain'
         />
         <p className='logo_text'>POGGERS</p>
-      </Link>
+      </Link> */}
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>

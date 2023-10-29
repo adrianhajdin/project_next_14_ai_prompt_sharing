@@ -13,6 +13,7 @@ import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
 import { CustomerService } from './CustomerService';
 import { OverlayPanel } from 'primereact/overlaypanel';
+import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
 
 export default function CustomersDemo() {
     const [customers, setCustomers] = useState([]);
@@ -97,12 +98,24 @@ export default function CustomersDemo() {
 
     const renderHeader = () => {
         return (
-            <div className="flex flex-wrap gap-2 justify-content-between align-items-center">
-                <h4 className="m-0">Customers</h4>
+            // <div className="flex flex-wrap gap-2 justify-content-between align-items-center w-full pl-12px">
+            //     {/* <h4 className="m-0"></h4> */}
+            //     <span className="p-input-icon-left ">
+            //         <i className="pi pi-search" />
+            //         <SearchIcon/>
+            //         <InputText unstyled= "true" className='color-[#cefcff]' value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="START TYPING" />
+            //     </span>
+
+            // </div>
+
+            <div className="flex flex-wrap gap-2 justify-content-between align-items-center w-full pl-12px mb-[8px]">
                 <span className="p-input-icon-left">
                     <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
+                    <SearchIcon className="w-[15px] h-auto glow-test"></SearchIcon>
+                    <InputText unstyled="true" className='' value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="START TYPING" />
+
                 </span>
+
             </div>
         );
     };
@@ -121,7 +134,7 @@ export default function CustomersDemo() {
             <div className="flex align-items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png" className={`flag flag-${rowData.country.code}`} style={{ width: '24px' }} />
                 <span>{rowData.country.name}</span>
-                
+
             </div>
         );
     };
@@ -206,13 +219,14 @@ export default function CustomersDemo() {
     const header = renderHeader();
 
     return (
-        <div className="">
-              <DataTable value={customers} paginator header={header} rows={4} 
-                    rowClassName={"list-bg"}
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                    rowsPerPageOptions={[10, 25, 50]} dataKey="id" selectionMode="checkbox" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
-                    filters={filters} filterDisplay="menu" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
-                    emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <div className="flex w-full">
+            <DataTable value={customers} paginator header={header} rows={4}
+                rowClassName={"list-bg"}
+                className="w-full"
+                paginatorTemplate=""
+                dataKey="id" selectionMode="checkbox" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
+                filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
+                emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                 {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}
                 <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ maxWidth: '100px' }} body={nameBodyTemplate} />
                 {/* <Column field="country.name" header="Country" sortable filterField="country.name" style={{ minWidth: '14rem' }} body={countryBodyTemplate} filter filterPlaceholder="Search by country" />

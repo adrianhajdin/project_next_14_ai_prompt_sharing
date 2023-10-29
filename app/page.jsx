@@ -3,7 +3,7 @@
 import Feed from "@components/Feed";
 import GameVerDropdown from "@components/GameVerDropdown";
 import Hat from "@components/Hat";
-import HatUp from '@components/HatUp';
+import HatUp from '@components/Device_VKB_SpaceEvo';
 import ActionTable from 'app/editor/ActionTable.jsx'
 const Home = () => (
   <section className='w-full flex-center flex-col'>
