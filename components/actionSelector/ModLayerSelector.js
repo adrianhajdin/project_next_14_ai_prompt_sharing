@@ -24,28 +24,19 @@ const ModLayerSelector = (props) => {
         return aggregateChips;
     }
 
-    const modChipTemplate = (chips) => {
-        return (
-            <>
-                <> {getAllChips} </>
-                <LayerChip layer={chips} />
-            </>
-
-        );
-    }
 
 
 
-    const buttonClick = () => {
 
-    }
 
     return (
         <section>
             <p>// Select Modifier Layer</p>
             <div className='flex flex-row'>
 
-                {modChipTemplate('1')}
+                <LayerChip layer="1" isButton='false' />
+                <LayerChip layer="2" isButton='true' />
+
 
             </div>
         </section>

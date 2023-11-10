@@ -4,7 +4,7 @@ import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
 import ActionTable from '@app/editor/ActionTable'
 import LayerChip from '@components/generic/LayerChip';
-import ModLayerSelector from 'components/actionSelector/ModLayerSelector.js';
+import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
 
 const Editor = () => {
   const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
