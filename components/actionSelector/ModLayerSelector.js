@@ -26,9 +26,6 @@ const ModLayerSelector = (props) => {
 
 
 
-
-
-
     return (
         <section>
             <p>// Select Modifier Layer</p>

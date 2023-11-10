@@ -74,19 +74,17 @@ export default function LayerChip(props) {
     if (isButton === 'true') {
         return (
             <form action=" ">
-                <div>
-                    <label for='selectedModLayer'>
+                <div className="selectModLayerField " >
+                    <label htmlFor='selectedModLayer'>
                         <input
                             id="selectedModLayer"
                             name="toggle"
                             // value="1"
-                            type="radio"
+                            type="checkbox"
                             onClick={() => selectModLayer(layerNumber)}
                         >
                         </input>
                         {chipTemplate}
-
-                        test
                     </label>
 
 
