@@ -31,11 +31,15 @@ export default function LayerChip(props) {
 
 
     const selectModLayer = (selectedLayerNumber) => {
-        console.log("MOD LAYER SELECTED:" + selectedLayerNumber);
+        console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
+        console.log("selectedModLayer" + layerNumber);
 
         // globally select the mod layer here
         return (() => {
-            console.log("MOD LAYER SELECTED:" + selectedLayerNumber);
+            console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
+            console.log("selectedModLayer" + layerNumber);
+            
+
         })
     }
 
@@ -74,10 +78,10 @@ export default function LayerChip(props) {
     if (isButton === 'true') {
         return (
             <form action=" ">
-                <div className="selectModLayerField " >
-                    <label htmlFor='selectedModLayer'>
+                <div className="selectModLayerField" >
+                    <label htmlFor="selectedModLayer2">
                         <input
-                            id="selectedModLayer"
+                            id="selectedModLayer2"
                             name="toggle"
                             // value="1"
                             type="checkbox"

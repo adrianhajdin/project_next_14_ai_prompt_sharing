@@ -199,6 +199,9 @@ body > main > section > div.panel-default > div.panel-inset > div > div > div.p-
   justify-content: space-between;
   align-items: center;
 }
+input[type=checkbox]{
+  display:none;
+}
 
 .input-down-absolute {
   transform-origin: top;
@@ -534,15 +537,53 @@ align-self: center; */
   
 }
 
-#selectedModLayer:checked + .button-chip {
-
-border-width: 2px;
+#selectedModLayer1:checked + .button-chip.modifier-chip-2  {
+  filter: saturate(1);
+  box-shadow: 0px 0px 30px 0px #00ffbb33, inset -13px -15px 30px 0px #00ffbb33 !important;
+  border: 1.5px solid #00ffdab3 !important; 
+transition: box-shadow 0.3s;
+transition: filter 0.3s;
 }
 
-#selectedModLayer:checked + .button-chip {
+#selectedModLayer1:hover + .button-chip.modifier-chip-2  {
+  border: 1px dashed #00ffdab3  ; 
+  filter: saturate(1);
+  background: linear-gradient(90deg, #0a8b31be 20%, rgb(0 255 104 / 34%) 100%);
+  transition: border 0.3s;
+}
 
-  border-width: 2px;
+#selectedModLayer1 + .button-chip.modifier-chip-2 {
+  filter: saturate(0.8);
+  background: linear-gradient(90deg, #083d00 20%, rgb(0 75 31) 100%);
+  box-shadow: none;
+  border: 1px dashed rgb(33 255 0 / 52%);
+  border-width: 1px;
   }
+
+  #selectedModLayer2:checked + .button-chip.modifier-chip-3  {
+    filter: saturate(1);
+    box-shadow: 0px 0px 30px 0px #00ffbb33, inset -13px -15px 30px 0px #00ffbb33 !important;
+    border: 1.5px solid #00ffdab3 !important; 
+  transition: box-shadow 0.3s;
+  transition: filter 0.3s;
+  }
+  
+  #selectedModLayer2:hover + .button-chip.modifier-chip-3  {
+    border: 1px dashed #00ffdab3  ; 
+    filter: saturate(1);
+    background: linear-gradient(90deg, #0a8b31be 20%, rgb(0 255 104 / 34%) 100%);
+    transition: border 0.3s;
+  }
+  
+  #selectedModLayer2 + .button-chip.modifier-chip-3 {
+    filter: saturate(0.8);
+    background: linear-gradient(90deg, #083d00 20%, rgb(0 75 31) 100%);
+    box-shadow: none;
+    border: 1px dashed rgb(33 255 0 / 52%);
+    border-width: 1px;
+    }
+
+
 /* .button-chip:hover {
 
   border-width: 2px;
