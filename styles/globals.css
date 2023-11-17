@@ -534,10 +534,8 @@ align-self: center; */
   margin-top: -1px;
 }
 .button-chip {
-  
 }
-
-#selectedModLayer1:checked + .button-chip.modifier-chip-2  {
+#selectedModLayer0:checked + .button-chip.modifier-chip-0  {
   filter: saturate(1);
   box-shadow: 0px 0px 30px 0px #00ffbb33, inset -13px -15px 30px 0px #00ffbb33 !important;
   border: 1.5px solid #00ffdab3 !important; 
@@ -545,18 +543,42 @@ transition: box-shadow 0.3s;
 transition: filter 0.3s;
 }
 
-#selectedModLayer1:hover + .button-chip.modifier-chip-2  {
+#selectedModLayer0:hover + .button-chip.modifier-chip-0  {
   border: 1px dashed #00ffdab3  ; 
   filter: saturate(1);
   background: linear-gradient(90deg, #0a8b31be 20%, rgb(0 255 104 / 34%) 100%);
   transition: border 0.3s;
 }
 
+#selectedModLayer0 + .button-chip.modifier-chip-0 {
+  filter: saturate(0.8);
+  background: linear-gradient(90deg, #106958be 20%, rgb(0 105 98) 100%);
+  box-shadow: none;
+  border: 1px dashed rgb(33 255 0 / 52%) !important;
+  border-width: 1px;
+  }
+
+#selectedModLayer1:checked + .button-chip.modifier-chip-2  {
+  filter: saturate(1);
+  box-shadow: 0px 0px 30px 0px #00ffbb33, inset -13px -15px 30px 0px #ffb30033 !important;
+  border: 1.5px solid #00ffdab3 !important; 
+transition: box-shadow 0.3s;
+transition: filter 0.3s;
+background: linear-gradient(90deg, #d77300be 20%, #d37f00cf 100%);
+}
+
+#selectedModLayer1:hover + .button-chip.modifier-chip-2  {
+  border: 1px dashed #ffc400b3  ; 
+  filter: saturate(1);
+  background: linear-gradient(90deg, #8b730abe 20%, rgba(255, 183, 0, 0.34) 100%);
+  transition: border 0.3s;
+}
+
 #selectedModLayer1 + .button-chip.modifier-chip-2 {
   filter: saturate(0.8);
-  background: linear-gradient(90deg, #083d00 20%, rgb(0 75 31) 100%);
+  background: linear-gradient(90deg, #3d2e00 20%, rgb(75, 47, 0) 100%);
   box-shadow: none;
-  border: 1px dashed rgb(33 255 0 / 52%);
+  border: 1px dashed rgba(255, 187, 0, 0.52);
   border-width: 1px;
   }
 
@@ -629,7 +651,19 @@ transition: filter 0.3s;
   box-shadow: 0px 8px 35px #ffb3279c;
   align-items: center;
 }
-
+.modifier-chip-0 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 24px;
+  border-radius: 10px;
+  background:   linear-gradient(90deg, #106958be 20%, rgb(0 105 98) 100%)  ;
+  padding: 0px 5px 0px 5px;
+  border-width: 1px;
+  border-color: #ffffff7c;
+  /* box-shadow: 0px 8px 35px #00cb649c; */
+  align-items: center;
+}
 .modifier-chip-3 {
   display: flex;
   flex-direction: row;

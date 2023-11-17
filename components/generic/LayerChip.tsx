@@ -19,10 +19,13 @@ export default function LayerChip(props) {
     const isButton = props.isButton;
 
     const classNames = clsx({
+        'modifier-chip-0 flex gap-[6px]': layerNumber === "0",
         'modifier-chip-2 flex gap-[6px]': layerNumber === "1",
         'modifier-chip-3 flex gap-[6px]': layerNumber === "2",
         'modifier-chip-2 button-chip flex gap-[6px]': (props.isButton === 'true') && (layerNumber === "1"),
         'modifier-chip-3 button-chip flex gap-[6px]': (props.isButton === 'true') && (layerNumber === "2"),
+        'modifier-chip-0 button-chip flex gap-[6px]': (props.isButton === 'true') && (layerNumber === "0"),
+
     })
 
     const layerTagTextClassNames = clsx({
@@ -79,9 +82,9 @@ export default function LayerChip(props) {
         return (
             <form action=" ">
                 <div className="selectModLayerField" >
-                    <label htmlFor="selectedModLayer2">
+                    <label htmlFor={"selectedModLayer" + layerNumber}>
                         <input
-                            id="selectedModLayer2"
+                            id={"selectedModLayer" + layerNumber}
                             name="toggle"
                             // value="1"
                             type="checkbox"
