@@ -218,22 +218,15 @@ export default function CustomersDemo() {
 
     const header = renderHeader();
 
-    const onRowSelect = () => {
-
-console.log ("SELECTION MADE:" + selectedCustomers.name)
-    }
-
     return (
-        <div className="flex w-full flex-col gap-[8px]">
-            <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
+        <div className="flex w-full flex-col gap-[8px] mt-[16px]">
+            <p className='text-base'>// SELECT GAME BIND </p>
 
-            <DataTable
-                onRowSelect={onRowSelect}
-                value={customers} paginator header={header} rows={4}
+            <DataTable value={customers} paginator header={header} rows={4}
                 rowClassName={"list-bg"}
                 className="w-full"
                 paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
+                dataKey="id" selectionMode="checkbox" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                 {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}

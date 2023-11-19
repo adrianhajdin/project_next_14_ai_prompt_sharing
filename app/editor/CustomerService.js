@@ -3,7 +3,7 @@ export const CustomerService = {
         return [
             {
                 id: 1000,
-                name: 'James Butt',
+                name: 'TEST',
                 country: {
                     name: 'Algeria',
                     code: 'dz'

@@ -5,7 +5,8 @@ import React from 'react'
 import ActionTable from '@app/editor/ActionTable'
 import LayerChip from '@components/generic/LayerChip';
 import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
-
+import BindTable from '@app/editor/BindTable.jsx'
+import BindButton from '@app/editor/BindButton.jsx'
 const Editor = () => {
   const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
   const inputName = "HAT UP"
@@ -39,10 +40,13 @@ const Editor = () => {
 
       </div>
 
-      <div className="panel-inset">
+      <div className="panel-inset flex flex-col gap-[8pxpx]">
 
         <ActionTable />
         <ModLayerSelector />
+        <BindButton />
+
+        <BindTable />
 
       </div>
     </div>
