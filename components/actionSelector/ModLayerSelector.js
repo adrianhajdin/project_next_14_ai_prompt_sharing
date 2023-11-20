@@ -3,8 +3,10 @@ import LayerChip from 'components/generic/LayerChip.tsx'
 import { get } from 'mongoose'
 import { useState } from 'react'
 
-const ModLayerSelector = props => {
+const ModLayerSelector = (props) => {
+
   const layersToRender = [0, 1, 2]
+
   const getAllChips = props => {
     return layersToRender.map(index => {
       return <LayerChip layer={index.toString()} isButton='true' />

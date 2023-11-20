@@ -11,13 +11,23 @@ import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
 import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
-import { CustomerService } from './CustomerService';
+// import { CustomerService } from './CustomerService';
+import { GameActions } from './GameActions';
+import { DeviceInputs } from './DeviceInputs';
+
 import { OverlayPanel } from 'primereact/overlaypanel';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
 
-export default function CustomersDemo() {
-    const [customers, setCustomers] = useState([]);
-    const [selectedCustomers, setSelectedCustomers] = useState([]);
+export default function ActionTable({ onActionSelect }) {
+
+    const [actions, setActions] = useState([]);
+    const [selectedActions, setSelectedActions] = useState([]);
+
+
+    const [inputs, setInputs] = useState([]);
+    const [selectedInputs, setSelectedInputs] = useState([]);
+
+
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
         name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -63,17 +73,38 @@ export default function CustomersDemo() {
     };
 
     useEffect(() => {
-        CustomerService.getCustomersLarge().then((data) => setCustomers(getCustomers(data)));
+        // if (props.type === "inputs") {
+        //     console.log("TABLE TYPE: INPUTS")
+
+        //     DeviceInputs.getCustomersLarge().then((data) => setInputs(getInputs(data)));
+
+        // } else if (props.type === "actions") {
+        //     console.log("TABLE TYPE: ACTIONS")
+
+        //     GameActions.getCustomersLarge().then((data) => setActions(getActions(data)));
+
+        // } else {
+        //     console.log("NO TABLE TYPE")
+        // }
+        GameActions.getCustomersLarge().then((data) => setActions(getActions(data)));
+
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const getCustomers = (data) => {
+
+    const getInputs = (data) => {
         return [...(data || [])].map((d) => {
             d.date = new Date(d.date);
 
             return d;
         });
     };
+    const getActions = (data) => {
+        return [...(data || [])].map((d) => {
+            d.date = new Date(d.date);
 
+            return d;
+        });
+    };
     const formatDate = (value) => {
         return value.toLocaleDateString('en-US', {
             day: '2-digit',
@@ -218,36 +249,50 @@ export default function CustomersDemo() {
 
     const header = renderHeader();
 
-    const onRowSelect = () => {
 
-console.log ("SELECTION MADE:" + selectedCustomers.name)
+    // BIND BUTTON STUFF
+
+
+
+    // ACTION BUTTON STUFF
+    const onRowSelectAction = () => {
+        onActionSelect(selectedActions.name);
+        console.log("SELECTED ACTION:" + selectedActions.name)
     }
+
+    //BIND BUTTON STUFF
+
 
     return (
         <div className="flex w-full flex-col gap-[8px]">
             <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
 
             <DataTable
-                onRowSelect={onRowSelect}
-                value={customers} paginator header={header} rows={4}
+                onRowSelect={() => onRowSelectAction()}
+                value={actions} paginator header={header} rows={4}
                 rowClassName={"list-bg"}
                 className="w-full"
                 paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedCustomers} onSelectionChange={(e) => setSelectedCustomers(e.value)}
+                dataKey="id" selectionMode="single" selection={selectedActions} onSelectionChange={(e) => setSelectedActions(e.value)}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                 {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}
                 <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ maxWidth: '100px' }} body={nameBodyTemplate} />
-                {/* <Column field="country.name" header="Country" sortable filterField="country.name" style={{ minWidth: '14rem' }} body={countryBodyTemplate} filter filterPlaceholder="Search by country" />
-                
-                <Column field="date" header="Date" sortable filterField="date" dataType="date" style={{ minWidth: '12rem' }} body={dateBodyTemplate} filter filterElement={dateFilterTemplate} />
-                <Column field="status" header="Status" sortable filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} body={statusBodyTemplate} filter filterElement={statusFilterTemplate} /> */}
-                {/* <Column 
-                headerStyle={{ width: '100%', textAlign: 'center' }}
-                 bodyStyle={{ textAlign: 'center', overflow: 'visible' }}
-                //   body={actionBodyTemplate}
-                   /> */}
+
             </DataTable>
+
+            {/* <DataTable
+                onRowSelect={ () => onRowSelectInput()}
+                value={actions} paginator header={header} rows={4}
+                rowClassName={"list-bg"}
+                className="w-full"
+                paginatorTemplate=""
+                dataKey="id" selectionMode="single" selection={selectedInputs} onSelectionChange={(a) => setSelectedInputs(a.value)}
+                emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ maxWidth: '100px' }} body={nameBodyTemplate} />
+            
+            </DataTable> */}
+
         </div>
     );
 }

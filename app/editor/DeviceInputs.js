@@ -1,9 +1,9 @@
-export const CustomerService = {
+export const DeviceInputs = {
     getData() {
         return [
             {
                 id: 1000,
-                name: 'TEST',
+                name: 'INPUTS',
                 country: {
                     name: 'Algeria',
                     code: 'dz'

@@ -3,13 +3,20 @@ import CloseButton from 'public/assets/icons/generic/button_close.svg'
 import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
 import ActionTable from '@app/editor/ActionTable'
+import InputTable from '@app/editor/InputTable'
+
 import LayerChip from '@components/generic/LayerChip';
 import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
-import BindTable from '@app/editor/BindTable.jsx'
 import BindButton from '@app/editor/BindButton.jsx'
+
+import { createContext, useContext, useState } from 'react';
+
+
+
 const Editor = () => {
-  const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
-  const inputName = "HAT UP"
+  const [selectedInput, setSelectedInput] = useState("CONTEXT INPUT: DEFAULT");
+  const [selectedAction, setSelectedAction] = useState("CONTEXT ACTION: DEFAULT")
+
 
   return (
 
@@ -40,14 +47,19 @@ const Editor = () => {
 
       </div>
 
-      <div className="panel-inset flex flex-col gap-[8pxpx]">
+      <div className="panel-inset flex flex-col gap-[16px]">
 
-        <ActionTable />
+        <InputTable
+          onInputSelect={setSelectedInput}
+        />
+
         <ModLayerSelector />
-        <BindButton />
 
-        <BindTable />
+        <BindButton selectedAction={selectedAction} selectedInput={selectedInput} />
+        {/* <ActionTable type="actions" /> */}
+        <ActionTable onActionSelect={setSelectedAction} />
 
+        {/* <BindTable /> */}
       </div>
     </div>
 

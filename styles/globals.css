@@ -22,10 +22,12 @@
   width: 0;
 }
 
-#BindButton {
+#bindButton {
 background: linear-gradient(90deg, #05201bbe 20%, rgb(0, 54, 51) 100%);
 border: 2px solid #135748;
 color: #CEFCFF;
+align-self: center;
+width: 100%;
 }
 .glow-test {
   -webkit-filter: drop-shadow(0px 0px 11px #B8FFEE);
