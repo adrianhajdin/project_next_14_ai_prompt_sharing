@@ -9,7 +9,7 @@ const Down = ({ action_id, inputName_id }) => {
     <div className="input-down-absolute ">
       <div className="ui-corners mt-2.5">
         <div className='square_contain'>
-          <div className='w-40px h-40px '>
+          <div className='w-[40px] h-[40px] '>
             <DownIcon />
           </div>
         </div>

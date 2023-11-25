@@ -6,11 +6,9 @@ const Right = ({ action_id, inputName_id }) => {
   return (
 
     <div className="input-right-absolute ">
-      <div className="ui-corners mt-2.5">
+      <div className="ui-corners ">
         <div className='square_contain'>
-          <div className='w-40px h-40px '>
             <RightIcon />
-          </div>
         </div>
       </div>
       <div className='flex flex-col w-[102px] '>

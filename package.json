@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconfu/svg-inject": "^1.2.3",
     "@react-stately/data": "^3.10.1",
+    "@tanem/svg-injector": "^10.1.68",
     "bcrypt": "^5.1.0",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
@@ -23,6 +25,7 @@
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
     "react-select": "^5.7.3",
+    "react-svg": "^16.1.31",
     "sass": "^1.66.1",
     "tailwind-merge": "^1.14.0"
   },

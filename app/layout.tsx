@@ -13,6 +13,7 @@ export const metadata = {
 const RootLayout = ({children}: { children: React.ReactNode }) => (
   <html lang='en' className="dark">
     
+
     <body>
 
       <Provider>

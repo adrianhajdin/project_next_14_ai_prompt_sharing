@@ -2,13 +2,11 @@
 import CloseButton from 'public/assets/icons/generic/button_close.svg'
 import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
-import Hat from '@components/Hat';
-import Up from '@components/inputs/Up';
-import Left from '@components/inputs/Left';
-import DownPress from '@components/inputs/DownPress';
-import Right from '@components/inputs/Right';
-import LayerChip from '@components/generic/LayerChip';
+// import CircleSwitch from '@public/assets/VKB/input3.svg'
+import CircleSwitch from 'components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/CircleSwitch.svg';
 
+import LayerChip from '@components/generic/LayerChip';
+import InputViewer from '@components/ui/inputViewer.jsx'
 const Editor = () => {
   const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
   const inputName = "HAT UP"
@@ -24,8 +22,6 @@ const Editor = () => {
         <div className='w-full flex flex-row justify-end mr-[10px]'>
           <IconLegend />
         </div>
-
-
       </div>
 
 
@@ -36,23 +32,26 @@ const Editor = () => {
         <p className='text-base self-start'>// MODIFIER LAYERS</p>
         <div className='flex flex-row gap-[10px]'>
           <LayerChip layer="1" />
-          <LayerChip layer ="2" />
+          <LayerChip layer="2" />
         </div>
 
 
       </div>
 
-      <div className="test2">
-        <Up inputName_id={inputName} action_id={action}  > </Up>
-        <Left />
-        <Right />
-        <DownPress inputName_id={inputName} action_id={action} />
-        <div className="hat">
-          <Hat />
-        </div>
+      {/* <div className="test2">
+          <Up inputName_id={inputName} action_id={action}  > </Up>
+          <Left />
+          <Right />
+          <DownPress inputName_id={inputName} action_id={action} />
+          <div className="hat">
+            <Hat />
+          </div>
+      </div> */}
+
+      <InputViewer inputGroup="hat_1" />
+      {/* <CircleSwitch /> */}
 
 
-      </div>
     </div>
 
 

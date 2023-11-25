@@ -6,7 +6,7 @@ const Left = ({ action_id, inputName_id }) => {
   return (
 
     <div className="input-left-absolute ">
-      <div className="ui-corners mt-2.5">
+      <div className="ui-corners ">
         <div className='square_contain'>
           <div className='w-40px h-40px '>
             <LeftIcon />

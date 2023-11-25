@@ -10,6 +10,12 @@
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
+/* svg {
+  width: 100%;
+} */
+.hidden {
+  display: none;
+}
 :root {
   --inputs-offeset-top: 40px;
   --test: white;
@@ -172,7 +178,7 @@ body > main > section > div.panel-default > div.panel-inset > div > div > div.p-
 }
 
 .hat {
-  position: absolute;
+  /* position: absolute; */
   top: calc(448px + var(--inputs-offeset-top));
   align-items: center;
   border: 1px none;
@@ -185,7 +191,19 @@ body > main > section > div.panel-default > div.panel-inset > div > div > div.p-
   padding: 10px;
   filter: drop-shadow(0px 4px 20px #00f0ff);
 }
+.testCircle {
+  width: 70px;
+  height: 74.45px;
 
+}
+.left-center-right {
+display: flex;
+flex-direction: row;
+gap: 15px;
+
+ margin-top: calc(139px + var(--inputs-offeset-top)); 
+
+}
 .input-down-press {
   transform-origin: top;
   position: absolute;
@@ -263,34 +281,34 @@ input[type=checkbox]{
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  bottom: 475px;
+  top: 309px;
 }
 
 .input-left-absolute {
-  transform-origin: left;
-
-  position: relative;
+  /* transform-origin: left; */
+margin-top:4.45px;
+  /* position: relative; */
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 32rem;
-  /* position: absolute; */
+  padding-bottom: 32rem; 
+  /* position: absolute;  
   margin-top: calc(139px + var(--inputs-offeset-top));
-  right: 138px;
-  gap: 8px;
+  right: 138px; */
+  gap: 8px; 
 }
 
 .input-right-absolute {
-  position: relative;
-  display: flex;
+  margin-top:4.45px;
+
+   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  bottom: 774px;
-  /* margin-left: 286px; */
-  left: 136px;
-  gap: 8px;
+  /* bottom: 774px;
+  left: 136px; */
+  gap: 8px; 
 }
 
 .input:hover {
@@ -375,8 +393,8 @@ input[type=checkbox]{
 
 .square_contain {
   display: flex;
-  width: 40px;
-  height: 40px;
+  /* width: 40px;
+  height: 40px; */
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
@@ -753,6 +771,10 @@ background: linear-gradient(90deg, #d77300be 20%, #d37f00cf 100%);
   height: 28rem;
 }
 
+.test-wrap {
+  overflow: scroll;
+
+}
 .test2 {
   display: flex;
   height: 642px;
@@ -912,7 +934,7 @@ gap: 60px;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.875rem;
-
+height: fit-content;
   border-radius: 10px;
 }
 
