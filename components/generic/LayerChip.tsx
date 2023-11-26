@@ -7,7 +7,7 @@ import clsx from "clsx";
 export default function LayerChip(props) {
 
 
-    console.log(props);
+    // console.log(props);
 
 
     const layerNumber = props.layer;
@@ -34,13 +34,13 @@ export default function LayerChip(props) {
 
 
     const selectModLayer = (selectedLayerNumber) => {
-        console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
-        console.log("selectedModLayer" + layerNumber);
+        // console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
+        // console.log("selectedModLayer" + layerNumber);
 
         // globally select the mod layer here
         return (() => {
-            console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
-            console.log("selectedModLayer" + layerNumber);
+            // console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
+            // console.log("selectedModLayer" + layerNumber);
             
 
         })

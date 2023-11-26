@@ -1,12 +1,13 @@
 import React from 'react'
 import PressIcon from 'public/assets/icons/actions/input_press.svg';
-
 import ActionList from '@components/ActionList';
 
-const Press = ({ action_id, inputName_id }) => {
+const Press = ({ layers, name }) => {
+  console.log("HELLOOOOOOOOOOOOOOOOOOOOOO");
+  
   return (
 
-    <div className="input-press-absolute ">
+    <div className="input-press w-[222px] ">
       <div className="ui-corners mt-2.5">
         <div className='square_contain'>
           <div className='w-40px h-40px '>
@@ -15,9 +16,9 @@ const Press = ({ action_id, inputName_id }) => {
         </div>
       </div>
       <div className="input-label input-name ">
-        <div className="text-wrapper">{inputName_id}</div>
+        <div className="text-wrapper">{name}</div>
       </div>
-      <ActionList action_id="xxxx"/>
+      <ActionList layers={layers} input_direction={"press"}/>
     </div>
 
 

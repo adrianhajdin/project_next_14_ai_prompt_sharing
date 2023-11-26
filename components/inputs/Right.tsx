@@ -2,7 +2,7 @@ import React from 'react'
 import RightIcon from 'public/assets/icons/actions/input_right.svg';
 import ActionList from '@components/ActionList';
 
-const Right = ({ action_id, inputName_id }) => {
+const Right = ({layers, name}) => {
   return (
 
     <div className="input-right-absolute ">
@@ -13,10 +13,10 @@ const Right = ({ action_id, inputName_id }) => {
       </div>
       <div className='flex flex-col w-[102px] '>
         <div className="input-label input-name mt-[4px]">
-          <div className="text-wrapper text-left">HAT RIGHT</div>
+          <div className="text-wrapper text-left">{name}</div>
         </div>
         <div className="action-list">
-          <ActionList action_id="MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)" input_direction="right" />
+          <ActionList layers={layers} input_direction="right" />
         </div>
       </div>
 

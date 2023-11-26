@@ -549,7 +549,7 @@ align-self: center; */
   color: #cefcff;
 }
 .text-modifier.default {
-  text-align: center;
+  /* text-align: center; */
   align-self: center;
   font-family: 'Exo 2', Helvetica;
   font-size: 10px;
@@ -722,6 +722,7 @@ background: linear-gradient(90deg, #d77300be 20%, #d37f00cf 100%);
 }
 .text-modifier.right {
   text-align: left;
+  align-self: auto;
 }
 .text-layer1 {
   -webkit-background-clip: text !important;
@@ -934,7 +935,7 @@ gap: 60px;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.875rem;
-height: fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
