@@ -4,19 +4,20 @@ import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
 // import CircleSwitch from '@public/assets/VKB/input3.svg'
 import CircleSwitch from 'components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/CircleSwitch.svg';
-import { SelectContext } from '@components/Provider.tsx';
+import { SelectContext, Context } from '@components/Provider.jsx';
 
 import LayerChip from '@components/generic/LayerChip';
 import InputViewer from '@components/ui/inputViewer.jsx'
 import { useContext } from 'react';
 
 const Editor = () => {
-  const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)"
-  const inputName = "HAT UP"
 
-  const selectedButton = useContext(SelectContext);
-  console.log("Selected Button: " + selectedButton?.currentButtonSelection);
-  
+
+  const {selectedViewerInput, setSelectedViewerInput} = useContext(SelectContext)
+  // setSelectedViewerInput("Circle Switch");
+  console.log("selectedViewerInput: " + selectedViewerInput);
+  // console.log("SelectContext: " + SelectContext);
+
   return (
 
 
@@ -54,7 +55,7 @@ const Editor = () => {
           </div>
       </div> */}
 
-      <InputViewer selectedButton={selectedButton?.currentButtonSelection} />
+      <InputViewer selectedButton={selectedViewerInput} />
       {/* <CircleSwitch /> */}
 
 

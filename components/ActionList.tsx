@@ -3,7 +3,7 @@ import Action from './GameAction'
 import { clsx } from 'clsx'
 import { useContext , useEffect } from 'react';
 
-import { SelectContext } from '@components/Provider.tsx';
+import { SelectContext } from '@components/Provider';
 const ActionList = ({ layers, input_direction }) => {
   // action_id = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)";
   const data = useContext(SelectContext);

@@ -1,12 +1,14 @@
 'use client';
-import { useContext, createContext } from 'react';
+import { useContext, createContext, useState } from 'react';
 import { SessionProvider } from "next-auth/react";
 import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 import 'primereact-sass-theme-9.6.2/themes/mytheme/theme.scss';
 
-export const SelectContext = createContext(null);
+export const SelectContext = createContext();
+export const Context = createContext(null);
 
-const context = {
+
+const globalContext = {
   currentButtonSelection: "Circle Switch",
   availableDeviceInputs: {
 
@@ -24,7 +26,7 @@ const context = {
           ]
         },
 
-        
+
 
         'left': {
           'name': 'CIRCLE SWITCH LEFT',
@@ -69,19 +71,26 @@ const context = {
 
 }
 
-const Provider = ({ children, session }) => (
+const Provider = ({ children, session }) => {
+  const [selectedViewerInput, setSelectedViewerInput] = useState("Circle Switch");
 
-  <SessionProvider session={session}>
-    <PrimeReactProvider >
-      <SelectContext.Provider value={context}>
-        {children}
+  return (
+    <SessionProvider session={session}>
+      <PrimeReactProvider >
+        <SelectContext.Provider value={{selectedViewerInput, setSelectedViewerInput}}>
+          <Context.Provider value={globalContext}>
+
+            {children}
 
 
-      </SelectContext.Provider>
-    </PrimeReactProvider>
-  </SessionProvider>
+          </Context.Provider>
+        </SelectContext.Provider>
+
+      </PrimeReactProvider>
+    </SessionProvider>)
+}
+
+export default Provider
 
 
-)
 
-export default Provider;

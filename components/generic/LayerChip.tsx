@@ -41,8 +41,6 @@ export default function LayerChip(props) {
         return (() => {
             // console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
             // console.log("selectedModLayer" + layerNumber);
-            
-
         })
     }
 

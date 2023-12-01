@@ -5,49 +5,27 @@ import Up from '@components/inputs/Up';
 import Left from '@components/inputs/Left';
 import Right from '@components/inputs/Right';
 import { useContext } from 'react';
-import { SelectContext } from '@components/Provider.tsx'
+import { Context, SelectContext } from '@components/Provider.jsx'
 import CircleSwitch from '@components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/CircleSwitch.jsx';
 import Press from '@components/inputs/Press';
 import Down from '@components/inputs/Down';
 // import CircleSwitch from '@public/assets/VKB/input3.svg'
 const InputViewer = ({ selectedButton }) => {
-    const inputName = "HAT UP";
-    const action = "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)";
-    const selectedContext = useContext(SelectContext);
+
+    const profileContext = useContext(Context);
+    const selectContext = useContext(SelectContext);
 
 
 
-    const ButtonName = selectedContext.availableDeviceInputs.circleSwitch.name;
-    const top = selectedContext.availableDeviceInputs.circleSwitch.mappings['top'];
-    const bottom = selectedContext.availableDeviceInputs.circleSwitch.mappings['bottom'];
-    const left = selectedContext.availableDeviceInputs.circleSwitch.mappings['left'];
-    const right = selectedContext.availableDeviceInputs.circleSwitch.mappings['right'];
-    const press = selectedContext.availableDeviceInputs.circleSwitch.mappings['press'];
+    const ButtonName = profileContext.availableDeviceInputs.circleSwitch.name;
+    const top = profileContext.availableDeviceInputs.circleSwitch.mappings['top'];
+    const bottom = profileContext.availableDeviceInputs.circleSwitch.mappings['bottom'];
+    const left = profileContext.availableDeviceInputs.circleSwitch.mappings['left'];
+    const right = profileContext.availableDeviceInputs.circleSwitch.mappings['right'];
+    const press = profileContext.availableDeviceInputs.circleSwitch.mappings['press'];
 
-    // console.log(top);
-    const getSelectedInput = (mappings) => {
-        mappings.map((component, index) => {
-            // console.log("CURRENT COMPONENT:/n" + Object.values(component));
-            switch (component) {
-                case ("Circle Switch"):
-
-                    return (<CircleSwitch />
-                    )
-
-                    break;
-
-                case ("hat"):
-                    return (<Hat />
-
-                    )
-                    break;
-                default:
-                    return (<Hat></Hat>)
-                    break;
-            }
-            // turn JSON into component
-        })
-    }
+    console.log("CHILD SELECT: " + selectedButton);
+  
 
     const getSelectedInputIcon = (ButtonName) => {
 
@@ -55,7 +33,6 @@ const InputViewer = ({ selectedButton }) => {
             case ("Circle Switch"):
 
                 return (<CircleSwitch />)
-
                 break;
 
             case ('hat'):
