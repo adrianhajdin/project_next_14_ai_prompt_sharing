@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
-import { Button } from 'primereact/button';
 import { ProgressBar } from 'primereact/progressbar';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
 import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
 // import { CustomerService } from './CustomerService';
-import { GameActions } from './GameActions';
 import { DeviceInputs } from './DeviceInputs';
-
-import { OverlayPanel } from 'primereact/overlaypanel';
+import { Context, SelectedEditorActionContext } from '@components/Provider';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
 
 export default function CustomersDemo({ onInputSelect }) {
 
-    const [actions, setActions] = useState([]);
-    const [selectedActions, setSelectedActions] = useState([]);
-
+    const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext)
+    const profileContext = useContext(Context)
 
     const [inputs, setInputs] = useState([]);
     const [selectedInputs, setSelectedInputs] = useState([]);
@@ -233,26 +229,37 @@ export default function CustomersDemo({ onInputSelect }) {
 
 
     // BIND BUTTON STUFF
-    const onRowSelectInput = () => {
-        console.log("SELECTED INPUT:" + selectedInputs.name)
+    // const onRowSelectInput = () => {
+    //     setSelectedViewerInput(selectedInputs.name);
+    // }
+    console.log("SELECTED INPUT:" + selectedInputs.name)
 
-        onInputSelect(selectedInputs.name);
-    }
 
+    // useEffect(() => {
+    //     setSelectedEditorInput(selectedInputs.name)
 
-  
+    // }, [selectedInputs])
 
     return (
         <div className="flex w-full flex-col gap-[8px]">
             <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
 
             <DataTable
-                onRowSelect={() => onRowSelectInput()}
+                onRowSelect={() => {
+                    // onRowSelectInput()
+                }}
                 value={inputs} paginator header={header} rows={4}
                 rowClassName={"list-bg"}
                 className="w-full"
                 paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedInputs} onSelectionChange={(e) => setSelectedInputs(e.value)}
+                dataKey="id" selectionMode="single" selection={selectedInputs}
+                onSelectionChange={(e) => {
+                    setSelectedInputs(e.value)
+                    console.log("E VALUE InputTable: " + e.value.name);
+                    setSelectedEditorInput(e.value.name);
+
+
+                }}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                 {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}

@@ -3,7 +3,7 @@ export const DeviceInputs = {
         return [
             {
                 id: 1000,
-                name: 'INPUTS',
+                name: 'hat',
                 country: {
                     name: 'Algeria',
                     code: 'dz'

@@ -24,7 +24,7 @@ const InputViewer = ({ selectedButton }) => {
     const right = profileContext.availableDeviceInputs.circleSwitch.mappings['right'];
     const press = profileContext.availableDeviceInputs.circleSwitch.mappings['press'];
 
-    console.log("CHILD SELECT: " + selectedButton);
+    // console.log("CHILD SELECT: " + selectedButton);
   
 
     const getSelectedInputIcon = (ButtonName) => {
@@ -49,7 +49,7 @@ const InputViewer = ({ selectedButton }) => {
     const getInputTop = (input) => {
         //check if slot is undefined 
         if (input !== undefined) {
-            console.log("TOP SLOT: " + input.layers['base']);
+            // console.log("TOP SLOT: " + input.layers['base']);
             return (<Up layers={input.layers} name={input.name} />);
 
             //else return the slot component
@@ -63,7 +63,7 @@ const InputViewer = ({ selectedButton }) => {
     const getInputLeft = (input) => {
         //check if slot is undefined 
         if (input !== undefined) {
-            console.log("TOP SLOT: " + input.layers['base']);
+            // console.log("TOP SLOT: " + input.layers['base']);
             return (<Left layers={input.layers} name={input.name} />);
 
             //else return the slot component
@@ -75,7 +75,7 @@ const InputViewer = ({ selectedButton }) => {
     const getInputRight = (input) => {
         //check if slot is undefined 
         if (input !== undefined) {
-            console.log("TOP SLOT: " + input.layers['base']);
+            // console.log("TOP SLOT: " + input.layers['base']);
             return (<Right layers={input.layers} name={input.name} />);
 
             //else return the slot component
@@ -87,19 +87,19 @@ const InputViewer = ({ selectedButton }) => {
     const getInputPress = (input) => {
         //check if slot is undefined 
         if (input !== undefined) {
-            console.log("TOP SLOT: " + input.layers['base']);
+            // console.log("TOP SLOT: " + input.layers['base']);
             return (<Press layers={input.layers} name={input.name} />);
 
             //else return the slot component
         } else {
-            console.log("PRESS SLOT: UNDEFINED");
+            // console.log("PRESS SLOT: UNDEFINED");
         }
     }
 
     const getInputBottom = (input) => {
         //check if slot is undefined 
         if (input !== undefined) {
-            console.log("BOTTOM SLOT: " + input.layers['base']);
+            // console.log("BOTTOM SLOT: " + input.layers['base']);
             return (<Down layers={input.layers} name={input.name} />);
 
             //else return the slot component

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -17,15 +17,16 @@ import { DeviceInputs } from './DeviceInputs';
 
 import { OverlayPanel } from 'primereact/overlaypanel';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
+import { SelectedActionContext } from '@components/Provider';
 
 export default function ActionTable({ onActionSelect }) {
 
     const [actions, setActions] = useState([]);
     const [selectedActions, setSelectedActions] = useState([]);
+    const { selectedAction, setSelectedAction } = useContext(SelectedActionContext);
 
-
-    const [inputs, setInputs] = useState([]);
-    const [selectedInputs, setSelectedInputs] = useState([]);
+    // const [inputs, setInputs] = useState([]);
+    // const [selectedInputs, setSelectedInputs] = useState([]);
 
 
     const [filters, setFilters] = useState({
@@ -255,11 +256,10 @@ export default function ActionTable({ onActionSelect }) {
 
 
     // ACTION BUTTON STUFF
-    const onRowSelectAction = () => {
-        onActionSelect(selectedActions.name);
-        console.log("SELECTED ACTION:" + selectedActions.name)
-    }
+    // useEffect(() => {
+    //     setSelectedAction(selectedActions.name)
 
+    // }, [selectedActions])
     //BIND BUTTON STUFF
 
 
@@ -268,12 +268,18 @@ export default function ActionTable({ onActionSelect }) {
             <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
 
             <DataTable
-                onRowSelect={() => onRowSelectAction()}
+                // onRowSelect={() =>
+                //      onRowSelectAction()
+                //     }
                 value={actions} paginator header={header} rows={4}
                 rowClassName={"list-bg"}
                 className="w-full"
                 paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedActions} onSelectionChange={(e) => setSelectedActions(e.value)}
+                dataKey="id" selectionMode="single" selection={selectedActions} onSelectionChange={(e) => {
+                    setSelectedActions(e.value);
+                    // setSelectedActions(selectedActions.name)
+                    setSelectedAction(e.value.name);
+                }}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                 {/* <Column selectionMode="single" headerStyle={{ width: '1rem' }}> </Column> */}

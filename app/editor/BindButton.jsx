@@ -3,9 +3,12 @@
 import React from 'react'
 import { Button } from 'primereact/button';
 import ActionTable from 'app/editor/ActionTable.jsx'
-const BindButton = ({ selectedAction, selectedInput }) => {
-const action = selectedAction;
-const input = selectedInput;
+import { SelectedEditorActionContext, SelectedActionContext } from '@components/Provider';
+import { useContext } from 'react';
+const BindButton = (props) => {
+    const { selectedAction, setSelectedAction } = useContext(SelectedActionContext);
+    const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext);
+
 
     const getSelectedAction = () => {
         console.log(ActionTable.selectedCustomers)
@@ -20,6 +23,8 @@ const input = selectedInput;
     const toUpperCase = (string) => {
         return (string.toUpperCase())
     }
+
+
     return (
         <Button
             id="bindButton"
@@ -30,7 +35,7 @@ const input = selectedInput;
                 console.log("clicked");
                 inputBindButton();
             }}>
-            {action} Bind to:  {input}
+            {selectedEditorInput} Bind to:  {selectedAction}
         </Button>)
 }
 

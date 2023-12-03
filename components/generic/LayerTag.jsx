@@ -5,7 +5,7 @@ import React from 'react'
 const LayerTag = ({layerNumber, input_direction}) => {
 
 
-    console.log(layerNumber == 0);
+    // console.log(layerNumber == 0);
 
     const textClassName = clsx({
         'text-modifier': true,
