@@ -16,14 +16,14 @@ const globalContext = {
   currentButtonSelection: "Circle Switch",
   availableDeviceInputs: {
 
-    'circleSwitch': {
-      'name': 'Circle Switch',
+    circleSwitch: {
+      name: 'Circle Switch',
       'inputNum': 0,
 
       'mappings': {
-        'top': {
-          'name': 'CIRCLE SWITCH UP',
-          'layers': [
+        top: {
+          name: 'CIRCLE SWITCH UP',
+          layers: [
             "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)",
             'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
             'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)'

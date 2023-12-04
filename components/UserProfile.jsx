@@ -1,3 +1,5 @@
+"use client";
+
 import ControlProfileCard from "./ControlProfileCard";
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {

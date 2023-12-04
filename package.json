@@ -17,6 +17,7 @@
     "clsx": "^2.0.0",
     "framer-motion": "^10.15.0",
     "mongodb": "^5.9.1",
+    "mongodb-client-encryption": "^2.9.1",
     "mongoose": "^7.3.0",
     "next": "13.3.4",
     "next-auth": "^4.22.1",

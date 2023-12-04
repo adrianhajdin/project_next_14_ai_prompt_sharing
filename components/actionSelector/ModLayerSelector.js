@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import LayerChip from 'components/generic/LayerChip.tsx'
 import { get } from 'mongoose'

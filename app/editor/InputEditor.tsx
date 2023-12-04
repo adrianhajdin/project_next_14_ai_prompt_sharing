@@ -8,7 +8,6 @@ import { SelectContext } from '@components/Provider';
 import LayerChip from '@components/generic/LayerChip';
 import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
 import BindButton from '@app/editor/BindButton.jsx'
-import { useEffect } from 'react';
 import { createContext, useContext, useState } from 'react';
 
 

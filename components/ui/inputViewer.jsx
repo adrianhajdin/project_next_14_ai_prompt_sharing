@@ -1,3 +1,4 @@
+"use client";
 
 import React from 'react'
 import Hat from '@components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/Hat.jsx';

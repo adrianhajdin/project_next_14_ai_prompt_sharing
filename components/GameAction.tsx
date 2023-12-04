@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import LayerTag from '@components/generic/LayerTag.jsx';
 import clsx from 'clsx';

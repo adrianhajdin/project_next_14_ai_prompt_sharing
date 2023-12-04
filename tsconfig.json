@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/inputs/DownUp", "components/MyButton.jsx", "components/Provider.jsx"  ],
+, "components/inputs/DownUp", "components/MyButton.jsx", "components/Provider.jsx", "app/layout.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from 'react';
 import { SelectContext } from '@components/Provider.jsx'
 
