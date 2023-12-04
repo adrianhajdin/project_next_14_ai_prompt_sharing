@@ -753,7 +753,10 @@ const Device_VKB_SpaceEvo = (props) => {
             }}
           />
         </g>
-        <g id="input3">
+        <g id="input3" className="selected-input corner-test" onClick={() => {
+          setSelectedViewerInput('circleSwitch');
+          console.log("setSelectedViewerInput")
+        }}>
           <path
             d="M152.13 135.1s-32.01 13.9-35.41-3.35c.29 6.54 2.88 13.21 8.42 19.24 19.04 20.71 57.99 10.49 61-17.75-2.82 13.19-34.01 1.86-34.01 1.86Z"
             className="cls-16"
@@ -1000,7 +1003,10 @@ const Device_VKB_SpaceEvo = (props) => {
             transform="rotate(-57.08 211.223 280.667)"
           />
         </g>
-        <g id="input2">
+        <g id="input2" className="selected-input corner-test" onClick={() => {
+          setSelectedViewerInput('hatSwitch');
+          console.log("setSelectedViewerInput")
+        }}>
           <path
             d="M212.54 45.23h-18.93c-1.43 0-2.83.5-3.96 1.4l-5.37 4.32a6.618 6.618 0 0 0-2.47 4.94l-.66 19.97c-.07 2.06.75 4.02 2.24 5.33l5.43 4.8a6.247 6.247 0 0 0 4.16 1.59h20.19c1.53 0 3-.56 4.16-1.59l5.43-4.8c1.49-1.32 2.31-3.28 2.24-5.33l-.66-19.97a6.618 6.618 0 0 0-2.47-4.94l-5.37-4.32a6.318 6.318 0 0 0-3.96-1.4Z"
             className="cls-8"
@@ -1034,7 +1040,7 @@ const Device_VKB_SpaceEvo = (props) => {
           />
         </g>
         <g id="input1" className="selected-input corner-test" onClick={() => {
-          setSelectedViewerInput('hat');
+          setSelectedViewerInput('pillSwitch');
           console.log("setSelectedViewerInput")
         }}>
           <path

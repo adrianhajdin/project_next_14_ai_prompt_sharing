@@ -255,7 +255,7 @@ export default function CustomersDemo({ onInputSelect }) {
                 dataKey="id" selectionMode="single" selection={selectedInputs}
                 onSelectionChange={(e) => {
                     setSelectedInputs(e.value)
-                    console.log("E VALUE InputTable: " + e.value.name);
+                    // console.log("E  KEY: " + e.value.key);
                     setSelectedEditorInput(e.value.name);
 
 

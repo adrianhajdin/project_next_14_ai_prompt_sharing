@@ -3,7 +3,7 @@ export const DeviceInputs = {
         return [
             {
                 id: 1000,
-                name: 'hat',
+                name: 'Hat Up',
                 country: {
                     name: 'Algeria',
                     code: 'dz'
@@ -21,7 +21,7 @@ export const DeviceInputs = {
             },
             {
                 id: 1001,
-                name: 'Josephine Darakjy',
+                name: 'Hat Down',
                 country: {
                     name: 'Egypt',
                     code: 'eg'

@@ -15,27 +15,28 @@ const InputViewer = ({ selectedButton }) => {
     const profileContext = useContext(Context);
     const selectContext = useContext(SelectContext);
 
+    console.log("Selected BUTTON: " + selectedButton );
+    const ButtonName = profileContext.availableDeviceInputs.name;
 
-
-    const ButtonName = profileContext.availableDeviceInputs.circleSwitch.name;
-    const top = profileContext.availableDeviceInputs.circleSwitch.mappings['top'];
-    const bottom = profileContext.availableDeviceInputs.circleSwitch.mappings['bottom'];
-    const left = profileContext.availableDeviceInputs.circleSwitch.mappings['left'];
-    const right = profileContext.availableDeviceInputs.circleSwitch.mappings['right'];
-    const press = profileContext.availableDeviceInputs.circleSwitch.mappings['press'];
+    const top = profileContext.availableDeviceInputs[selectedButton]?.mappings['top'];
+    // const top = JSON.stringify(profileContextURL);
+    const bottom = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['bottom'];
+    const left = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['left'];
+    const right = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['right'];
+    const press = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['press'];
 
     // console.log("CHILD SELECT: " + selectedButton);
-  
+
 
     const getSelectedInputIcon = (ButtonName) => {
 
         switch (ButtonName) {
-            case ("Circle Switch"):
+            case ("circleSwitch"):
 
                 return (<CircleSwitch />)
                 break;
 
-            case ('hat'):
+            case ('hatSwitch'):
                 return (<Hat className="testCircle p-[10px]" />)
                 break;
 
@@ -113,8 +114,8 @@ const InputViewer = ({ selectedButton }) => {
             {/* <Up inputName_id={inputName} action_id={action} /> */}
             {/* <Press inputName_id={inputName} action_id={action} /> */}
             <div className='input-down-press'>
-            {getInputPress(press)}
-            {getInputBottom(bottom)}
+                {getInputPress(press)}
+                {getInputBottom(bottom)}
 
             </div>
             <div className=' left-center-right'>

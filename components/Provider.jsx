@@ -69,6 +69,59 @@ const globalContext = {
       },
 
     },
+    'hatSwitch': {
+      'name': 'Hat Switch',
+      'inputNum': 0,
+
+      'mappings': {
+        'top': {
+          'name': 'HAT SWITCH UP',
+          'layers': [
+            "HAT TEST",
+            'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+            'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)'
+          ]
+        },
+
+
+
+        'left': {
+          'name': 'HAT SWITCH LEFT',
+          'layers': [
+            "HAT TEST",
+            'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+            'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)'
+          ]
+        },
+        'right': {
+          'name': 'HAT SWITCH UP',
+          'layers': [
+            "HAT TEST",
+            'SECOND LAYER',
+            'THIRD LAYER'
+          ]
+        },
+        'bottom': {
+
+          'name': 'HAT SWITCH DOWN',
+          'layers': [
+            "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)",
+            'SECOND LAYER',
+            'HAT TEST'
+          ]
+        },
+        'press': {
+
+          'name': 'HAT SWITCH PRESS',
+          'layers': [
+            "MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)",
+            'SECOND LAYER',
+            'THIRD LAYER'
+          ]
+        },
+      },
+
+    },
   },
   'selectedInput': 'circleSwitch',
   'defaultInput': 'circleSwitch',
