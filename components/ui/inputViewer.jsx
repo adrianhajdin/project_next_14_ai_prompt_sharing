@@ -17,14 +17,13 @@ const InputViewer = ({ selectedButton }) => {
     const selectContext = useContext(SelectContext);
 
     console.log("Selected BUTTON: " + selectedButton );
-    const ButtonName = profileContext.availableDeviceInputs.name;
+    const ButtonName = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"].profileName;
 
-    const top = profileContext.availableDeviceInputs[selectedButton]?.mappings['top'];
-    // const top = JSON.stringify(profileContextURL);
-    const bottom = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['bottom'];
-    const left = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['left'];
-    const right = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['right'];
-    const press = profileContext.availableDeviceInputs?.[selectedButton]?.mappings['press'];
+    const top = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["top"];
+    const bottom = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["bottom"];
+    const left = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["left"];
+    const right = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["right"];
+    const press = profileContext.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["press"];
 
     // console.log("CHILD SELECT: " + selectedButton);
 
@@ -57,7 +56,7 @@ const InputViewer = ({ selectedButton }) => {
             //else return the slot component
         } else {
             console.log("TOP SLOT: UNDEFINED");
-
+return(<></>)
 
         }
     }
@@ -71,6 +70,8 @@ const InputViewer = ({ selectedButton }) => {
             //else return the slot component
         } else {
             console.log("LEFT SLOT: UNDEFINED");
+            return(<></>)
+
         }
     }
 
@@ -83,7 +84,10 @@ const InputViewer = ({ selectedButton }) => {
             //else return the slot component
         } else {
             console.log("RIGHT SLOT: UNDEFINED");
+      return(<></>)
+
         }
+
     }
 
     const getInputPress = (input) => {
@@ -94,6 +98,7 @@ const InputViewer = ({ selectedButton }) => {
 
             //else return the slot component
         } else {
+            return(<></>)
             // console.log("PRESS SLOT: UNDEFINED");
         }
     }
@@ -106,6 +111,7 @@ const InputViewer = ({ selectedButton }) => {
 
             //else return the slot component
         } else {
+            return(<></>)
             console.log("PRESS SLOT: UNDEFINED");
         }
     }

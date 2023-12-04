@@ -17,55 +17,40 @@ const UserSchema = new Schema({
   image: {
     type: String
   },
-  deviceProfiles: [
-    {
-      saved: [
-        {
-          deviceName: String,
-          buttons: [
-            {
-              name: String,
-              buttonNum: Number,
-              mappings: [
-                {
-                  top: [
-                    {
-                      name: String,
-                      layers: Array
-                    }
-                  ],
-                  down: [
-                    {
-                      name: String,
-                      layers: Array
-                    }
-                  ],
-                  press: [
-                    {
-                      name: String,
-                      layers: Array
-                    }
-                  ],
-                  left: [
-                    {
-                      name: String,
-                      layers: Array
-                    }
-                  ],
-                  right: [
-                    {
-                      name: String,
-                      layers: Array
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+  deviceProfiles: {
+    type: Object,
+    saved: {
+      profileName: {
+        deviceName: String,
+        profileName: String,
+        buttons: {
+          name: String,
+          buttonNum: Number,
+
+          top: {
+            name: String,
+            layers: []
+          },
+          bottom: {
+            name: String,
+            layers: []
+          },
+          press: {
+            name: String,
+            layers: []
+          },
+          left: {
+            name: String,
+            layers: []
+          },
+          right: {
+            name: String,
+            layers: []
+          }
         }
-      ]
+      }
     }
-  ]
+  }
 })
 
 const User = models.User || model('User', UserSchema)
