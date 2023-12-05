@@ -10,7 +10,7 @@ const GameVerDropdown = () => {
     useEffect(() => {
         const fetchGameOptions = async () => {
             console.log("USE EFFECT START");
-            const response = await fetch(`/api/games`);
+            const response = await fetch(`/api/deviceProfiles`);
             console.log("FETCHED RESPONSE ok?:" + response.ok + response);
 
 

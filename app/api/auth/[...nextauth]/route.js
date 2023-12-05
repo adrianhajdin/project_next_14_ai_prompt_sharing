@@ -52,6 +52,48 @@ const globalContext = {
                 'THIRD LAYER'
               ]
             }
+          },
+          hatSwitch: {
+            top: {
+              name: 'HAT SWITCH UP',
+              layers: [
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)'
+              ]
+            },
+            bottom: {
+              name: 'HAT SWITCH DOWN',
+              layers: [
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'SECOND LAYER',
+                'THIRD LAYER'
+              ]
+            },
+            press: {
+              name: 'HAT SWITCH PRESS',
+              layers: [
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'SECOND LAYER',
+                'THIRD LAYER'
+              ]
+            },
+            left: {
+              name: 'HAT SWITCH LEFT',
+              layers: [
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)'
+              ]
+            },
+            right: {
+              name: 'HAT SWITCH UP',
+              layers: [
+                'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                'SECOND LAYER',
+                'THIRD LAYER'
+              ]
+            }
           }
         }
       }

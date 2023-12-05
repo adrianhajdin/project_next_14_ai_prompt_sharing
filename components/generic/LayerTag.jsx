@@ -23,7 +23,7 @@ const LayerTag = ({layerNumber, input_direction}) => {
     });
 
     const getIconFill = (layer) => {
-        console.log("LAYERNUMBER___" + layer);
+        // console.log("LAYERNUMBER___" + layer);
 
         switch (layer) {
             case 0:

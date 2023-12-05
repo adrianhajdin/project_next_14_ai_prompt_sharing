@@ -11,6 +11,7 @@
   "dependencies": {
     "@iconfu/svg-inject": "^1.2.3",
     "@react-stately/data": "^3.10.1",
+    "@reis/mongoose-to-json": "^3.0.0",
     "@tanem/svg-injector": "^10.1.68",
     "bcrypt": "^5.1.0",
     "classnames": "^2.3.2",

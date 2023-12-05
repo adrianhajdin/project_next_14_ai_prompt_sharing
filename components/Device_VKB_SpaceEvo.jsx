@@ -1007,7 +1007,7 @@ const Device_VKB_SpaceEvo = (props) => {
         </g>
         <g id="input2" className="selected-input corner-test" onClick={() => {
           setSelectedViewerInput('hatSwitch');
-          console.log("setSelectedViewerInput")
+          console.log("setSelectedViewerInput Input 1")
         }}>
           <path
             d="M212.54 45.23h-18.93c-1.43 0-2.83.5-3.96 1.4l-5.37 4.32a6.618 6.618 0 0 0-2.47 4.94l-.66 19.97c-.07 2.06.75 4.02 2.24 5.33l5.43 4.8a6.247 6.247 0 0 0 4.16 1.59h20.19c1.53 0 3-.56 4.16-1.59l5.43-4.8c1.49-1.32 2.31-3.28 2.24-5.33l-.66-19.97a6.618 6.618 0 0 0-2.47-4.94l-5.37-4.32a6.318 6.318 0 0 0-3.96-1.4Z"
@@ -1043,7 +1043,7 @@ const Device_VKB_SpaceEvo = (props) => {
         </g>
         <g id="input1" className="selected-input corner-test" onClick={() => {
           setSelectedViewerInput('pillSwitch');
-          console.log("setSelectedViewerInput")
+          console.log("setSelectedViewerInput Input 1")
         }}>
           <path
             d="m105.8 81.52-13.74.06c-5.62.02-10.08-5.26-9.9-11.63l.59-21.01c.16-5.8 4.57-10.48 9.8-10.51l12.78-.05c5.23-.02 9.63 4.62 9.8 10.43l.59 21c.18 6.36-4.28 11.68-9.9 11.71Z"

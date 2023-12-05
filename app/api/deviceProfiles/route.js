@@ -1,35 +1,61 @@
-import { connectToDB } from "@utils/database";
-import Games from "@models/games";
-import { log } from "console";
+import { connectToDB } from '@utils/database'
+import { log } from 'console'
+import User from '@models/user.js'
+// import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import {toJson} from '@reis/mongoose-to-json'
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 
-export const GET = async (request) => {
 
-    try {
-        await connectToDB();
-        //  const data = await Games.find({ _id: "StarCitizen1" }).select("versions -_id");
-        // const data = await Games.find({ _id: "StarCitizen2" });
-        const data = await Games.find({}).select("-_id versions");
+// export const GET = async (request, ) => {
 
-        // const arrayed = raw[0].versions.map(x => {
-        //     return ({"key": x.key, "name": x.name })
-        // })
+//   try {
+//     await connectToDB()
 
-      
+//     const data = await User.findOne({ _id:'656ec352bd375007c9585a2d'})
+//     // const existingId = await user.id;
 
-      //  const parsed = await data.map(function (d) { return d.toObject() })
+//     // const data = await User.find({});
 
-        console.log((Array.isArray(data) + "   raw: " + data + "stringified: " + JSON.stringify(data)));
+//     return new Response(JSON.stringify(data), { status: 200 })
+    
+//   } catch (error) {
+//     console.log(error)
+//     log(error)
+//     return new Response('Failed to fetch device profiles', { status: 500 })
+//   }
+// }
 
-        // for await (const doc of data[0]) {
-        //     console.log("FOR:" + doc);
-        // }
+export const POST = async (request, { params }) => {
+    const {userId} = await request.json();
 
-        return new Response(JSON.stringify(data[0]), { status: 200 });
+  try {
+    await connectToDB()
 
-    } catch (error) {
-        console.log(error);
-        log(error);
-        return new Response("Failed to fetch device profiles", { status: 500 });
-    }
-} 
+    // const data = await User.findOne({ _id:'656ec352bd375007c9585a2d'})
+    const data = await User.findOne({_id: userId})
+    // const existingId = await user.id;
+
+    // const data = await User.find({});
+
+    return new Response(JSON.stringify(data), { status: 200 })
+    
+  } catch (error) {
+    console.log(error)
+    log(error)
+    return new Response('Failed to fetch device profiles', { status: 500 })
+  }
+}
+// export const GET = async (request, { params }) => {
+//     try {
+//         await connectToDB()
+
+//         const prompt = await ControlProfile.findById(params.id).populate("creator")
+//         if (!prompt) return new Response("Prompt Not Found", { status: 404 });
+
+//         return new Response(JSON.stringify(prompt), { status: 200 })
+
+//     } catch (error) {
+//         return new Response("Internal Server Error", { status: 500 });
+//     }
+// }

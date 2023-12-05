@@ -10,9 +10,9 @@ export const metadata = {
   description: "POGGING POG",
 };
 
-const RootLayout = ({children}: { children: React.ReactNode }) => (
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang='en' className="dark">
-    
+
 
     <body>
 

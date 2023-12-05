@@ -1,24 +1,44 @@
 'use client';
+import {toJson} from '@reis/mongoose-to-json'
 
 import React from 'react'
 import { Button } from 'primereact/button';
-import ActionTable from 'app/editor/ActionTable.jsx'
 import { SelectedEditorActionContext, SelectedActionContext } from '@components/Provider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+// import {fetchMappings} from '@app/editor/utils.js'
 const BindButton = (props) => {
     const { selectedAction, setSelectedAction } = useContext(SelectedActionContext);
     const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext);
 
+    const [profile, setProfile] = useState();
+    const { data: session } = useSession();
 
-    const getSelectedAction = () => {
-        console.log(ActionTable.selectedCustomers)
-        return (
-            ActionTable.selectedCustomers
-        );
-    }
+   
+//   console.log(fetchMappings(session?.user));  
+
+
     const inputBindButton = () => {
-        setSelectedInputs("NOT DEFAULT");
+        console.log(session?.user.id);
+
     }
+    const fetchDeviceProfiles = async () => {
+        console.log("FETCHED DEVICEPROFILES BEFORE: ");
+
+        const response = await fetch("/api/deviceProfiles");
+
+        const data = await response.json();
+        // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
+        // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
+        // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedEditorInput]));
+
+
+        // console.log("FETCHED DEVICEPROFILES: " + data);
+
+        return setProfile(data[0].deviceProfiles.saved);
+      };
+
+    
 
     const toUpperCase = (string) => {
         return (string.toUpperCase())
@@ -31,11 +51,12 @@ const BindButton = (props) => {
 
 
 
-            onClick={() => {
-                console.log("clicked");
-                inputBindButton();
+            onClick={async () => {
+                await fetchDeviceProfiles();
+                // console.log(selectedEditorInput);
             }}>
-            {selectedEditorInput} Bind to:  {selectedAction}
+                {JSON.stringify(profile)}
+            {/* {selectedEditorInput} Bind to:  {selectedAction} */}
         </Button>)
 }
 
