@@ -4,7 +4,7 @@ import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
 // import CircleSwitch from '@public/assets/VKB/input3.svg'
 import CircleSwitch from 'components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/CircleSwitch.svg';
-import { SelectContext, Context } from '@components/Provider.jsx';
+import { SelectContext, Context, SelectedEditorActionContext } from '@components/Provider.jsx';
 
 import LayerChip from '@components/generic/LayerChip';
 import InputViewer from '@components/ui/inputViewer.jsx'
@@ -14,6 +14,8 @@ const Editor = () => {
 
 
   const {selectedViewerInput, setSelectedViewerInput} = useContext(SelectContext)
+  const {selectedEditorInput, setSelectedEditorInput} = useContext(SelectedEditorActionContext)
+
   // setSelectedViewerInput("Circle Switch");
   console.log("selectedViewerInput: " + selectedViewerInput);
   // console.log("SelectContext: " + SelectContext);

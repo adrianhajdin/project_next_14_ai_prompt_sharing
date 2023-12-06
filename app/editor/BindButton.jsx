@@ -1,5 +1,5 @@
 'use client';
-import {toJson} from '@reis/mongoose-to-json'
+import { toJson } from '@reis/mongoose-to-json'
 
 import React from 'react'
 import { Button } from 'primereact/button';
@@ -11,39 +11,44 @@ const BindButton = (props) => {
     const { selectedAction, setSelectedAction } = useContext(SelectedActionContext);
     const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext);
 
-    const [profile, setProfile] = useState();
+    const [fetcthed, setfetcthed] = useState();
     const { data: session } = useSession();
 
-   
-//   console.log(fetchMappings(session?.user));  
 
-
-    const inputBindButton = () => {
-        console.log(session?.user.id);
-
-    }
-    const fetchDeviceProfiles = async () => {
-        console.log("FETCHED DEVICEPROFILES BEFORE: ");
-
-        const response = await fetch("/api/deviceProfiles");
-
-        const data = await response.json();
-        // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
-        // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
-        // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedEditorInput]));
-
-
-        // console.log("FETCHED DEVICEPROFILES: " + data);
-
-        return setProfile(data[0].deviceProfiles.saved);
-      };
-
-    
+    //   console.log(fetchMappings(session?.user));  
 
     const toUpperCase = (string) => {
         return (string.toUpperCase())
     }
 
+    const fetchDeviceProfiles = async () => {
+        console.log( selectedAction);
+
+        const response = await fetch("/api/deviceProfiles/bindButton", {
+            method: "PATCH",
+            body: JSON.stringify({
+                userId: session?.user.id,
+                selectedInput: selectedEditorInput,
+                selectedAction: selectedAction
+
+            })
+        });
+
+        const data = await response.json();
+        console.log(JSON.stringify(data));
+
+        // setTop(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["top"]);
+        // setbottom(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["bottom"]);
+        // setLeft(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["left"]);
+        // setRight(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["right"]);
+        // setPress(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["press"]);
+        // setfetcthed(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons["circleSwitch"]?.["top"]);
+      
+        // setfetcthed(data?.deviceProfiles?.deviceProfiles.);
+
+    };
+
+    //rehydrate when another input is selected
 
     return (
         <Button
@@ -55,8 +60,8 @@ const BindButton = (props) => {
                 await fetchDeviceProfiles();
                 // console.log(selectedEditorInput);
             }}>
-                {JSON.stringify(profile)}
-            {/* {selectedEditorInput} Bind to:  {selectedAction} */}
+            {/* {JSON.stringify(fetcthed)} */}
+          {selectedEditorInput.name}  Bind to:  {selectedAction}
         </Button>)
 }
 

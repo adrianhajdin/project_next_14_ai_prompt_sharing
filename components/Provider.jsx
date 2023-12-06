@@ -1,5 +1,5 @@
 "use client";
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import { SessionProvider } from "next-auth/react";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import "primereact-sass-theme-9.6.2/themes/mytheme/theme.scss";
@@ -10,6 +10,9 @@ export const SelectedInputContext = createContext();
 export const SelectedActionContext = createContext();
 
 export const Context = createContext(null);
+
+
+
 
 const globalContext = {
   "deviceProfiles":
@@ -71,8 +74,8 @@ const globalContext = {
     }
 
   }
-
 };
+
 const globalContex1t = {
   availableDeviceInputs: {
 
@@ -186,16 +189,52 @@ const globalContex1t = {
   "defaultInput": "circleSwitch",
 
 }
+
+
 SelectedActionContext
 const Provider = ({ children, session }) => {
+
+
   const [selectedViewerInput, setSelectedViewerInput] = useState("Circle Switch");
   const [selectedAction, setSelectedAction] = useState("No Action Selected");
   const [selectedEditorInput, setSelectedEditorInput] = useState("No Input Selected");
+  const [profileContext, setprofileContext] = useState(globalContext);
+
+
+  useEffect(() => {
+    const fetchDeviceProfiles = async () => {
+
+      const response = await fetch("/api/deviceProfiles", {
+        method: "POST",
+        body: JSON.stringify({
+          userId: session?.user.id
+        })
+      });
+
+      const data = await response.json();
+      // console.log("INPUT VIEWER !!!!!!!!!!!" + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons["circleSwitch"]?.["top"]));
+      // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
+      // console.log("!!!!!!!!!!!! FETCHED RESPONSE: " + JSON.stringify(data.deviceProfiles));
+
+      // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
+      // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedButton]?.["top"]));
+      // console.log("FETCHED DEVICEPROFILES: " + data);
+      // setTop(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["top"]);
+      // setbottom(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["bottom"]);
+      // setLeft(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["left"]);
+      // setRight(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["right"]);
+      // setPress(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["press"]);
+    };
+
+    fetchDeviceProfiles();
+    //rehydrate when another input is selected
+  }, [])
+
   return (
     <SessionProvider session={session}>
       <PrimeReactProvider >
         <SelectContext.Provider value={{ selectedViewerInput, setSelectedViewerInput }}>
-          <Context.Provider value={globalContext}>
+          <Context.Provider value={{ profileContext, setprofileContext}}>
             <SelectedActionContext.Provider value={{ selectedAction, setSelectedAction }}>
               <SelectedEditorActionContext.Provider value={{ selectedEditorInput, setSelectedEditorInput }}>
                 {children}

@@ -153,7 +153,7 @@ export default function ActionTable({ onActionSelect }) {
         return (
             <div className="flex flex-col  gap-[5px] ">
                 <span className="text-list-default">{rowData.name.toUpperCase()}</span>
-                <span className="text-list-sub">{rowData.status}</span>
+                <span className="text-list-default text-layer1"> {rowData.category.toUpperCase()}</span>
 
             </div>
         );

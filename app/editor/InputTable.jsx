@@ -1,4 +1,10 @@
 "use client";
+import Press from '@public/assets/icons/actions/input_press.svg';
+import Down from '@public/assets/icons/actions/input_Down.svg';
+import Up from '@public/assets/icons/actions/input_up.svg';
+import Left from '@public/assets/icons/actions/input_left.svg';
+import Right from '@public/assets/icons/actions/input_right.svg';
+
 
 import React, { useState, useEffect, useContext } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
@@ -16,14 +22,19 @@ import { Tag } from 'primereact/tag';
 import { DeviceInputs } from './DeviceInputs';
 import { Context, SelectedEditorActionContext } from '@components/Provider';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
-
+import { get } from 'mongoose';
+import GameAction from '@components/GameAction.tsx'
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import LayerTag from '@components/generic/LayerTag';
 export default function CustomersDemo({ onInputSelect }) {
+    const { data: session } = useSession();
 
     const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext)
     const profileContext = useContext(Context)
 
     const [inputs, setInputs] = useState([]);
     const [selectedInputs, setSelectedInputs] = useState([]);
+    const [test, setTest] = useState([]);
 
 
     const [filters, setFilters] = useState({
@@ -72,10 +83,39 @@ export default function CustomersDemo({ onInputSelect }) {
 
     useEffect(() => {
 
+
+        const fetchDeviceProfiles = async () => {
+
+            const response = await fetch("/api/deviceProfiles", {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: session?.user.id
+                })
+            });
+
+            const data = await response.json();
+            // console.log("INPUT VIEWER !!!!!!!!!!!" + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons["circleSwitch"]?.["top"]));
+            // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
+            // console.log("!!!!!!!!!!!! FETCHED RESPONSE: " + JSON.stringify(data.deviceProfiles));
+
+            // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
+            // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedButton]?.["top"]));
+            // console.log("FETCHED DEVICEPROFILES: " + data);
+            // setTop(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["top"]);
+            // setbottom(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["bottom"]);
+            // setLeft(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["left"]);
+            // setRight(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["right"]);
+            setTest(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons["circleSwitch"]?.["top"].layers);
+        };
+
+        fetchDeviceProfiles();
+
         DeviceInputs.getCustomersLarge().then((data) => setInputs(getInputs(data)));
 
+        // setInputs(test);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+    console.log(inputs);
 
     const getInputs = (data) => {
         return [...(data || [])].map((d) => {
@@ -130,11 +170,59 @@ export default function CustomersDemo({ onInputSelect }) {
             </div>
         );
     };
+
+    const getInputIcon = (slot) => {
+        switch (slot) {
+            case "top":
+                return (
+                    <Up />
+                )
+                break;
+            case "press":
+                return (
+                    <Press />
+                )
+                break;
+            case "bottom":
+                return (
+                    <Down />
+                )
+                break;
+            case "left":
+                return (
+                    <Left />
+                )
+                break;
+            case "right":
+                return (
+                    <Right />
+                )
+                break;
+            default:
+                break;
+        }
+    }
+
+    // const getInputActions = () => {
+
+    //     return (<GameAction action_id={"asd"} input_direction={""}>);
+    // }
     const nameBodyTemplate = (rowData) => {
         return (
-            <div className="flex flex-col  gap-[5px] ">
-                <span className="text-list-default">{rowData.name.toUpperCase()}</span>
-                <span className="text-list-sub">{rowData.status}</span>
+
+            <div className='flex flex=row gap-[12px] '>
+                <div className="ui-corners square_contain">
+                    <div className='square_contain'>
+                        {getInputIcon(rowData?.slot)}
+                    </div>
+                </div>
+                <div className="flex flex-col   self-center  ">
+                    <span className="text-list-default align-middle justify-center">{rowData.name.toUpperCase()}</span>
+                  <LayerTag layerNumber={rowData.layer} input_direction={'left'} />
+                    {/* <span className="text-list-sub">{rowData.status}</span> */}
+                    {/* <GameAction action_id={rowData.action} input_direction={rowData.slot} layer={rowData.layer} /> */}
+
+                </div>
 
             </div>
         );
@@ -258,9 +346,9 @@ export default function CustomersDemo({ onInputSelect }) {
                 onSelectionChange={(e) => {
                     setSelectedInputs(e.value)
                     // console.log("E  KEY: " + e.value.key);
-                    setSelectedEditorInput(e.value.name);
+                    setSelectedEditorInput(e.value);
 
-
+                    console.log(e.value);
                 }}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">

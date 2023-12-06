@@ -4,7 +4,7 @@ import IconLegend from '@components/generic/IconLegend';
 import React from 'react'
 import ActionTable from '@app/editor/ActionTable'
 import InputTable from '@app/editor/InputTable'
-import { SelectContext } from '@components/Provider';
+import { SelectContext, SelectedEditorActionContext } from '@components/Provider';
 import LayerChip from '@components/generic/LayerChip';
 import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
 import BindButton from '@app/editor/BindButton.jsx'
@@ -16,6 +16,7 @@ const Editor = () => {
   const [selectedInput, setSelectedInput] = useState("CONTEXT INPUT: DEFAULT");
   const [selectedAction, setSelectedAction] = useState("CONTEXT ACTION: DEFAULT")
   const { selectedViewerInput, setSelectedViewerInput } = useContext(SelectContext)
+  const {selectedEditorInput, setSelectedEditorInput} = useContext(SelectedEditorActionContext)
 
   const renderBindButton = () => {
 

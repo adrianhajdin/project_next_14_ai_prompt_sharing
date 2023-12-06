@@ -20,7 +20,7 @@ const Up = ({layers, name}) => {
 
       </div>
 
-      <div className="ui-corners  square_contain">
+      <div className="ui-corners square_contain">
         <div className='square_contain'>
             <Press />
         </div>
