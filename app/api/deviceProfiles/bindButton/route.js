@@ -2,7 +2,6 @@ import { connectToDB } from '@utils/database'
 import { log } from 'console'
 import User from '@models/user.js'
 // import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
-import { toJson } from '@reis/mongoose-to-json'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 // export const GET = async (request, ) => {

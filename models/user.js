@@ -1,5 +1,4 @@
 import { Schema, model, models } from 'mongoose'
-import { toJson } from '@reis/mongoose-to-json'
 
 // const ProfileSchema = new Schema({
 //   deviceProfiles: {
