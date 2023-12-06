@@ -25,48 +25,34 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 // }
 
 export const PATCH = async (request, { params }) => {
-  const { userId, selectedEditorAction, selectedInput } = await request.json()
+  const { userId, selectedAction, selectedInput } = await request.json()
 
   try {
     await connectToDB()
-    var selectQuery = {}
     var test = 'VKB_GLADIATOR_EVO'
-    selectQuery = String(
-      '-_id' +
-        'deviceProfiles.deviceProfiles.saved.VKB_GLADIATOR_EVO.buttons.circleSwitch.top'
-    )
-    // const data = await User.findOne({ _id:'656ec352bd375007c9585a2d'})
-    // const data = await User.find({ _id: userId })
-    const data = await User.findOne({ _id: userId }).select(
-      '-_id' +
-        ' deviceProfiles.deviceProfiles.saved.' +
-        test +
-        '.buttons.' +
-        selectedInput.button + '.top' +
-        '.layers'
-    )
+    const layerNum = selectedInput.layer
+    var selectQuery =
+      'deviceProfiles.deviceProfiles.saved.' +
+      test +
+      '.buttons.' +
+      selectedInput.button +
+      '.top.layers.' +
+      layerNum
 
-    // const existingId = await user.id;
+    var query = {}
+    query[selectQuery] = selectedAction
 
-    // const data = await User.find({});
-
-    return new Response(JSON.stringify(data), { status: 200 })
+    // await User.findOneAndUpdate(
+    //   { _id: userId },
+    //   {
+    //     'deviceProfiles.deviceProfiles.saved.VKB_GLADIATOR_EVO.buttons.circleSwitch.top.layers.0':'PATCHED'
+    //   }
+    // )
+    await User.findOneAndUpdate({ _id: userId }, query)
+    return new Response('JSON.stringify(data)', { status: 200 })
   } catch (error) {
     console.log(error)
     log(error)
     return new Response('Failed to fetch device profiles', { status: 500 })
   }
 }
-// export const GET = async (request, { params }) => {
-//     try {
-//         await connectToDB()
-
-//         const prompt = await ControlProfile.findById(params.id).populate("creator")
-//         if (!prompt) return new Response("Prompt Not Found", { status: 404 });
-
-//         return new Response(JSON.stringify(prompt), { status: 200 })
-
-//     } catch (error) {
-//         return new Response("Internal Server Error", { status: 500 });
-//     }
-// }
