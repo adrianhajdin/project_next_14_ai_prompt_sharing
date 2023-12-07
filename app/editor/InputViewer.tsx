@@ -54,18 +54,9 @@ const Editor = ({show}) => {
 
       </div>
 
-      {/* <div className="test2">
-          <Up inputName_id={inputName} action_id={action}  > </Up>
-          <Left />
-          <Right />
-          <DownPress inputName_id={inputName} action_id={action} />
-          <div className="hat">
-            <Hat />
-          </div>
-      </div> */}
+    
 
       <InputViewer selectedButton={selectedViewerInput} />
-      {/* <CircleSwitch /> */}
 
 
     </div>
