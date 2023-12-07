@@ -24,29 +24,22 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 // }
 
 export const PATCH = async (request, { params }) => {
-  const { userId, selectedAction, selectedInput } = await request.json()
+  const { userId, selectedAction, selectedInput, selectedLayer } = await request.json()
 
   try {
     await connectToDB()
-    var test = 'VKB_GLADIATOR_EVO'
-    const layerNum = selectedInput.layer
+    var device = 'VKB_GLADIATOR_EVO'
     var selectQuery =
       'deviceProfiles.deviceProfiles.saved.' +
-      test +
+      device +
       '.buttons.' +
       selectedInput.button +
-      '.top.layers.' +
-      layerNum
+      '.' + selectedInput.slot + '.layers.' +
+      selectedLayer
 
     var query = {}
     query[selectQuery] = selectedAction
 
-    // await User.findOneAndUpdate(
-    //   { _id: userId },
-    //   {
-    //     'deviceProfiles.deviceProfiles.saved.VKB_GLADIATOR_EVO.buttons.circleSwitch.top.layers.0':'PATCHED'
-    //   }
-    // )
     await User.findOneAndUpdate({ _id: userId }, query)
     return new Response('JSON.stringify(data)', { status: 200 })
   } catch (error) {

@@ -6,7 +6,7 @@ import { get } from 'mongoose'
 import { useState } from 'react'
 
 const ModLayerSelector = (props) => {
-
+const [selectedLayer, setSelectedLayer] = useState();
   const layersToRender = [0, 1, 2]
 
   const getAllChips = props => {
@@ -19,7 +19,7 @@ const ModLayerSelector = (props) => {
     <section>
       <div className='flex flex-col gap-[8px]'>
         <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
-        <div className='flex flex-row'>
+        <div className='flex flex-row gap-[8px] ml-[4px]'>
           {/* <LayerChip layer="1" isButton='true' />
                 <LayerChip layer="2" isButton='true' /> */}
           {getAllChips()}

@@ -1,4 +1,11 @@
 "use client";
+import Press from '@public/assets/icons/actions/input_press.svg';
+import Down from '@public/assets/icons/actions/input_Down.svg';
+import Up from '@public/assets/icons/actions/input_up.svg';
+import Left from '@public/assets/icons/actions/input_left.svg';
+import Right from '@public/assets/icons/actions/input_right.svg';
+
+
 import React, { useState, useEffect, useContext } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { DataTable } from 'primereact/datatable';
@@ -12,19 +19,22 @@ import { MultiSelect } from 'primereact/multiselect';
 import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
 // import { CustomerService } from './CustomerService';
-import { GameActions } from './GameActions';
-
+import { DeviceInputs } from './DeviceInputs';
+import { Context, SelectContext } from '@components/Provider';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
-import { SelectedActionContext } from '@components/Provider';
+import { get } from 'mongoose';
+import GameAction from '@components/GameAction.tsx'
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import LayerTag from '@components/generic/LayerTag';
+export default function CustomersDemo({ onInputSelect }) {
+    const { data: session } = useSession();
 
-export default function ActionTable({ onActionSelect }) {
+    const { selectedViewerInput, setSelectedViewerInput } = useContext(SelectContext)
+    const profileContext = useContext(Context)
 
-    const [actions, setActions] = useState([]);
-    const [selectedActions, setSelectedActions] = useState([]);
-    const { selectedAction, setSelectedAction } = useContext(SelectedActionContext);
-
-    // const [inputs, setInputs] = useState([]);
-    // const [selectedInputs, setSelectedInputs] = useState([]);
+    const [inputs, setInputs] = useState([]);
+    const [selectedInputs, setSelectedInputs] = useState([]);
+    const [test, setTest] = useState([]);
 
 
     const [filters, setFilters] = useState({
@@ -72,23 +82,40 @@ export default function ActionTable({ onActionSelect }) {
     };
 
     useEffect(() => {
-        // if (props.type === "inputs") {
-        //     console.log("TABLE TYPE: INPUTS")
 
-        //     DeviceInputs.getCustomersLarge().then((data) => setInputs(getInputs(data)));
 
-        // } else if (props.type === "actions") {
-        //     console.log("TABLE TYPE: ACTIONS")
+        const fetchDeviceProfiles = async () => {
 
-        //     GameActions.getCustomersLarge().then((data) => setActions(getActions(data)));
+            const response = await fetch("/api/deviceProfiles", {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: session?.user.id
+                })
+            });
 
-        // } else {
-        //     console.log("NO TABLE TYPE")
-        // }
-        GameActions.getCustomersLarge().then((data) => setActions(getActions(data)));
+            const data = await response.json();
+            // console.log("INPUT VIEWER !!!!!!!!!!!" + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons["circleSwitch"]?.["top"]));
+            // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
+            // console.log("!!!!!!!!!!!! FETCHED RESPONSE: " + JSON.stringify(data.deviceProfiles));
 
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+            // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
+            // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedButton]?.["top"]));
+            // console.log("FETCHED DEVICEPROFILES: " + data);
+            // setTop(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["top"]);
+            // setbottom(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["bottom"]);
+            // setLeft(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["left"]);
+            // setRight(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons[selectedButton]?.["right"]);
+            setTest(data?.deviceProfiles?.deviceProfiles.saved["VKB_GLADIATOR_EVO"]?.buttons["circleSwitch"]?.["top"].layers);
+        };
 
+        fetchDeviceProfiles();
+
+        DeviceInputs.getCustomersLarge().then((data) => setInputs(getInputs(data)));
+
+        // setInputs(test);
+    }, [selectedViewerInput]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    console.log(inputs);
 
     const getInputs = (data) => {
         return [...(data || [])].map((d) => {
@@ -97,13 +124,7 @@ export default function ActionTable({ onActionSelect }) {
             return d;
         });
     };
-    const getActions = (data) => {
-        return [...(data || [])].map((d) => {
-            d.date = new Date(d.date);
 
-            return d;
-        });
-    };
     const formatDate = (value) => {
         return value.toLocaleDateString('en-US', {
             day: '2-digit',
@@ -149,11 +170,60 @@ export default function ActionTable({ onActionSelect }) {
             </div>
         );
     };
+
+    const getInputIcon = (slot) => {
+        switch (slot) {
+            case "top":
+                return (
+                    <Up />
+                )
+                break;
+            case "press":
+                return (
+                    <Press />
+                )
+                break;
+            case "bottom":
+                return (
+                    <Down />
+                )
+                break;
+            case "left":
+                return (
+                    <Left />
+                )
+                break;
+            case "right":
+                return (
+                    <Right />
+                )
+                break;
+            default:
+                break;
+        }
+    }
+
+    // const getInputActions = () => {
+
+    //     return (<GameAction action_id={"asd"} input_direction={""}>);
+    // }
     const nameBodyTemplate = (rowData) => {
         return (
-            <div className="flex flex-col  gap-[5px] ml-[4px] ">
-                <span className="text-list-default">{rowData.name.toUpperCase()}</span>
-                <span className="text-list-default text-layer1"> {rowData.category.toUpperCase()}</span>
+
+            <div className='flex flex=row gap-[12px] ml-[4px]'>
+                <div className="ui-corners square_contain">
+                    <div className='square_contain'>
+                        {getInputIcon(rowData?.slot)}
+                    </div>
+                </div>
+                <div className="flex flex-col   self-center  ">
+                    <span className="text-list-default align-middle justify-center">{rowData.name.toUpperCase()}</span>
+                    {/* <LayerTag layerNumber={rowData.layer} input_direction={'left'} /> */}
+                    {/* <span className="text-list-sub">{rowData.status}</span> */}
+                    {/* <GameAction action_id={rowData.action} input_direction={rowData.slot} layer={rowData.layer} /> */}
+
+                </div>
+
             </div>
         );
     };
@@ -249,33 +319,36 @@ export default function ActionTable({ onActionSelect }) {
 
 
     // BIND BUTTON STUFF
+    // const onRowSelectInput = () => {
+    //     setSelectedViewerInput(selectedInputs.name);
+    // }
+    console.log("SELECTED INPUT:" + selectedInputs.name)
 
 
-
-    // ACTION BUTTON STUFF
     // useEffect(() => {
-    //     setSelectedAction(selectedActions.name)
+    //     setSelectedEditorInput(selectedInputs.name)
 
-    // }, [selectedActions])
-    //BIND BUTTON STUFF
-
+    // }, [selectedInputs])
 
     return (
-        <div className="flex w-full flex-col gap-[8px]">
-            <p className='text-base'>// SELECT GAME ACTION</p>
+        <div className="flex w-full flex-col gap-[8px] InputTableMobile panel-inset pb-[30px] ">
+            <p className='text-base'>// SELECT BUTTON TO VIEW</p>
 
             <DataTable
-                // onRowSelect={() =>
-                //      onRowSelectAction()
-                //     }
-                value={actions} paginator header={header} rows={3}
+                onRowSelect={() => {
+                    // onRowSelectInput()
+                }}
+                value={inputs} paginator header={header} rows={1}
                 rowClassName={"list-bg"}
-                className="w-full"
-                paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedActions} onSelectionChange={(e) => {
-                    setSelectedActions(e.value);
-                    // setSelectedActions(selectedActions.name)
-                    setSelectedAction(e.value.name);
+                className="w-full mb[-15px]"
+                paginatorTemplate="disabled"
+                dataKey="id" selectionMode="single" selection={selectedInputs}
+                onSelectionChange={(e) => {
+                    setSelectedInputs(e.value)
+                    // console.log("E  KEY: " + e.value.key);
+                    setSelectedViewerInput(e.value.button);
+
+                    console.log(e.value);
                 }}
                 filters={filters} filterDisplay="" globalFilterFields={['name', 'country.name', 'representative.name', 'balance', 'status']}
                 emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
@@ -284,17 +357,10 @@ export default function ActionTable({ onActionSelect }) {
 
             </DataTable>
 
-            {/* <DataTable
-                onRowSelect={ () => onRowSelectInput()}
-                value={actions} paginator header={header} rows={4}
-                rowClassName={"list-bg"}
-                className="w-full"
-                paginatorTemplate=""
-                dataKey="id" selectionMode="single" selection={selectedInputs} onSelectionChange={(a) => setSelectedInputs(a.value)}
-                emptyMessage="No customers found." currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" style={{ maxWidth: '100px' }} body={nameBodyTemplate} />
-            
-            </DataTable> */}
+
+
+
+
 
         </div>
     );

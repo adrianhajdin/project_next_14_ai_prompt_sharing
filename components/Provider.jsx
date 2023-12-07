@@ -7,7 +7,11 @@ import "primereact-sass-theme-9.6.2/themes/mytheme/theme.scss";
 export const SelectContext = createContext();
 export const SelectedEditorActionContext = createContext();
 export const SelectedInputContext = createContext();
+export const SelectedLayerContext = createContext();
+
 export const SelectedActionContext = createContext();
+export const ShowViewerPanelContext = createContext();
+export const ShowEditorPanelContext = createContext();
 
 export const Context = createContext(null);
 
@@ -194,10 +198,13 @@ const globalContex1t = {
 SelectedActionContext
 const Provider = ({ children, session }) => {
 
-
+  const [selectedLayer, setSelectedLayer] = useState(0);
   const [selectedViewerInput, setSelectedViewerInput] = useState("Circle Switch");
   const [selectedAction, setSelectedAction] = useState("No Action Selected");
   const [selectedEditorInput, setSelectedEditorInput] = useState("No Input Selected");
+  const [showEditorPanel, setshowEditorPanel] = useState(false);
+  const [showViewerPanel, setshowViewerPanel] = useState(true);
+
   const [profileContext, setprofileContext] = useState(globalContext);
 
 
@@ -233,19 +240,27 @@ const Provider = ({ children, session }) => {
   return (
     <SessionProvider session={session}>
       <PrimeReactProvider >
-        <SelectContext.Provider value={{ selectedViewerInput, setSelectedViewerInput }}>
-          <Context.Provider value={{ profileContext, setprofileContext}}>
-            <SelectedActionContext.Provider value={{ selectedAction, setSelectedAction }}>
-              <SelectedEditorActionContext.Provider value={{ selectedEditorInput, setSelectedEditorInput }}>
-                {children}
+        <SelectedLayerContext.Provider value={{ selectedLayer, setSelectedLayer }}>
 
-              </SelectedEditorActionContext.Provider>
+          <SelectContext.Provider value={{ selectedViewerInput, setSelectedViewerInput }}>
+            <Context.Provider value={{ profileContext, setprofileContext }}>
+              <SelectedActionContext.Provider value={{ selectedAction, setSelectedAction }}>
+                <SelectedEditorActionContext.Provider value={{ selectedEditorInput, setSelectedEditorInput }}>
+                  <ShowEditorPanelContext.Provider value={{ showEditorPanel, setshowEditorPanel }}>
+                    <ShowViewerPanelContext.Provider value={{ showViewerPanel, setshowViewerPanel }}>
 
-            </SelectedActionContext.Provider>
+                      {children}
 
-          </Context.Provider>
-        </SelectContext.Provider>
 
+                    </ShowViewerPanelContext.Provider>
+                  </ShowEditorPanelContext.Provider>
+                </SelectedEditorActionContext.Provider>
+
+              </SelectedActionContext.Provider>
+
+            </Context.Provider>
+          </SelectContext.Provider>
+        </SelectedLayerContext.Provider>
       </PrimeReactProvider>
     </SessionProvider>)
 }

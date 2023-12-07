@@ -8,33 +8,38 @@ import { SelectContext, SelectedEditorActionContext } from '@components/Provider
 import LayerChip from '@components/generic/LayerChip';
 import ModLayerSelector from '@components/actionSelector/ModLayerSelector.js';
 import BindButton from '@app/editor/BindButton.jsx'
+import PanelSwitchButtonMobile from './PanelSwitchButtonMobile.js';
+
+
 import { createContext, useContext, useState } from 'react';
 
 
 
-const Editor = () => {
+const Editor = ({ show }) => {
   const [selectedInput, setSelectedInput] = useState("CONTEXT INPUT: DEFAULT");
   const [selectedAction, setSelectedAction] = useState("CONTEXT ACTION: DEFAULT")
   const { selectedViewerInput, setSelectedViewerInput } = useContext(SelectContext)
-  const {selectedEditorInput, setSelectedEditorInput} = useContext(SelectedEditorActionContext)
+  const { selectedEditorInput, setSelectedEditorInput } = useContext(SelectedEditorActionContext)
 
-  const renderBindButton = () => {
 
-    return (
-      <BindButton selectedAction={selectedAction} selectedInput={selectedInput} />
-    );
-  }
 
   // useEffect(() => {
   //   renderBindButton();
 
 
   // }, [selectedInput, selectedAction])
-
+  const getInputTitle = () => {
+    try {
+    var name =  (selectedEditorInput?.name).toUpperCase();
+    return(name)
+    } catch (error) {
+return("SELECT A BUTTON");
+    }
+  }
   return (
 
 
-    <div className='panel-default'>
+    <div className='panel-default' id="editorPanel">
       <div className='flex space-between flex-row  w-full'>
         <button >
           <CloseButton className='button1' />
@@ -45,12 +50,13 @@ const Editor = () => {
 
 
       </div>
+      <PanelSwitchButtonMobile whatPanel="editor" />
 
 
       <div className='text-input-title'>
-        <p className='text-input-title corner-test '>HAT_1</p>
+        <p className='text-input-title corner-test '> {getInputTitle()}</p>
       </div>
-      <div className='flex flex-col gap-[7px]'>
+      {/* <div className='flex flex-col gap-[7px]'>
         <p className='text-base self-start'>// MODIFIER LAYERS</p>
         <div className='flex flex-row gap-[10px]'>
           <LayerChip layer="1" />
@@ -58,23 +64,24 @@ const Editor = () => {
         </div>
 
 
-      </div>
+      </div> */}
 
-      <div className="panel-inset flex flex-col gap-[16px]">
+      <div className="panel-inset flex flex-col gap-[0px]">
 
         <InputTable
           onInputSelect={setSelectedInput}
         />
 
         <ModLayerSelector />
-
-        <BindButton selectedAction={setSelectedAction} selectedInput={setSelectedAction} />
-        {/* {renderBindButton()} */}
-        {/* <ActionTable type="actions" /> */}
-        <ActionTable onActionSelect={setSelectedAction} />
-
-        {/* <BindTable /> */}
       </div>
+
+      <BindButton selectedAction={setSelectedAction} selectedInput={setSelectedAction} />
+      {/* {renderBindButton()} */}
+      {/* <ActionTable type="actions" /> */}
+      <div className='panel-inset'>
+        <ActionTable onActionSelect={setSelectedAction} />
+      </div>
+      {/* <BindTable /> */}
     </div>
 
 

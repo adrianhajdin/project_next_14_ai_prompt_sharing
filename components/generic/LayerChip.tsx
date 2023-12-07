@@ -2,14 +2,15 @@
 import React from "react";
 
 import clsx from "clsx";
-
+import { SelectedLayerContext } from "@components/Provider";
+import { useContext } from "react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 export default function LayerChip(props) {
+    const { selectedLayer, setSelectedLayer } = useContext(SelectedLayerContext)
 
-
+    const { data: session } = useSession();
     // console.log(props);
-
-
     const layerNumber = props.layer;
     // console.log(layerNumber);
 
@@ -32,7 +33,6 @@ export default function LayerChip(props) {
         'text-modifier-chip-layer-2  text-modifier-chip  self-center': true,
     })
 
-
     const selectModLayer = (selectedLayerNumber) => {
         // console.log("MOD LAYER SELECTED: " + selectedLayerNumber);
         // console.log("selectedModLayer" + layerNumber);
@@ -44,9 +44,31 @@ export default function LayerChip(props) {
         })
     }
 
+    const fetchDeviceProfiles = async () => {
+        // console.log("FETCHED DEVICEPROFILES BEFORE: ");
+
+        const response = await fetch("/api/deviceProfiles", {
+            method: "POST",
+            body: JSON.stringify({
+                userId: session?.user.id
+            })
+        });
+
+        const data = await response.json();
+        // console.log("INPUT VIEWER !!!!!!!!!!!" + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons["circleSwitch"]?.["top"]));
+        // console.log("FETCHED RESPONSE: " + JSON.stringify(data));
+        // console.log("!!!!!!!!!!!! FETCHED RESPONSE: " + JSON.stringify(data.deviceProfiles));
+
+        // console.log("PARSED & STRINGED RESPONSE: " + JSON.parse(JSON.stringify(data[0].deviceProfiles.deviceProfiles)));
+        // console.log("RAW RESPONSE: " + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons[selectedButton]?.["top"]));
+        // console.log("FETCHED DEVICEPROFILES: " + data);
+
+    };
+
     const chipTemplate =
         <div
-            className={classNames}
+            className={classNames} onClick={setSelectedLayer(props.layer)
+            }
         >
             <div className="flex flex-row gap-[4px]">
                 <div className="self-center ">
@@ -67,10 +89,10 @@ export default function LayerChip(props) {
                         </defs>
                     </svg>
                 </div>
-                <p className={layerTagTextClassNames}> {layerNumber} </p>
+                <p className={layerTagTextClassNames}> LAYER {Number(layerNumber) + 1} </p>
 
             </div>
-            <p className="text-modifier-chip-layer-2"> {modifierKey}</p>
+            {/* <p className="text-modifier-chip-layer-2"> {modifierKey}</p> */}
 
         </div>
 
@@ -86,7 +108,11 @@ export default function LayerChip(props) {
                             name="toggle"
                             // value="1"
                             type="checkbox"
-                            onClick={() => selectModLayer(layerNumber)}
+                            onClick={() => {
+                                selectModLayer(layerNumber);
+                                console.log(layerNumber);
+
+                            }}
                         >
                         </input>
                         {chipTemplate}

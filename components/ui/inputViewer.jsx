@@ -6,16 +6,15 @@ import Up from '@components/inputs/Up';
 import Left from '@components/inputs/Left';
 import Right from '@components/inputs/Right';
 import { useContext, useState, useEffect } from 'react';
-import { Context, SelectContext } from '@components/Provider.jsx'
+import { Context, SelectContext, SelectedLayerContext } from '@components/Provider.jsx'
 import CircleSwitch from '@components/generic/Icons/VKB/GLADIATOR_SPACE_EVO/CircleSwitch.jsx';
 import Press from '@components/inputs/Press';
 import Down from '@components/inputs/Down';
-
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-
+import PanelSwitchButtonMobile from '@app/editor/PanelSwitchButtonMobile';
 const InputViewer = ({ selectedButton }) => {
     const { data: session } = useSession();
-    const userId = {id: session?.user.id};
+    const userId = { id: session?.user.id };
     console.log("USER ID: " + userId.id);
     const profileContext = useContext(Context);
     const { selectedViewerInput, setSelectedViewerInput } = useContext(SelectContext);
@@ -36,9 +35,9 @@ const InputViewer = ({ selectedButton }) => {
             const response = await fetch("/api/deviceProfiles", {
                 method: "POST",
                 body: JSON.stringify({
-                    userId: session?.user.id
+                    userId: session?.user.id,
                 })
-            } );
+            });
 
             const data = await response.json();
             // console.log("INPUT VIEWER !!!!!!!!!!!" + JSON.stringify(data[0].deviceProfiles.deviceProfiles.saved["VKB_GLADIATOR_EVO"].buttons["circleSwitch"]?.["top"]));
@@ -166,32 +165,36 @@ const InputViewer = ({ selectedButton }) => {
         }
     }
     return (
-        <div className="test2">
-            {getInputTop(top)
-            }
-            {/* <Up inputName_id={inputName} action_id={action} /> */}
-            {/* <Press inputName_id={inputName} action_id={action} /> */}
-            <div className='input-down-press'>
-                {getInputPress(press)}
-                {getInputBottom(bottom)}
+        <div className='panel-viewer'>
+            <PanelSwitchButtonMobile whatPanel='viewer' />
+
+            <div className="test2">
+
+                {getInputTop(top)
+                }
+                {/* <Up inputName_id={inputName} action_id={action} /> */}
+                {/* <Press inputName_id={inputName} action_id={action} /> */}
+                <div className='input-down-press'>
+                    {getInputPress(press)}
+                    {getInputBottom(bottom)}
+
+                </div>
+                <div className=' left-center-right'>
+                    {/* <Left inputName_id={inputName} action_id={action} /> */}
+                    {getInputLeft(left)}
+
+                    {getSelectedInputIcon(selectedButton)}
+                    {/* <CircleSwitch className="" /> */}
+                    {/* <Hat></Hat> */}
+                    {getInputRight(right)}
+
+                    {/* <Right inputName_id={inputName} action_id={action} /> */}
+
+                </div>
+
+
 
             </div>
-            <div className=' left-center-right'>
-                {/* <Left inputName_id={inputName} action_id={action} /> */}
-                {getInputLeft(left)}
-
-                {getSelectedInputIcon(selectedButton)}
-                {/* <CircleSwitch className="" /> */}
-                {/* <Hat></Hat> */}
-                {getInputRight(right)}
-
-                {/* <Right inputName_id={inputName} action_id={action} /> */}
-
-            </div>
-
-
-
-
 
         </div>)
 }

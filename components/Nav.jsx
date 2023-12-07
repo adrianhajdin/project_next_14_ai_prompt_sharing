@@ -19,8 +19,8 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className='flex-between w-full mb-[12px] pt-3'>
-      <div className="flex flex-row gap-[30px]"> 
+    <nav className='nav flex-between w-full mb-[12px] pt-3'>
+      <div className="flex flex-row gap-[30px] title-left"> 
       <div className="flex flex-col">
         <div className="flex flex-row">
           <p className="text-base">// CURRENT PROFILE</p>
@@ -52,10 +52,10 @@ const Nav = () => {
       </Link> */}
 
       {/* Desktop Navigation */}
-      <div className='sm:flex hidden'>
+      <div className='sm:flex '>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-control-profile' className='black_btn'>
+            <Link href='/create-control-profile' className='black_btn hidden'>
               Create Control Profile
             </Link>
 
@@ -93,7 +93,7 @@ const Nav = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className='sm:hidden flex relative'>
+      {/* <div className='sm:hidden flex relative'>
         {session?.user ? (
           <div className='flex'>
             <Image
@@ -106,7 +106,7 @@ const Nav = () => {
             />
 
             {toggleDropdown && (
-              <div className='dropdown'>
+              <div className='dropdown '>
                 <Link
                   href='/profile'
                   className='dropdown_link'
@@ -151,7 +151,7 @@ const Nav = () => {
               ))}
           </>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };

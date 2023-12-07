@@ -22,7 +22,7 @@ export const DeviceInputs = {
                 button: "circleSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Circle Switch Press',
-                slot: 'bottom',
+                slot: 'press',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 1
             },
@@ -32,7 +32,7 @@ export const DeviceInputs = {
                 button: "circleSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Circle Switch Left',
-                slot: 'press',
+                slot: 'left',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 2
             },
@@ -42,7 +42,7 @@ export const DeviceInputs = {
                 button: "circleSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Circle Switch Right',
-                slot: 'top',
+                slot: 'right',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 0
             },
@@ -52,7 +52,7 @@ export const DeviceInputs = {
 
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Hat Switch Down',
-                slot: 'top',
+                slot: 'bottom',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 0
             },
@@ -62,7 +62,7 @@ export const DeviceInputs = {
                 button: "hatSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Hat Switch Press',
-                slot: 'bottom',
+                slot: 'press',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 1
             },
@@ -72,7 +72,7 @@ export const DeviceInputs = {
                 button: "hatSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Hat Switch Left',
-                slot: 'press',
+                slot: 'left',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 2
             },
@@ -82,7 +82,7 @@ export const DeviceInputs = {
                 button: "hatSwitch",
                 device:'VKB_GLADIATOR_EVO',
                 name: 'Hat Switch Right',
-                slot: 'top',
+                slot: 'right',
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 0
             },

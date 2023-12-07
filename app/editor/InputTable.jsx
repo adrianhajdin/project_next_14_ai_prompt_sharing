@@ -20,7 +20,7 @@ import { Slider } from 'primereact/slider';
 import { Tag } from 'primereact/tag';
 // import { CustomerService } from './CustomerService';
 import { DeviceInputs } from './DeviceInputs';
-import { Context, SelectedEditorActionContext } from '@components/Provider';
+import { Context, SelectedEditorActionContext, SelectedLayerContext } from '@components/Provider';
 import SearchIcon from '@components/generic/Icons/SearchIcon.jsx';
 import { get } from 'mongoose';
 import GameAction from '@components/GameAction.tsx'
@@ -89,7 +89,7 @@ export default function CustomersDemo({ onInputSelect }) {
             const response = await fetch("/api/deviceProfiles", {
                 method: "POST",
                 body: JSON.stringify({
-                    userId: session?.user.id
+                    userId: session?.user.id,
                 })
             });
 
@@ -210,7 +210,7 @@ export default function CustomersDemo({ onInputSelect }) {
     const nameBodyTemplate = (rowData) => {
         return (
 
-            <div className='flex flex=row gap-[12px] '>
+            <div className='flex flex=row gap-[12px] ml-[4px] '>
                 <div className="ui-corners square_contain">
                     <div className='square_contain'>
                         {getInputIcon(rowData?.slot)}
@@ -218,7 +218,7 @@ export default function CustomersDemo({ onInputSelect }) {
                 </div>
                 <div className="flex flex-col   self-center  ">
                     <span className="text-list-default align-middle justify-center">{rowData.name.toUpperCase()}</span>
-                  <LayerTag layerNumber={rowData.layer} input_direction={'left'} />
+                  {/* <LayerTag layerNumber={rowData.layer} input_direction={'left'} /> */}
                     {/* <span className="text-list-sub">{rowData.status}</span> */}
                     {/* <GameAction action_id={rowData.action} input_direction={rowData.slot} layer={rowData.layer} /> */}
 
@@ -331,14 +331,14 @@ export default function CustomersDemo({ onInputSelect }) {
     // }, [selectedInputs])
 
     return (
-        <div className="flex w-full flex-col gap-[8px]">
+        <div className="flex w-full flex-col gap-[8px] pb-[8px]">
             <p className='text-base'>// SELECT MODIFIER LAYER (OPTIONAL)</p>
 
             <DataTable
                 onRowSelect={() => {
                     // onRowSelectInput()
                 }}
-                value={inputs} paginator header={header} rows={4}
+                value={inputs} paginator header={header} rows={3}
                 rowClassName={"list-bg"}
                 className="w-full"
                 paginatorTemplate=""
