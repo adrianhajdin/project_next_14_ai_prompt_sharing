@@ -30,10 +30,10 @@ const Editor = ({ show }) => {
   // }, [selectedInput, selectedAction])
   const getInputTitle = () => {
     try {
-    var name =  (selectedEditorInput?.name).toUpperCase();
-    return(name)
+      var name = (selectedEditorInput?.name).toUpperCase();
+      return (name)
     } catch (error) {
-return("SELECT A BUTTON");
+      return ("SELECT A BUTTON");
     }
   }
   return (
@@ -65,26 +65,27 @@ return("SELECT A BUTTON");
 
 
       </div> */}
+      <div className='flex flex-col gap-[2px] w-[100%]' >
+        <div className="panel-inset flex flex-col gap-[0px]">
 
-      <div className="panel-inset flex flex-col gap-[0px]">
+          <InputTable
+            onInputSelect={setSelectedInput}
+          />
 
-        <InputTable
-          onInputSelect={setSelectedInput}
-        />
+          <ModLayerSelector />
+        </div>
 
-        <ModLayerSelector />
+        <BindButton selectedAction={setSelectedAction} selectedInput={setSelectedAction} />
+        {/* {renderBindButton()} */}
+        {/* <ActionTable type="actions" /> */}
+        <div className='panel-inset'>
+          <ActionTable onActionSelect={setSelectedAction} />
+        </div>
+
+        {/* <BindTable /> */}
       </div>
 
-      <BindButton selectedAction={setSelectedAction} selectedInput={setSelectedAction} />
-      {/* {renderBindButton()} */}
-      {/* <ActionTable type="actions" /> */}
-      <div className='panel-inset'>
-        <ActionTable onActionSelect={setSelectedAction} />
-      </div>
-      {/* <BindTable /> */}
     </div>
-
-
   )
 }
 

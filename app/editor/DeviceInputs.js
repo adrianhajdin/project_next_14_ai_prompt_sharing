@@ -46,6 +46,16 @@ export const DeviceInputs = {
                 action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
                 layer: 0
             },
+            {
+                id: "100113",
+                button: "hatSwitch",
+
+                device:'VKB_GLADIATOR_EVO',
+                name: 'Hat Switch Up',
+                slot: 'top',
+                action: 'MANUAL GIMBAL MODE - SWAP VJOY / LOOK DIRECTION (TOGGLE, HOLD)',
+                layer: 0
+            },
              {
                 id: "1005",
                 button: "hatSwitch",

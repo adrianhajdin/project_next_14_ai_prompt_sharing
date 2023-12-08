@@ -810,8 +810,8 @@ transition: filter 0.3s;
   background: linear-gradient(
     180deg,
     rgb(255, 255, 255) 40%,
-    rgb(255, 230, 87) 100%
-  );
+    rgb(215 255 126 / 57%) 100%
+  )
   /* background: linear-gradient(0deg, rgb(255, 255, 255) 30%, rgb(195, 228, 255) 100%); */
 }
 

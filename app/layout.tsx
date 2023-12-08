@@ -6,8 +6,8 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "POGGERS",
-  description: "POGGING POG",
+  title: "Control Mapper",
+  description: "",
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
