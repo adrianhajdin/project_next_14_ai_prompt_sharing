@@ -1,0 +1,27 @@
+.p-galleria {
+    .p-galleria-indicators {
+        padding: $galleriaIndicatorsPadding;
+
+        .p-galleria-indicator {
+            &.p-highlight {
+                button {
+                    background: $accentColor;
+                    color: $accentTextColor;
+                }
+            }
+        }
+    }
+
+    &.p-galleria-indicator-onitem {
+        .p-galleria-indicators {
+            .p-galleria-indicator {
+                &.p-highlight {
+                    button {
+                        background: rgba($accentColor, .68);
+                        color: $accentTextColor;
+                    }
+                }
+            }
+        }
+    }
+}

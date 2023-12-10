@@ -1,0 +1,272 @@
+/* Customizations to the designer theme should be defined here */
+.p-button-label {
+    font-weight: 600;
+}
+
+.p-slider:not(.p-disabled):hover {
+    background-color: $themeLighter;
+
+    .p-slider-range {
+        background-color: $themePrimary;
+    }
+
+    .p-slider-handle {
+        border-color: $themeDark;
+    }
+}
+
+.p-inputswitch {
+    width: 40px;
+    height: 20px;
+
+    .p-inputswitch-slider {
+        border: $inputBorder;
+
+        &:before {
+            width: 12px;
+            height: 12px;
+            margin-top: -6px;
+        }
+    }
+
+    &:not(.p-disabled):hover {
+        .p-inputswitch-slider {
+            border-color: $inputHoverBorderColor;
+
+            &:before {
+                background-color: $inputHoverBorderColor;
+            }
+        }
+    }
+
+    &.p-inputswitch-checked {
+        &:not(.p-disabled):hover {
+            .p-inputswitch-slider {
+                border-color: $inputSwitchSliderOnBg;
+                
+                &:before {
+                    background-color: $inputSwitchHandleOnBg;
+                }
+            }
+        }
+
+        .p-inputswitch-slider {
+            border-color: $inputSwitchSliderOnBg;
+        }
+    }
+}
+
+.p-datepicker {
+    .p-datepicker-header .p-datepicker-title {
+        order: 1;
+        margin: 0 auto 0 0;
+    }
+
+    .p-datepicker-prev {
+        order: 2;
+
+        .p-datepicker-prev-icon:before {
+            content: "\e919";
+        }
+    }
+
+    .p-datepicker-next {
+        order: 3;
+        font-size: 90%;
+
+        .p-datepicker-next-icon:before {
+            content: "\e91c";
+        }
+    }
+
+    .p-datepicker-buttonbar {
+        border-top: 0 none;
+    }
+
+    .p-timepicker {
+        border-top: 0 none;
+
+        span {
+            font-size: 90%;
+        }
+
+        .pi-chevron-up:before {
+            content: "\e91c";
+        }
+
+        .pi-chevron-down:before {
+            content: "\e919";
+        }
+    }
+
+    table {
+        font-size: 90%;
+
+        td {
+            &.p-datepicker-today {
+                > span {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .p-datepicker-buttonbar {
+        .p-button {
+            font-size: 90%;
+            color: $textColor;
+            
+            .p-button-label {
+                font-weight: 400;
+            }
+
+            &:enabled:hover {
+                color: $textColor;
+                background-color:$neutralLighter;
+            }
+        }
+    }
+
+    .p-monthpicker {
+        .p-monthpicker-month {
+            padding: .5rem 0;
+        }
+    }
+}
+
+.p-datatable {
+    font-size: 90%;
+}
+
+.p-toast {
+    font-size: 90%;
+
+    .p-toast-icon-close-icon {
+        font-size: 90%;
+    }
+}
+
+.p-message {
+    font-size: 90%;
+
+    .p-message-close {
+        .p-message-close-icon {
+            font-size: 90%;
+        }
+    }
+}
+
+.p-tooltip {
+    .p-tooltip-text {
+        font-size: 90%;
+    }
+}
+
+.p-component {
+    .p-menu-separator {
+        border-color: #eeeeee;
+    }
+}
+
+.p-submenu-icon {
+    color: $textSecondaryColor !important;
+}
+
+.p-menuitem-active .p-submenu-icon {
+    color: $textColor !important;
+}
+
+.p-progressbar-label {
+    display: none !important;
+}
+
+.p-carousel {
+    .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+        background-color: $themePrimary;
+    }
+}
+
+.p-galleria {
+    .p-galleria-indicators .p-galleria-indicator.p-highlight button {
+        background-color: $themePrimary;
+    }
+}
+
+@mixin disabled-input() {
+    background-color: $neutralLighter;
+    border-color: $neutralLighter;
+    color: $neutralTertiary;
+    opacity: 1;
+    user-select: none;
+}
+
+@mixin focused-input-field() {
+    box-shadow: inset 0 0 0 1px $themePrimary;
+}
+
+@mixin focused-with-outline() {
+    box-shadow: none;
+    outline: 1px solid $focusOutlineColor;
+    outline-offset: 2px;
+}
+
+.p-inputtext {
+    &:disabled {
+        @include disabled-input();
+    }
+
+    &:enabled:focus {
+        @include focused-input-field();
+    }   
+}
+
+.p-checkbox .p-checkbox-box,
+.p-radiobutton .p-radiobutton-box,
+.p-autocomplete.p-autocomplete-multiple .p-autocomplete-multiple-container,
+.p-chips .p-chips-multiple-container {
+    &.p-disabled {
+        @include disabled-input();
+    }
+
+    &:not(.p-disabled).p-focus {
+        @include focused-input-field();
+    }
+}
+
+.p-dropdown,
+.p-multiselect {
+    &.p-disabled {
+        @include disabled-input();
+
+        .p-dropdown-label,
+        .p-dropdown-trigger-icon {
+            color: $neutralTertiary;
+        }
+    }
+
+    &:not(.p-disabled).p-focus {
+        @include focused-input-field();
+    }
+}
+
+.p-inputswitch.p-focus {
+    .p-inputswitch-slider {
+        box-shadow: none;
+        outline: 1px solid $focusOutlineColor;
+        outline-offset: 2px;
+    }
+}
+
+.p-datatable {
+    .p-datatable-tbody {
+        > tr {
+            &.p-datatable-dragpoint-top > td {
+                box-shadow: inset 0 2px 0 0 $themePrimary;
+            }
+
+            &.p-datatable-dragpoint-bottom > td {
+                box-shadow: inset 0 -2px 0 0 $themePrimary;
+            }
+        }
+    }
+}

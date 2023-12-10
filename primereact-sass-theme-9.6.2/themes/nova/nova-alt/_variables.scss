@@ -1,0 +1,16 @@
+$primaryColor: #007ad9 !default;
+$primaryDarkColor: #116fbf !default;
+$primaryDarkerColor: #005b9f !default;
+$primaryTextColor: #ffffff !default;
+
+$highlightBg: $primaryColor !default;
+$highlightTextColor: $primaryTextColor !default;
+
+$containerHeaderBorderColor: #333333 !default;
+$containerHeaderBorder: 1px solid $containerHeaderBorderColor !default;
+$containerHeaderBg: #333333 !default;
+$containerHeaderTextColor: #ffffff !default;
+$containerHeaderIconColor: #ffffff !default;
+$containerHeaderIconHoverColor: #b4b4b4 !default;
+
+@import '../_variables';

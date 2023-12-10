@@ -1,0 +1,15 @@
+.p-inputtext {
+    &:enabled:focus {
+        box-shadow: inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor;
+
+        &.p-invalid {
+            box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
+        }
+    }
+}
+
+.p-input-filled {
+    .p-inputtext {
+        @include filled-input();
+    }
+}

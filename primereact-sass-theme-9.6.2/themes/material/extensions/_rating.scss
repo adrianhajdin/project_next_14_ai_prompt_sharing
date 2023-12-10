@@ -1,0 +1,30 @@
+.p-rating {
+    gap: 0;
+
+    .p-rating-item {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        justify-content: center;
+
+        &:focus {
+            background: rgba($primaryColor, .12);
+
+            &.p-rating-cancel-item {
+                background: rgba($ratingCancelIconColor, .12);
+            }
+        }
+    }
+
+    &:not(.p-disabled):not(.p-readonly) {
+        .p-rating-item {
+            &:hover {
+                background-color: rgba(0,0,0,.04);
+
+                &.p-rating-cancel-item {
+                    background: rgba($ratingCancelIconColor, .04);
+                }
+            }
+        }
+    }
+}

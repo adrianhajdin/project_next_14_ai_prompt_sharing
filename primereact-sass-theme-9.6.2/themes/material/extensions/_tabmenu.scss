@@ -1,0 +1,37 @@
+.p-tabmenu {
+    .p-tabmenu-nav {
+        position: relative;
+
+        li {
+            .p-menuitem-link {
+                transition: background-color $transitionDuration;
+                border-radius: 0;
+                
+                > .p-ink {
+                    background-color: rgba($primaryColor, .16);
+                }
+
+                &:focus {
+                    background-color: rgba($primaryColor, .12);
+                }
+            }
+
+            &.p-highlight {
+                .p-menuitem-link {
+                    &:focus {
+                        background-color: rgba($primaryColor, .12);
+                    }
+                }
+            }
+        }
+
+        .p-tabmenu-ink-bar {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background-color: $primaryColor;
+            transition: 500ms cubic-bezier(0.35, 0, 0.25, 1);
+        }
+    }
+}

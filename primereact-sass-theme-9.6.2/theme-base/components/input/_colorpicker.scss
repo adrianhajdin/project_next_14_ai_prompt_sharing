@@ -1,0 +1,18 @@
+.p-colorpicker-preview  {
+    width: $colorPickerPreviewWidth;
+    height: $colorPickerPreviewHeight;
+}
+
+.p-colorpicker-panel {
+    background: $colorPickerBg;
+    border: $colorPickerBorder;
+
+    .p-colorpicker-color-handle,
+    .p-colorpicker-hue-handle {
+        border-color: $colorPickerHandleColor;
+    }
+}
+
+.p-colorpicker-overlay-panel {
+    box-shadow: $inputOverlayShadow;
+}

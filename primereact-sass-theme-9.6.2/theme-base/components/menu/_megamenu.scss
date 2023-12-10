@@ -1,0 +1,180 @@
+.p-megamenu {
+    padding: $horizontalMenuPadding;
+    background: $horizontalMenuBg;
+    color: $horizontalMenuTextColor;
+    border: $horizontalMenuBorder;
+    border-radius: $borderRadius;
+
+    .p-megamenu-root-list {  
+        > .p-menuitem {
+            > .p-menuitem-link {
+                @include horizontal-rootmenuitem-link();
+
+               > .p-submenu-icon {
+                    margin-left: auto;
+                }
+            }
+
+            &.p-menuitem-active {
+                > .p-menuitem-link,
+                > .p-menuitem-link:not(.p-disabled):hover {
+                    background: $horizontalMenuRootMenuitemActiveBg;
+            
+                    .p-menuitem-text {
+                        color: $horizontalMenuRootMenuitemTextActiveColor;
+                    }
+            
+                    .p-menuitem-icon {
+                        color: $horizontalMenuRootMenuitemIconActiveColor;
+                    }
+                    
+                    .p-submenu-icon {
+                        color: $horizontalMenuRootMenuitemIconActiveColor;
+                    }
+                }
+            }
+        }
+    }
+
+    .p-menuitem-link {
+        @include menuitem-link();
+    }
+
+    .p-megamenu-panel {
+        background: $overlayMenuBg;
+        color: $menuTextColor;
+        border: $overlayMenuBorder;
+        box-shadow: $overlayMenuShadow;
+    }
+
+    .p-megamenu-submenu-header {
+        margin: $submenuHeaderMargin;
+        padding: $submenuHeaderPadding;
+        color: $submenuHeaderTextColor;
+        background: $submenuHeaderBg;
+        font-weight: $submenuHeaderFontWeight;
+        border-top-right-radius: $borderRadius; 
+        border-top-left-radius: $borderRadius; 
+    }
+
+    .p-megamenu-submenu {
+        padding: $verticalMenuPadding;
+        width: $menuWidth;
+
+        .p-menu-separator {
+            border-top: $divider;
+            margin: $menuSeparatorMargin;
+        }
+    }
+
+    .p-menuitem {
+        &.p-menuitem-active {
+            > .p-menuitem-link {
+                background: $menuitemActiveBg;
+
+                .p-menuitem-text {
+                    color: $menuitemTextActiveColor;
+                }
+
+                .p-menuitem-icon, .p-submenu-icon {
+                    color: $menuitemIconActiveColor;
+                }
+            }
+        }
+    }
+
+    &.p-megamenu-vertical {
+        width: $menuWidth;
+        padding: $verticalMenuPadding;
+    }
+
+    .p-megamenu-button {
+        width: $actionIconWidth;
+        height: $actionIconHeight;
+        color: $horizontalMenuRootMenuitemIconColor;
+        border-radius: $actionIconBorderRadius;
+        transition: $actionIconTransition;
+    
+        &:hover {
+            color: $horizontalMenuRootMenuitemIconHoverColor;
+            background: $horizontalMenuRootMenuitemHoverBg;
+        }
+    
+        &:focus {
+            @include focused();
+        }
+    }
+
+    .p-submenu-icon {
+        transition: transform $transitionDuration;
+    }
+
+    &.p-megamenu-mobile-active {
+        .p-megamenu-root-list {
+            padding: $verticalMenuPadding;
+            background: $overlayMenuBg;
+            border: $overlayMenuBorder;
+            box-shadow: $overlayMenuShadow;
+
+            .p-menu-separator {
+                border-top: $divider;
+                margin: $menuSeparatorMargin;
+            }
+
+            .p-submenu-icon {
+                font-size: $menuitemSubmenuIconFontSize;
+
+                &.p-icon {
+                    width: $menuitemSubmenuIconFontSize;
+                    height: $menuitemSubmenuIconFontSize; 
+                }
+            }
+
+            > .p-menuitem {
+                width: 100%;
+                position: static;
+
+                > .p-menuitem-link {
+                    @include menuitem-link();
+
+                    > .p-submenu-icon {
+                        margin-left: auto;
+                    }
+                }
+
+                &.p-menuitem-active {
+                    > .p-menuitem-link {
+                        > .p-submenu-icon {
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+            }
+
+            .p-submenu-list {
+                width: 100%;
+                position: static;
+                box-shadow: none;
+                border: 0 none;
+
+                .p-submenu-icon {
+                    transition: transform $transitionDuration;
+                    transform: rotate(90deg);
+                }
+
+                .p-menuitem-active {
+                    > .p-menuitem-link {
+                        > .p-submenu-icon {
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+
+            .p-menuitem {
+                width: 100%;
+                position: static;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@use 'sass:math';
+
+.p-rating {
+    gap: $inlineSpacing;
+
+    .p-rating-item {
+        .p-rating-icon {
+            color: $ratingStarIconOffColor;
+            transition: $formElementTransition;   
+            font-size: $ratingIconFontSize;
+            
+            &.p-icon {
+                width: $ratingIconFontSize;
+                height: $ratingIconFontSize;   
+            }
+
+            &.p-rating-cancel {
+                color: $ratingCancelIconColor;
+            }
+        }
+
+        &:focus {
+            @include focused();
+        }
+
+        &.p-rating-item-active {
+            .p-rating-icon {
+                color: $ratingStarIconOnColor;
+            }
+        }
+    }
+
+    &:not(.p-disabled):not(.p-readonly) {
+        .p-rating-item {
+            &:hover {
+                .p-rating-icon {
+                    color: $ratingStarIconHoverColor;
+
+                    &.p-rating-cancel {
+                        color: $ratingCancelIconHoverColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@if ($highlightBg == $ratingStarIconOnColor) {
+    .p-highlight {
+        .p-rating {
+            .p-rating-item {
+                &.p-rating-item-active {
+                    .p-rating-icon {
+                        color: $highlightTextColor;
+                    }
+                }
+            }
+        }
+    }
+}

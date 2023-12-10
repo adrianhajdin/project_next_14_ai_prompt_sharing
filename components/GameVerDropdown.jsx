@@ -1,6 +1,6 @@
 "use client";
-import { Dropdown } from "@nextui-org/react";
 import { useState, useEffect } from "react";
+import React from 'react';
 
 const GameVerDropdown = () => {
     // const [gameVersionOptions, setGameVersionOptions] = useState([{ key: 'defaultKey value', name: 'defaultname' }, { key: 'test2', name: 'test2' }]);
@@ -10,7 +10,7 @@ const GameVerDropdown = () => {
     useEffect(() => {
         const fetchGameOptions = async () => {
             console.log("USE EFFECT START");
-            const response = await fetch(`/api/games`);
+            const response = await fetch(`/api/deviceProfiles`);
             console.log("FETCHED RESPONSE ok?:" + response.ok + response);
 
 
@@ -43,7 +43,7 @@ const GameVerDropdown = () => {
         <section>
             <h2> {"STRING: " + Array.isArray(gameVersionOptions) + JSON.stringify(gameVersionOptions)}</h2>
             <h2> {Array.isArray(gameVersionOptions.versions) + " test: " + gameVersionOptions.versions}</h2>
-            <Dropdown>
+            {/* <Dropdown>
                 <Dropdown.Button flat> wow</Dropdown.Button>
                 <Dropdown.Menu aria-label="Dynamic Actions" items={gameVersionOptions.versions}>
                     {(ver) => (
@@ -55,12 +55,12 @@ const GameVerDropdown = () => {
                         </Dropdown.Item>
                     )}
                 </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
         </section>
     )
 }
 
-export default GameVerDropdown
+export default GameVerDropdown;
 
 // export default function GameVerDropdown() {
 

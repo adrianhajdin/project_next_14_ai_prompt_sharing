@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-
+import Spacer from "components/generic/Spacer.jsx"
 const Nav = () => {
   const { data: session } = useSession();
 
@@ -19,8 +19,28 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className='flex-between w-full mb-16 pt-3'>
-      <Link href='/' className='flex gap-2 flex-center'>
+    <nav className='nav flex-between w-full mb-[12px] pt-3'>
+      <div className="flex flex-row gap-[30px] title-left"> 
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <p className="text-base">// CURRENT PROFILE</p>
+          <div> </div>
+        </div>
+        <p className="text-profile-title slant">"PROFILE NAME"</p>
+      </div>
+
+      {/* <Spacer className=""/> */}
+      <div className="spacer"/>
+
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <p className="text-base">// CURRENT DEVICE</p>
+          <div> </div>
+        </div>
+        <p className="text-profile-title slant">VKB GLADIATOR NXT EVO</p>
+      </div>
+      </div>
+      {/* <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/logo.svg'
           alt='logo'
@@ -28,14 +48,14 @@ const Nav = () => {
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Promptopia</p>
-      </Link>
+        <p className='logo_text'>POGGERS</p>
+      </Link> */}
 
       {/* Desktop Navigation */}
-      <div className='sm:flex hidden'>
+      <div className='sm:flex '>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-control-profile' className='black_btn'>
+            <Link href='/create-control-profile' className='black_btn hidden'>
               Create Control Profile
             </Link>
 
@@ -73,7 +93,7 @@ const Nav = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className='sm:hidden flex relative'>
+      {/* <div className='sm:hidden flex relative'>
         {session?.user ? (
           <div className='flex'>
             <Image
@@ -86,7 +106,7 @@ const Nav = () => {
             />
 
             {toggleDropdown && (
-              <div className='dropdown'>
+              <div className='dropdown '>
                 <Link
                   href='/profile'
                   className='dropdown_link'
@@ -131,7 +151,7 @@ const Nav = () => {
               ))}
           </>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };

@@ -1,0 +1,10 @@
+$primaryLightColor: #f0e6f5 !default;
+$primaryColor: #c298d8 !default;
+$primaryDarkColor: #aa70c7 !default;
+$primaryDarkerColor: #9954bb !default;
+$primaryTextColor: #151515 !default;
+
+$highlightBg: $primaryColor !default;
+$highlightTextColor: $primaryTextColor !default;
+
+@import '../_variables_dark';

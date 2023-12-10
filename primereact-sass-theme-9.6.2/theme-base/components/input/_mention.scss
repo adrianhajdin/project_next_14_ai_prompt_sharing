@@ -1,0 +1,31 @@
+.p-mention-panel {
+    background: $inputOverlayBg;
+    color: $inputListTextColor;
+    border: $inputOverlayBorder;
+    border-radius: $borderRadius;
+    box-shadow: $inputOverlayShadow;
+
+    .p-mention-items {
+        padding: $inputListPadding;
+
+        .p-mention-item {
+            margin: $inputListItemMargin;
+            padding: $inputListItemPadding;
+            border: $inputListItemBorder;
+            color: $inputListItemTextColor;
+            background: $inputListItemBg;
+            transition: $listItemTransition;
+            border-radius: $inputListItemBorderRadius;
+
+            &:hover {
+                color: $inputListItemTextHoverColor;
+                background: $inputListItemHoverBg;
+            }
+
+            &.p-highlight {
+                color: $highlightTextColor;
+                background: $highlightBg;
+            }
+        }
+    }
+}

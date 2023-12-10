@@ -1,0 +1,13 @@
+.p-picklist {
+    .p-picklist-list {
+        .p-picklist-item {
+            &:focus {
+                background: $emphasis-lower;
+
+                &.p-highlight {
+                    background: rgba($primaryColor, .24);
+                }
+            }
+        }
+    }
+}

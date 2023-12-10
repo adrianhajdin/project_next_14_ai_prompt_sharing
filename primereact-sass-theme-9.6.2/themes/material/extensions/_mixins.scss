@@ -1,0 +1,114 @@
+@mixin filled-input() {
+    @include filled-input-default();
+    @include filled-input-interaction();
+}
+
+@mixin filled-input-wrapper() {
+    @include filled-input-wrapper-default();
+    @include filled-input-wrapper-interaction();
+}
+
+@mixin filled-input-default() {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid transparent;
+    background: $inputFilledBg no-repeat;
+    background-image: linear-gradient(to bottom, $inputFocusBorderColor, $inputFocusBorderColor), linear-gradient(to bottom, nth($inputBorder, 3), nth($inputBorder, 3));
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+}
+
+@mixin invalid-filled-input() {
+    border-color: transparent;
+    background-image: linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor), linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor);
+
+    &:enabled:hover {
+        border-color: transparent;
+        background-image: linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor), linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor);
+    }
+
+    &:enabled:focus {
+        box-shadow: none;
+        border-color: transparent;
+    }
+}
+    
+@mixin filled-input-interaction() {
+    &:enabled:hover {
+        background-color: $inputFilledHoverBg;
+        border-color: transparent;
+        background-image: linear-gradient(to bottom, $inputFocusBorderColor, $inputFocusBorderColor), linear-gradient(to bottom, $inputHoverBorderColor, $inputHoverBorderColor);
+    }
+
+    &:enabled:focus {
+        box-shadow: none;
+        background-color: $inputFilledFocusBg;
+        border-color: transparent;
+        background-size: 100% 2px, 100% 1px;
+    }
+
+    &.p-invalid.p-component {
+        @include invalid-filled-input();
+     }
+}
+
+@mixin filled-input-wrapper-default() {
+    @include filled-input-default();
+
+    .p-inputtext {
+        background-image: none;
+        background: transparent;
+    }
+}
+
+@mixin invalid-filled-input-wrapper() {
+    border-color: transparent;
+    background-image: linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor), linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor);
+
+    &:not(.p-disabled):hover {
+        background-image: linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor), linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor);
+    }
+
+    &:not(.p-disabled).p-focus,
+    &:not(.p-disabled).p-inputwrapper-focus {
+        box-shadow: none;
+        background-image: linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor), linear-gradient(to bottom, $inputErrorBorderColor, $inputErrorBorderColor);
+    }
+}
+    
+
+@mixin filled-input-wrapper-interaction() {
+    &:not(.p-disabled):hover {
+        background-color: $inputFilledHoverBg;
+        border-color: transparent;
+        background-image: linear-gradient(to bottom, $inputFocusBorderColor, $inputFocusBorderColor), linear-gradient(to bottom, $emphasis-high, $emphasis-high);
+    }
+
+    &:not(.p-disabled).p-focus,
+    &:not(.p-disabled).p-inputwrapper-focus {
+        box-shadow: none;
+        background-color: $inputFilledFocusBg;
+        border-color: transparent;
+        background-size: 100% 2px, 100% 1px;
+    }
+
+    .p-inputtext {
+        &:enabled:hover,
+        &:enabled:focus {
+            background-image: none;
+            background: transparent;
+        }
+    } 
+}
+
+@mixin filled-input-float-label() {
+    @if (nth($inputPadding, 1) == 1rem) {
+        padding-top: 1.5rem;
+        padding-bottom: .5rem;
+    }
+    @else if (nth($inputPadding, 1) == .75rem) {
+        padding-top: 1.25rem;
+        padding-bottom: .25rem;
+    }
+}

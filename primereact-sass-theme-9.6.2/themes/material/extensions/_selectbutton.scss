@@ -1,0 +1,13 @@
+.p-selectbutton {
+    .p-button {
+        &:focus {
+            background: $toggleButtonActiveBg;
+            border-color: $toggleButtonActiveBorderColor;
+    
+            &.p-highlight {
+                background: $toggleButtonActiveHoverBg;
+                border-color: $toggleButtonActiveHoverBorderColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.p-cascadeselect {
+    .p-cascadeselect-label, .p-dropdown-trigger {
+        background-image: none;
+        background: transparent;
+    }
+
+    .p-cascadeselect-label {
+        border: 0 none;
+    }
+
+    &:not(.p-disabled).p-focus {
+        box-shadow: inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor,inset 0 0 0 1px $inputFocusBorderColor;
+    }
+}
+
+.p-cascadeselect-item-content {
+    .p-ink {
+        background-color: rgba($primaryColor, .16);
+    }
+}
+
+.p-input-filled {
+    .p-cascadeselect {
+        @include filled-input-wrapper();
+
+        .p-cascadeselect-label {
+            &:hover {
+                background-image: none;
+                background: transparent;
+            }
+        }
+    }
+
+    .p-float-label {
+        .p-cascadeselect {
+            .p-cascadeselect-label {
+                @include filled-input-float-label();
+            }
+        }
+        
+        .p-inputwrapper-filled {
+            &.p-cascadeselect {
+                .p-cascadeselect-label {
+                    @include filled-input-float-label();
+                }
+            }
+        }
+    }
+
+    .p-cascadeselect.p-invalid {
+        @include invalid-filled-input-wrapper();
+    }
+}
+
+.p-cascadeselect.p-invalid {
+    &:not(.p-disabled).p-focus {
+        box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
+    }
+}

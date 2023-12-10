@@ -1,0 +1,250 @@
+.p-button {
+    font-weight: 500;
+    min-width: 4rem;
+
+    &.p-button-icon-only {
+        min-width: auto;
+    }
+
+    @include button-states {
+        &:focus {
+            background: rgba($buttonBg, .76);
+        }
+
+        &:active {
+            background: rgba($buttonBg, .68);
+        }
+    }
+
+    .p-ink {
+        background-color: rgba(255,255,255, .32);
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($buttonBg, .12);
+            }
+
+            &:active {
+                background: rgba($buttonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($buttonBg, .16);
+        }
+    }
+
+    &.p-button-outlined {
+        box-shadow: inset 0 0 0 1px;
+
+        &:enabled:focus {
+            box-shadow: inset 0 0 0 1px;
+        }
+
+        &:enabled:active {
+            box-shadow: inset 0 0 0 1px;
+        }
+    }
+
+    &:disabled {
+        background-color: $emphasis-lower !important;
+        color: $emphasis-low !important;
+        opacity: 1;
+
+        &.p-button-text {
+            background-color: transparent !important;
+            color: $emphasis-low !important;
+        }
+
+        &.p-button-outlined {
+            background-color: transparent !important;
+            color: $emphasis-low !important;
+            border-color: $emphasis-low !important;
+        }
+    }
+
+    &.p-button-raised {
+        @include button-states {
+            &:focus {
+                box-shadow: $raisedButtonShadow;
+            }
+        }
+    }
+}
+
+.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button, .p-fileupload-choose.p-button-secondary {
+    @include button-states {
+        &:focus {
+            background: rgba($secondaryButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($secondaryButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($secondaryButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($secondaryButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($secondaryButtonBg, .16);
+        }
+    }
+}
+
+.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button, .p-fileupload-choose.p-button-info {
+    @include button-states {
+        &:focus {
+            background: rgba($infoButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($infoButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($infoButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($infoButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($infoButtonBg, .16);
+        }
+    }
+}
+
+.p-button.p-button-success, .p-buttonset.p-button-success > .p-button, .p-splitbutton.p-button-success > .p-button, .p-fileupload-choose.p-button-success {
+    @include button-states {
+        &:focus {
+            background: rgba($successButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($successButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($successButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($successButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($successButtonBg, .16);
+        }
+    }
+}
+
+.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button, .p-fileupload-choose.p-button-warning {
+    @include button-states {
+        &:focus {
+            background: rgba($warningButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($warningButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($warningButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($warningButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($warningButtonBg, .16);
+        }
+    }
+}
+
+.p-button.p-button-help, .p-buttonset.p-button-help > .p-button, .p-splitbutton.p-button-help > .p-button, .p-fileupload-choose.p-button-help {
+    @include button-states {
+        &:focus {
+            background: rgba($helpButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($helpButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($helpButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($helpButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($helpButtonBg, .16);
+        }
+    }
+}
+
+.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button, .p-fileupload-choose.p-button-danger {
+    @include button-states {
+        &:focus {
+            background: rgba($dangerButtonBg, .76);
+        }
+
+        &:active {
+            background: rgba($dangerButtonBg, .68);
+        }
+    }
+
+    &.p-button-text,
+    &.p-button-outlined {
+        @include button-states {
+            &:focus {
+                background: rgba($dangerButtonBg, .12);
+            }
+
+            &:active {
+                background: rgba($dangerButtonBg, .16);
+            }
+        }
+
+        .p-ink {
+            background-color: rgba($dangerButtonBg, .16);
+        }
+    }
+}

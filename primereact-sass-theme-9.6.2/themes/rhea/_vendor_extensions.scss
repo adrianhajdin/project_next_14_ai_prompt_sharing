@@ -1,0 +1,23 @@
+.p-panel {
+    .p-panel-header {
+        .p-panel-header-icon {
+            color: $primaryTextColor;
+
+            &:enabled:hover {
+                color: $primaryTextColor;
+            }
+        }
+    }
+}
+
+.p-dialog {
+    .p-dialog-header {
+        .p-dialog-header-icon {
+            color: $primaryTextColor;
+
+            &:enabled:hover {
+                color: $primaryTextColor;
+            }
+        }
+    }
+}

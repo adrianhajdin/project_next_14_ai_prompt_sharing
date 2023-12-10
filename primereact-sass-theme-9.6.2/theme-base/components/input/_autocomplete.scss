@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+.p-autocomplete {
+    .p-autocomplete-loader {
+        right: nth($inputPadding, 2); 
+    }
+
+    &.p-autocomplete-dd {
+        .p-autocomplete-loader {
+            right: nth($inputPadding, 2) + $buttonIconOnlyWidth;
+        }
+    }
+    
+    .p-autocomplete-multiple-container {
+        padding: math.div(nth($inputPadding, 1), 2) nth($inputPadding, 2);
+        gap: $inlineSpacing;
+        
+        &:not(.p-disabled):hover {
+            border-color: $inputHoverBorderColor;
+        }
+
+        &:not(.p-disabled).p-focus {
+            @include focused-input();
+        }
+
+        .p-autocomplete-input-token {
+            padding: math.div(nth($inputPadding, 1), 2) 0;
+            
+            input {
+                font-family: $fontFamily;
+                font-size: $fontSize;
+                color: $textColor;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .p-autocomplete-token {
+            padding: math.div(nth($inputPadding, 1), 2) nth($inputPadding, 2);
+            margin-right: $inlineSpacing;
+            background: $highlightBg;
+            color: $highlightTextColor;
+            border-radius: $borderRadius;
+
+            .p-autocomplete-token-icon {
+                margin-left: $inlineSpacing;
+            }
+        }
+    }
+
+    &.p-invalid.p-component > .p-inputtext {
+        @include invalid-input();
+    }
+}
+
+.p-autocomplete-panel {
+    background: $inputOverlayBg;
+    color: $inputListTextColor;
+    border: $inputOverlayBorder;
+    border-radius: $borderRadius;
+    box-shadow: $inputOverlayShadow;
+
+    .p-autocomplete-items {
+        padding: $inputListPadding;
+
+        .p-autocomplete-item {
+            margin: $inputListItemMargin;
+            padding: $inputListItemPadding;
+            border: $inputListItemBorder;
+            color: $inputListItemTextColor;
+            background: $inputListItemBg;
+            transition: $listItemTransition;
+            border-radius: $inputListItemBorderRadius;
+
+            &:hover {
+                color: $inputListItemTextHoverColor;
+                background: $inputListItemHoverBg;
+            }
+
+            &.p-highlight {
+                color: $highlightTextColor;
+                background: $highlightBg;
+            }
+        }
+
+        .p-autocomplete-item-group {
+            margin: $submenuHeaderMargin;
+            padding: $submenuHeaderPadding;
+            color: $submenuHeaderTextColor;
+            background: $submenuHeaderBg;
+            font-weight: $submenuHeaderFontWeight;
+        }
+    }
+}

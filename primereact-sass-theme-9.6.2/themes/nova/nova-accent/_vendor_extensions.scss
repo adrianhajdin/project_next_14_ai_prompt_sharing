@@ -1,0 +1,41 @@
+@import '../vendor_extensions';
+
+.p-accordion {
+    .p-accordion-header {
+        &:not(.p-highlight):not(.p-disabled):hover {
+            .p-accordion-header-link {
+                background-color: #27a0ff;
+                border-color: #27a0ff;
+                color: #ffffff;
+            }
+        }
+
+        &:not(.p-disabled).p-highlight {
+            .p-accordion-header-link {
+                background: #e02365;
+                border-color: #e02365;
+                color: #ffffff;
+            }
+
+            &:hover {
+                .p-accordion-header-link {
+                    background: #e96694;
+                    border-color: #e96694;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.p-fieldset {
+    &.p-fieldset-toggleable {
+        .p-fieldset-legend {
+            &:hover {
+                background-color: #27a0ff;
+                border-color: #27a0ff;
+                color: #ffffff;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.p-accordion {
+    .p-accordion-tab {
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+        margin-bottom: 0;
+        border-radius: 0;
+        position: relative;
+        transition: margin-bottom 225ms;
+
+        &:first-child {
+            border-top-left-radius: $borderRadius;
+            border-top-right-radius: $borderRadius;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: $borderRadius;
+            border-bottom-right-radius: $borderRadius;
+        }
+
+        .p-accordion-toggle-icon {
+            order: 1;
+            margin-left: auto;
+            transition: transform $transitionDuration;
+        }
+
+        &:not(.p-accordion-tab-active) {
+            .p-accordion-header-link {
+                &:focus {
+                    background: $accordionHeaderHoverBg;
+                }
+            }
+
+            .p-accordion-toggle-icon {
+                transform: rotate(-270deg);
+            }
+        }
+
+        &.p-accordion-tab-active {
+            margin-bottom: 1rem;
+            
+            .p-accordion-toggle-icon {
+                transform: rotate(-180deg);
+            }
+        }
+
+        .p-accordion-header {
+            &.p-disabled {
+                opacity: 1;
+    
+                .p-accordion-header-link > * {
+                    opacity: $disabledOpacity;
+                }
+            }
+        }
+    }
+}

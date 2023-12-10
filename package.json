@@ -1,5 +1,5 @@
 {
-  "name": "promptopia",
+  "name": "Get a Grip",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,20 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.0-beta.13",
+    "@iconfu/svg-inject": "^1.2.3",
+    "@react-stately/data": "^3.10.1",
+    "@reis/mongoose-to-json": "^3.0.0",
+    "@tanem/svg-injector": "^10.1.68",
     "bcrypt": "^5.1.0",
-    "mongodb": "^5.6.0",
+    "classnames": "^2.3.2",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.15.0",
+    "mongodb": "^5.9.1",
+    "mongodb-client-encryption": "^2.9.1",
     "mongoose": "^7.3.0",
     "next": "13.3.4",
     "next-auth": "^4.22.1",
+    "primereact": "^9.6.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
-    "react-select": "^5.7.3"
+    "react-select": "^5.7.3",
+    "react-svg": "^16.1.31",
+    "sass": "^1.66.1",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.25",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.2",
+    "typescript": "5.1.6"
   }
 }

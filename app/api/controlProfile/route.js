@@ -1,3 +1,4 @@
+
 import ControlProfile from "@models/controlProfile";
 import { connectToDB } from "@utils/database";
 

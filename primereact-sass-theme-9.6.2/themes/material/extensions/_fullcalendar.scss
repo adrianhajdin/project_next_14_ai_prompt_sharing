@@ -1,0 +1,84 @@
+.fc {
+    /* FullCalendar 4 */
+    &.fc-unthemed {
+
+        .fc-toolbar {
+            .fc-button {
+                &:focus {
+                    background: rgba($buttonBg, .76);
+                }
+
+                &:active {
+                    background: rgba($buttonBg, .68);
+                }
+            }
+
+            .fc-button-group {
+                .fc-button {
+                    &:focus {
+                        background: rgba($buttonBg, .76);
+                    }
+
+                    &:active {
+                        background: rgba($buttonBg, .68);
+                    }
+
+                    &.fc-dayGridMonth-button,
+                    &.fc-timeGridWeek-button,
+                    &.fc-timeGridDay-button {
+                        &:focus {
+                            background: $toggleButtonActiveBg;
+                            border-color: $toggleButtonActiveBorderColor;
+
+                            &.p-highlight {
+                                background: $toggleButtonActiveHoverBg;
+                                border-color: $toggleButtonActiveHoverBorderColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* FullCalendar 5 */
+    &.fc-theme-standard {
+        .fc-toolbar {
+            .fc-button {
+                &:focus {
+                    background: rgba($buttonBg, .76);
+                }
+
+                &:active {
+                    background: rgba($buttonBg, .68);
+                }
+            }
+
+            .fc-button-group {
+                .fc-button {
+                    &:focus {
+                        background: rgba($buttonBg, .76);
+                    }
+
+                    &:active {
+                        background: rgba($buttonBg, .68);
+                    }
+
+                    &.fc-dayGridMonth-button,
+                    &.fc-timeGridWeek-button,
+                    &.fc-timeGridDay-button {
+                        &:focus {
+                            background: $toggleButtonActiveBg;
+                            border-color: $toggleButtonActiveBorderColor;
+
+                            &.p-highlight {
+                                background: $toggleButtonActiveHoverBg;
+                                border-color: $toggleButtonActiveHoverBorderColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
