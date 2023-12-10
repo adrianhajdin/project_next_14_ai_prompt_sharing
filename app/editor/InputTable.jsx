@@ -1,6 +1,6 @@
 "use client";
 import Press from '@public/assets/icons/actions/input_press.svg';
-import Down from '@public/assets/icons/actions/input_Down.svg';
+import Down from '@public/assets/icons/actions/input_down.svg';
 import Up from '@public/assets/icons/actions/input_up.svg';
 import Left from '@public/assets/icons/actions/input_left.svg';
 import Right from '@public/assets/icons/actions/input_right.svg';
