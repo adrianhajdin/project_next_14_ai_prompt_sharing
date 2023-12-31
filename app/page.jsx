@@ -1,19 +1,27 @@
 import Feed from "@components/Feed";
+import Team from "@sections/Team";
 
 const Home = () => (
-  <section className='w-full flex-center flex-col'>
+   <>
+  <section className='bg-[url("/assets/images/andalusiaRedRoofs.jpg")]
+   bg-cover bg-no-repeat
+   w-full h-[calc(100vh - 30px)] flex-center flex-col'>
     <h1 className='head_text text-center'>
-      Discover & Share
+      Wohntraum
       <br className='max-md:hidden' />
-      <span className='orange_gradient text-center'> AI-Powered Prompts</span>
+      <span className='orange_gradient text-center'> Andalusien</span>
     </h1>
     <p className='desc text-center'>
-      Promptopia is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
+ 
     </p>
 
-    <Feed />
+    
   </section>
+
+  <Feed /> 
+  <Team />
+
+   </>
 );
 
 export default Home;
