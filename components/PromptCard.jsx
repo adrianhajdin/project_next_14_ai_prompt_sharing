@@ -19,7 +19,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
-
+//To copy the tweet
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
@@ -34,7 +34,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           onClick={handleProfileClick}
         >
           <Image
-            src={post.creator.image}
+            src={post.creator?.image}
             alt='user_image'
             width={40}
             height={40}
@@ -43,10 +43,10 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
           <div className='flex flex-col'>
             <h3 className='font-satoshi font-semibold text-gray-900'>
-              {post.creator.username}
+              {post.creator?.username}
             </h3>
             <p className='font-inter text-sm text-gray-500'>
-              {post.creator.email}
+              {post.creator?.email}
             </p>
           </div>
         </div>
@@ -73,7 +73,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         #{post.tag}
       </p>
 
-      {session?.user.id === post.creator._id && pathName === "/profile" && (
+      {session?.user.id === post.creator?._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
             className='font-inter text-sm green_gradient cursor-pointer'
